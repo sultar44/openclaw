@@ -1,0 +1,82 @@
+{
+  "groups": [
+    {
+      "id": "mac",
+      "name": "Modern American Canasta",
+      "url": "https://www.facebook.com/groups/modernamericancanasta",
+      "members": 6000,
+      "status": "active",
+      "source_prefix": "FB",
+      "lookback_target": "2026-01-10",
+      "lookback_complete": true,
+      "last_post_date": "2026-02-16",
+      "oldest_scraped_date": "2026-01-22",
+      "posts_scraped": 51,
+      "notes": "Scraped Feb 16 10:30 PM - 6 new posts (FB035-FB040). Covered Feb 12-16 gap. Next: CL group."
+    },
+    {
+      "id": "ccg",
+      "name": "Canasta Card Game",
+      "url": "https://www.facebook.com/groups/53519087762",
+      "members": 1600,
+      "status": "low_content",
+      "source_prefix": "CCG",
+      "lookback_target": "2026-01-10",
+      "lookback_complete": true,
+      "last_post_date": "2026-02-12",
+      "posts_scraped": 1,
+      "notes": "Scraped Feb 19 10:30 PM - reviewed latest New Posts feed; no new strategy/rules posts in last 24h (latest visible post was promotional). Continue low-frequency monitoring."
+    },
+    {
+      "id": "cl",
+      "name": "Canasta Lovers",
+      "url": "https://www.facebook.com/groups/1682495875120231",
+      "members": 10700,
+      "status": "active",
+      "source_prefix": "CL",
+      "lookback_target": "2026-01-10",
+      "lookback_complete": true,
+      "last_post_date": "2026-02-17",
+      "posts_scraped": 13,
+      "oldest_scraped_date": "2026-01-10",
+      "notes": "Scraped Feb 17 10:30 PM - 1 new strategy post (CL013: ace penalties per-player). Feb 13-17 reviewed; mostly social/event posts. Next: MAC group."
+    },
+    {
+      "id": "cpg",
+      "name": "Canasta - Probably the greatest card game ever invented",
+      "url": "https://www.facebook.com/groups/2394216165",
+      "members": 3200,
+      "status": "awaiting_approval",
+      "source_prefix": "CPG",
+      "lookback_target": "2026-01-10",
+      "lookback_complete": false,
+      "last_post_date": null,
+      "posts_scraped": 0
+    },
+    {
+      "id": "nymc",
+      "name": "Not Your Mother's Canasta",
+      "url": "https://www.facebook.com/groups/431212641731699",
+      "members": 3700,
+      "status": "low_content",
+      "source_prefix": "NYMC",
+      "lookback_target": "2026-01-10",
+      "lookback_complete": true,
+      "last_post_date": "2026-02-12",
+      "posts_scraped": 0,
+      "notes": "South Florida meetup events dominant. Sparse strategy content."
+    }
+  ],
+  "schedule": {
+    "lookback_time": "22:30",
+    "daily_time": "22:30",
+    "timezone": "America/New_York"
+  },
+  "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
+  "last_primary_run": "2026-02-19T22:30:00-05:00",
+  "last_primary_result": "CCG group scraped: 0 new strategy/rules entries. New posts feed reviewed; no qualifying rules/strategy discussions in last 24h.",
+  "last_backup_run": "2026-02-13T05:36:00-05:00",
+  "last_backup_result": "No-op: duplicate trigger #14+ at 05:36 AM. Backup completed 05:05-05:08 AM (1 new post: FB034). CRON JOB STILL FIRING REPEATEDLY - needs schedule fix urgently.",
+  "cron_issue_detected": "2026-02-13T05:02:00-05:00",
+  "cron_issue_notes": "\u26a0\ufe0f BACKUP JOB FIRING REPEATEDLY: 52+ triggers between 04:10-04:56 AM instead of once. Check cron configuration - job appears to have everyMs interval too short or misconfigured schedule."
+}

@@ -1,0 +1,6 @@
+.automation.env
+backups/staging/
+backups/logs/
+backups/meta/
+*.tar.gz.enc
+*.tar.gz

@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Block obvious sensitive files and content from being committed.
+# Scope: staged files only.
+
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACMR)
+[ -z "$STAGED_FILES" ] && exit 0
+
+blocked=0
+
+path_block_regex='(^|/)(Cookies|Login Data|Web Data|History|Network Persistent State|Local State)$|(^|/)session(s)?(/|$)|(^|/)token(s)?(/|$)|(^|/)auth(/|$)|(^|/).*\.(pem|p12|pfx|key|kdbx)$|(^|/)\.env($|\.)|(^|/)credentials($|\.)|(^|/)secrets?(/|\.)|(^|/)id_rsa(\.pub)?$|(^|/)id_ed25519$|(^|/)\.openclaw/browser/'
+
+content_block_regex='(AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_\-]{35}|xox[baprs]-[0-9A-Za-z\-]{10,}|gh[pousr]_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9]{20,}|BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY|session[_-]?token|access[_-]?token|refresh[_-]?token|api[_-]?key\s*[:=])'
+
+while IFS= read -r file; do
+  [ -z "$file" ] && continue
+
+  if [[ "$file" =~ $path_block_regex ]]; then
+    echo "❌ Blocked sensitive path: $file"
+    blocked=1
+    continue
+  fi
+
+  if git show ":$file" 2>/dev/null | LC_ALL=C grep -Eqi "$content_block_regex"; then
+    echo "❌ Blocked possible secret in: $file"
+    blocked=1
+  fi
+done <<< "$STAGED_FILES"
+
+if [ "$blocked" -ne 0 ]; then
+  cat <<'MSG'
+
+Commit stopped to protect sensitive data.
+If this is a false positive, move secrets to env vars or unstage the file/content.
+MSG
+  exit 1
+fi
+
+exit 0
