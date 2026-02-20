@@ -44,22 +44,28 @@ else
   log "No local changes to commit"
 fi
 
-# Sync from remote with conflict detection
-log "Fetching origin/$BRANCH"
-git fetch origin "$BRANCH"
+# Sync from remote with conflict detection (only if remote branch exists)
+if git ls-remote --exit-code --heads origin "$BRANCH" >/dev/null 2>&1; then
+  log "Fetching origin/$BRANCH"
+  git fetch origin "$BRANCH"
 
-set +e
-git pull --rebase origin "$BRANCH"
-pull_status=$?
-set -e
+  set +e
+  git pull --rebase origin "$BRANCH"
+  pull_status=$?
+  set -e
 
-if [ "$pull_status" -ne 0 ]; then
-  # Best-effort cleanup; only if rebase in progress
-  git rebase --abort >/dev/null 2>&1 || true
-  log "FAIL: rebase conflict detected while pulling from origin/$BRANCH"
-  exit 2
+  if [ "$pull_status" -ne 0 ]; then
+    # Best-effort cleanup; only if rebase in progress
+    git rebase --abort >/dev/null 2>&1 || true
+    log "FAIL: rebase conflict detected while pulling from origin/$BRANCH"
+    exit 2
+  fi
+
+  log "Pushing commits + tags"
+  git push origin "$BRANCH" --follow-tags
+else
+  log "Remote branch origin/$BRANCH does not exist yet; creating it"
+  git push -u origin "$BRANCH" --follow-tags
 fi
 
-log "Pushing commits + tags"
-git push origin "$BRANCH" --follow-tags
 log "SUCCESS: autosync completed"
