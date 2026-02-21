@@ -17,7 +17,7 @@
 |------|-------|
 | Jan 16 | Gianna's birthday |
 | Feb 17 | Yamaris's birthday |
-| Aug 1 | Ramon's birthday |
+| Aug 4 | Ramon's birthday |
 | Aug 21 | Julian's birthday |
 | Nov 7 | Wedding anniversary |
 

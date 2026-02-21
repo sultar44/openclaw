@@ -1,0 +1,75 @@
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --panel-soft: #1f2937;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #0b1220 0%, #111827 100%);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+.shell { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+.sidebar { border-right: 1px solid #243046; padding: 18px; background: #0b1324; }
+.brand { font-weight: 700; margin-bottom: 14px; font-size: 14px; }
+.menu { display: flex; flex-direction: column; gap: 8px; }
+.menu-link { color: var(--muted); text-decoration: none; background: #15213a; padding: 10px 12px; border-radius: 8px; font-size: 14px; }
+.menu-link.active, .menu-link:hover { color: white; background: #22304d; }
+
+.content { padding: 24px; }
+h1 { margin-top: 0; }
+.muted { color: var(--muted); }
+
+.home-links { display: grid; grid-template-columns: repeat(2, minmax(240px, 320px)); gap: 16px; margin-top: 20px; }
+.home-card { text-decoration: none; color: #dbeafe; background: #1e3a8a40; border: 1px solid #3b82f6; border-radius: 10px; padding: 16px; }
+
+.calendar-header { display: flex; align-items: center; gap: 12px; margin: 14px 0; }
+.calendar-header button { background: #1f2937; color: white; border: 1px solid #334155; border-radius: 6px; padding: 4px 10px; }
+
+.legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 12px; }
+.legend-item { font-size: 12px; color: #cbd5e1; display: inline-flex; align-items: center; gap: 6px; }
+.legend-item i { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+
+.calendar-grid { display: grid; grid-template-columns: repeat(7, minmax(140px, 1fr)); gap: 10px; }
+.dow { color: #cbd5e1; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+.day { min-height: 180px; background: #111827; border: 1px solid #233047; border-radius: 10px; padding: 8px; }
+.day.empty { background: transparent; border: 1px dashed #233047; }
+.day-num { font-weight: 700; margin-bottom: 6px; }
+.day-jobs { display: flex; flex-direction: column; gap: 8px; }
+.job-card { background: #1f2937; border-radius: 8px; padding: 8px; }
+.job-top { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 4px; font-size: 12px; }
+.job-top strong { font-size: 12px; }
+.badge { font-size: 10px; padding: 2px 6px; border-radius: 999px; white-space: nowrap; }
+.badge.success { background: #14532d; }
+.badge.error { background: #7f1d1d; }
+.badge.pending { background: #78350f; }
+.badge.disabled { background: #334155; }
+.mini { font-size: 11px; color: #cbd5e1; margin-top: 2px; }
+.mini.id { color: #94a3b8; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+.stats-row { display: flex; gap: 12px; margin: 14px 0; }
+.stat { background: #162034; border: 1px solid #2c3c5a; border-radius: 10px; padding: 10px 14px; display: flex; gap: 8px; align-items: baseline; }
+.stat span { color: #94a3b8; font-size: 12px; }
+.panel { background: #111827; border: 1px solid #263248; border-radius: 12px; padding: 16px; }
+.meta { color: #94a3b8; font-size: 12px; margin-bottom: 6px; }
+label { display: block; font-size: 12px; color: #cbd5e1; margin-top: 12px; margin-bottom: 6px; }
+textarea { width: 100%; background: #0b1220; color: #e5e7eb; border: 1px solid #334155; border-radius: 8px; padding: 10px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.tag { background: #243b53; color: #bfdbfe; padding: 4px 10px; border-radius: 999px; font-size: 11px; }
+.actions { display: flex; gap: 10px; margin-top: 14px; }
+.actions button { border: 0; border-radius: 8px; padding: 8px 14px; color: #fff; cursor: pointer; }
+button.reject { background: #b91c1c; }
+button.skip { background: #475569; }
+button.approve { background: #15803d; }
+
+@media (max-width: 1100px) {
+  .shell { grid-template-columns: 1fr; }
+  .sidebar { border-right: 0; border-bottom: 1px solid #243046; }
+  .menu { flex-direction: row; }
+  .calendar-grid { grid-template-columns: repeat(2, minmax(160px, 1fr)); }
+}

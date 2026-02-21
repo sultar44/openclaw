@@ -107,17 +107,29 @@ def build_drive_service(sa_json):
 def upload_to_drive(service, folder_id, file_path):
     metadata = {'name': file_path.name, 'parents': [folder_id]}
     media = MediaFileUpload(str(file_path), resumable=False)
-    created = service.files().create(body=metadata, media_body=media, fields='id,name,createdTime').execute()
+    created = service.files().create(
+        body=metadata,
+        media_body=media,
+        fields='id,name,createdTime',
+        supportsAllDrives=True,
+    ).execute()
     return created
 
 
 def cleanup_old_backups(service, folder_id, keep=7):
     query = f"'{folder_id}' in parents and trashed=false"
-    resp = service.files().list(q=query, fields='files(id,name,createdTime)', orderBy='createdTime desc', pageSize=200).execute()
+    resp = service.files().list(
+        q=query,
+        fields='files(id,name,createdTime)',
+        orderBy='createdTime desc',
+        pageSize=200,
+        includeItemsFromAllDrives=True,
+        supportsAllDrives=True,
+    ).execute()
     files = resp.get('files', [])
     old = files[keep:]
     for f in old:
-        service.files().delete(fileId=f['id']).execute()
+        service.files().delete(fileId=f['id'], supportsAllDrives=True).execute()
     return len(old)
 
 
