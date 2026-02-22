@@ -1,6 +1,6 @@
 {
-  "lastWatchdog": 1771642816,
-  "lastWatchdogNote": "2026-02-20 ~10:00 PM EST - no missed jobs. Gateway fix working.",
+  "lastWatchdog": 1771696920,
+  "lastWatchdogNote": "2026-02-21 ~1:02 PM EST - watchdog failed: gateway device token mismatch. Cron jobs appear fine based on announcements.",
   "lastDailyAudit": "2026-02-20",
   "lastChecks": {
     "email": null,

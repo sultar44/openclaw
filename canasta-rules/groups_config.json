@@ -64,7 +64,7 @@
       "lookback_complete": true,
       "last_post_date": "2026-02-12",
       "posts_scraped": 0,
-      "notes": "South Florida meetup events dominant. Sparse strategy content."
+      "notes": "Scraped Feb 20 10:30 PM - reviewed New Posts feed (about 5 recent posts visible; mostly South Florida meetup/social content). No new strategy/rules posts in last 24h. One table-talk discussion found but timestamped 2d ago (post 1452085229644430), so skipped for 24h window. Continue low-frequency monitoring."
     }
   ],
   "schedule": {
@@ -73,8 +73,8 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-02-19T22:30:00-05:00",
-  "last_primary_result": "CCG group scraped: 0 new strategy/rules entries. New posts feed reviewed; no qualifying rules/strategy discussions in last 24h.",
+  "last_primary_run": "2026-02-20T22:30:00-05:00",
+  "last_primary_result": "NYMC group scraped: 0 new strategy/rules entries. New Posts feed reviewed; no qualifying content in last 24h.",
   "last_backup_run": "2026-02-13T05:36:00-05:00",
   "last_backup_result": "No-op: duplicate trigger #14+ at 05:36 AM. Backup completed 05:05-05:08 AM (1 new post: FB034). CRON JOB STILL FIRING REPEATEDLY - needs schedule fix urgently.",
   "cron_issue_detected": "2026-02-13T05:02:00-05:00",
