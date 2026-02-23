@@ -9,10 +9,10 @@
       "source_prefix": "FB",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-02-16",
+      "last_post_date": "2026-02-21",
       "oldest_scraped_date": "2026-01-22",
-      "posts_scraped": 51,
-      "notes": "Scraped Feb 16 10:30 PM - 6 new posts (FB035-FB040). Covered Feb 12-16 gap. Next: CL group."
+      "posts_scraped": 52,
+      "notes": "Scraped Feb 21 10:30 PM - 1 new strategy/rules post (FB044: final 7 discard when going out after picking pack). New Posts feed checked; no additional qualifying posts found in reviewed window."
     },
     {
       "id": "ccg",
@@ -73,8 +73,8 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-02-20T22:30:00-05:00",
-  "last_primary_result": "NYMC group scraped: 0 new strategy/rules entries. New Posts feed reviewed; no qualifying content in last 24h.",
+  "last_primary_run": "2026-02-21T22:30:00-05:00",
+  "last_primary_result": "MAC group scraped: 1 new strategy/rules entry (FB044). New Posts feed reviewed for recent activity.",
   "last_backup_run": "2026-02-13T05:36:00-05:00",
   "last_backup_result": "No-op: duplicate trigger #14+ at 05:36 AM. Backup completed 05:05-05:08 AM (1 new post: FB034). CRON JOB STILL FIRING REPEATEDLY - needs schedule fix urgently.",
   "cron_issue_detected": "2026-02-13T05:02:00-05:00",
