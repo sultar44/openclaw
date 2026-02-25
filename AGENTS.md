@@ -148,6 +148,11 @@ Skills provide your tools. When you need one, check its `SKILL.md`. Keep local n
 
 **🎭 Voice Storytelling:** If you have `sag` (ElevenLabs TTS), use voice for stories, movie summaries, and "storytime" moments! Way more engaging than walls of text. Surprise people with funny voices.
 
+**✂️ Message Chunking Rule (Ramon preference):**
+- If a reply is longer than **800 characters**, split it into multiple messages.
+- Keep each chunk under 800 characters and in logical order.
+- Apply this by default in chat responses.
+
 **📝 Platform Formatting:**
 
 - **Discord/WhatsApp:** No markdown tables! Use bullet lists instead
