@@ -36,10 +36,10 @@
       "source_prefix": "CL",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-02-22",
-      "posts_scraped": 14,
+      "last_post_date": "2026-02-24",
+      "posts_scraped": 16,
       "oldest_scraped_date": "2026-01-10",
-      "notes": "Scraped Feb 22 10:30 PM - 1 new strategy/rules post (CL014: final stock-card three discard requirement). Applied less-complexity recommendation: no extra discard; keep three in hand, score -5, hand ends."
+      "notes": "Scraped Feb 24 10:30 PM - 2 new strategy/rules entries (CL015: wild card canasta counts toward base when opponent gets special hand; CL016: melding 4 queens + discarding joker under rule-of-5). Also saw Special Hands scoring chart post by Heidi Sue (All-star) — reference image, not a rule debate, skipped. Several social/looking-for-players posts skipped."
     },
     {
       "id": "cpg",
@@ -73,8 +73,8 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-02-23T22:30:00-05:00",
-  "last_primary_result": "Modern American Canasta scraped: 5 new strategy/rules entries (FB045-FB049). Wild card rules, pack picking with aces, going out with 2+wild, Courtesy Special, and wild canasta strategy.",
+  "last_primary_run": "2026-02-24T22:30:00-05:00",
+  "last_primary_result": "Canasta Lovers scraped: 2 new strategy/rules entries (CL015-CL016). Wild card canasta base scoring with special hands, and melding 4 queens under rule-of-5.",
   "last_backup_run": "2026-02-13T05:36:00-05:00",
   "last_backup_result": "No-op: duplicate trigger #14+ at 05:36 AM. Backup completed 05:05-05:08 AM (1 new post: FB034). CRON JOB STILL FIRING REPEATEDLY - needs schedule fix urgently.",
   "cron_issue_detected": "2026-02-13T05:02:00-05:00",

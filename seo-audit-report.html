@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All7s.co SEO Audit Report — February 2026</title>
+<style>
+  :root { --blue: #2563eb; --green: #16a34a; --red: #dc2626; --orange: #ea580c; --gray: #6b7280; --bg: #f9fafb; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1f2937; background: var(--bg); padding: 2rem; max-width: 1200px; margin: 0 auto; }
+  h1 { font-size: 2rem; margin-bottom: 0.5rem; color: #111827; }
+  h2 { font-size: 1.5rem; margin: 2rem 0 1rem; color: #111827; border-bottom: 2px solid var(--blue); padding-bottom: 0.5rem; }
+  h3 { font-size: 1.2rem; margin: 1.5rem 0 0.75rem; color: #374151; }
+  h4 { font-size: 1rem; margin: 1rem 0 0.5rem; color: #4b5563; }
+  p, li { margin-bottom: 0.5rem; }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+  th, td { border: 1px solid #d1d5db; padding: 0.5rem 0.75rem; text-align: left; }
+  th { background: #e5e7eb; font-weight: 600; }
+  tr:nth-child(even) { background: #f3f4f6; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; }
+  .badge-green { background: #dcfce7; color: var(--green); }
+  .badge-red { background: #fee2e2; color: var(--red); }
+  .badge-orange { background: #ffedd5; color: var(--orange); }
+  .badge-blue { background: #dbeafe; color: var(--blue); }
+  .toc { background: white; border: 1px solid #d1d5db; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+  .toc ul { list-style: none; padding-left: 1rem; }
+  .toc a { color: var(--blue); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .card { background: white; border: 1px solid #d1d5db; border-radius: 8px; padding: 1.5rem; margin: 1rem 0; }
+  .issue { border-left: 4px solid var(--red); }
+  .opportunity { border-left: 4px solid var(--green); }
+  code { background: #e5e7eb; padding: 2px 6px; border-radius: 3px; font-size: 0.85rem; }
+  .subtitle { color: var(--gray); font-size: 1rem; margin-bottom: 2rem; }
+  ul { padding-left: 1.5rem; }
+  .matrix td { font-size: 0.8rem; text-align: center; }
+  .matrix td.yes { background: #dcfce7; }
+  .matrix td.add { background: #ffedd5; }
+</style>
+</head>
+<body>
+
+<h1>🔍 All7s.co — Full SEO Audit Report</h1>
+<p class="subtitle">Prepared by Chloe · February 24, 2026</p>
+
+<div class="toc">
+<strong>Table of Contents</strong>
+<ul>
+  <li><a href="#exec-summary">1. Executive Summary</a></li>
+  <li><a href="#article-audits">2. Individual Article Audits</a>
+    <ul>
+      <li><a href="#canasta-articles">2A. All7s Games (Canasta) Blog</a></li>
+      <li><a href="#travel-articles">2B. Travel Tales Games Blog</a></li>
+    </ul>
+  </li>
+  <li><a href="#keyword-map">3. Canasta Keyword Map</a></li>
+  <li><a href="#content-gaps">4. Content Gaps & New Article Ideas</a></li>
+  <li><a href="#linking-matrix">5. Internal Linking Matrix</a></li>
+  <li><a href="#priority-actions">6. Priority Action Items</a></li>
+</ul>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="exec-summary">1. Executive Summary</h2>
+
+<div class="card">
+<h3>Site-Wide Findings</h3>
+<table>
+<tr><th>Metric</th><th>Finding</th><th>Status</th></tr>
+<tr><td>Total articles audited</td><td>20</td><td><span class="badge badge-blue">Complete</span></td></tr>
+<tr><td>All articles have meta descriptions</td><td>Yes — all 20 have them</td><td><span class="badge badge-green">Good</span></td></tr>
+<tr><td>Average word count</td><td>~8,960 words (incl. nav/footer boilerplate)</td><td><span class="badge badge-green">Strong</span></td></tr>
+<tr><td>Duplicate H1 tags</td><td>8 articles have 2 H1 tags</td><td><span class="badge badge-red">Fix</span></td></tr>
+<tr><td>Cross-blog internal linking</td><td>Weak — Canasta articles rarely link to Travel Tales and vice versa</td><td><span class="badge badge-orange">Improve</span></td></tr>
+<tr><td>CTA to Canasta course</td><td>Missing from most articles</td><td><span class="badge badge-red">Fix</span></td></tr>
+<tr><td>Product links in nav</td><td>Present on every page (nav/footer)</td><td><span class="badge badge-green">Good</span></td></tr>
+<tr><td>Canasta article interlinking</td><td>Moderate — some link to each other but not systematically</td><td><span class="badge badge-orange">Improve</span></td></tr>
+</table>
+
+<h3>Top 5 Priority Fixes</h3>
+<ol>
+<li><strong>Fix duplicate H1 tags</strong> on 8 articles — should have exactly one H1 per page</li>
+<li><strong>Add Canasta course CTAs</strong> to all Canasta articles (link to Kajabi course)</li>
+<li><strong>Build systematic internal links</strong> between all Canasta articles (see linking matrix below)</li>
+<li><strong>Add "Related Articles" sections</strong> at the bottom of each post</li>
+<li><strong>Create missing content</strong> for high-value keywords: "canasta scoring," "canasta rules PDF," "hand and foot canasta rules"</li>
+</ol>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="article-audits">2. Individual Article Audits</h2>
+
+<h3 id="canasta-articles">2A. All7s Games (Canasta) Blog</h3>
+
+<!-- Article 1 -->
+<div class="card">
+<h4>📄 How to Play Canasta</h4>
+<p><code>/blogs/all7s-games/how-to-play-canasta</code></p>
+<table>
+<tr><th>Element</th><th>Current State</th><th>Recommendation</th></tr>
+<tr><td>Title Tag</td><td>How to Play Canasta - the Ultimate Modern American Canasta Instructions – All7s Games</td><td>Shorten to: <strong>"How to Play Canasta: Complete Rules & Instructions (2026)"</strong></td></tr>
+<tr><td>Meta Description</td><td>✅ Present (mentions strategy/teamwork)</td><td>Rewrite: "Learn how to play Modern American Canasta with step-by-step rules, scoring charts, and beginner tips. Free printable cheat sheet included."</td></tr>
+<tr><td>H1 Tags</td><td><span class="badge badge-red">2 H1s</span> — duplicate</td><td>Remove second H1, keep one</td></tr>
+<tr><td>Heading Structure</td><td>H1 → H3 (skips H2 for most sections)</td><td>Promote key H3s to H2: Setup, Special Cards, Scoring, etc.</td></tr>
+<tr><td>Word Count</td><td>~10,431</td><td>Strong length ✅</td></tr>
+<tr><td>Internal Blog Links</td><td>Links to FAQ article only</td><td>Add links to: Strategy Tips, Beginner Mistakes, 2-3 Players, Ultimate Guide, Origin Story</td></tr>
+<tr><td>Product Links</td><td>✅ Nav has product links</td><td>Add inline CTA: "Get the Canasta Deluxe Set" within article body</td></tr>
+<tr><td>Course CTA</td><td><span class="badge badge-red">Missing</span></td><td>Add: "New to Canasta? Take our free beginner course →"</td></tr>
+</table>
+<p><strong>Content gaps:</strong> Add a downloadable rules PDF, an FAQ section at the bottom, and a video embed if available.</p>
+</div>
+
+<!-- Article 2 -->
+<div class="card">
+<h4>📄 Canasta Game Origin Story</h4>
+<p><code>/blogs/all7s-games/canasta-game-origin-story</code></p>
+<table>
+<tr><th>Element</th><th>Current State</th><th>Recommendation</th></tr>
+<tr><td>Title Tag</td><td>Canasta: The Classic Card Game's Journey from Uruguay to Game Night – All7s Games</td><td>Good as-is. Could add year: <strong>"History of Canasta: From 1940s Uruguay to Today"</strong></td></tr>
+<tr><td>Meta Description</td><td>✅ Present</td><td>Good — mentions Uruguay, 1950s, evolution</td></tr>
+<tr><td>H1 Tags</td><td>✅ 1 H1</td><td>Good</td></tr>
+<tr><td>Heading Structure</td><td>Good — H1 → H2s chronological</td><td>Add H3 subheadings within longer sections</td></tr>
+<tr><td>Word Count</td><td>~9,032</td><td>Strong ✅</td></tr>
+<tr><td>Internal Blog Links</td><td>Links to How to Play + Ultimate Guide</td><td>Add links to: FAQ, Strategy Tips, Beginner Mistakes</td></tr>
+<tr><td>Course CTA</td><td><span class="badge badge-red">Missing</span></td><td>Add at bottom: "Ready to learn? Start our free Canasta course"</td></tr>
+</table>
+<p><strong>Content gaps:</strong> Add section on Canasta's resurgence with modern players (the 50+ community angle). Add a timeline graphic.</p>
+</div>
+
+<!-- Article 3 -->
+<div class="card">
+<h4>📄 Canasta Strategy Tips & Advanced Tricks</h4>
+<p><code>/blogs/all7s-games/canasta-strategy-tips-advanced-tricks</code></p>
+<table>
+<tr><th>Element</th><th>Current State</th><th>Recommendation</th></tr>
+<tr><td>Title Tag</td><td>Canasta Strategy & Tips: Advanced Tricks for Modern American Play – All7s Games</td><td>Good. Consider: <strong>"Canasta Strategy Guide: 15 Advanced Tips to Win More Games"</strong></td></tr>
+<tr><td>Meta Description</td><td>✅ Present</td><td>Good — mentions strategy, silent communication</td></tr>
+<tr><td>H1 Tags</td><td><span class="badge badge-red">2 H1s</span></td><td>Remove duplicate</td></tr>
+<tr><td>Heading Structure</td><td>H1 → H2s (no H3s)</td><td>Add H3 subsections under each strategy area</td></tr>
+<tr><td>Word Count</td><td>~8,863</td><td>Strong ✅</td></tr>
+<tr><td>Internal Blog Links</td><td>Links to How to Play + FAQ</td><td>Add: Beginner Mistakes, 2-3 Players, Origin Story</td></tr>
+<tr><td>Course CTA</td><td><span class="badge badge-red">Missing</span></td><td>Add mid-article CTA: "Master these strategies in our free course"</td></tr>
+</table>
+<p><strong>Content gaps:</strong> Add a "Quick Reference" summary table at top. Number the tips for scannability. Add partner communication section.</p>
+</div>
+
+<!-- Article 4 -->
+<div class="card">
+<h4>📄 7 Canasta Mistakes Beginners Make</h4>
+<p><code>/blogs/all7s-games/7-canasta-mistakes-beginners-make</code></p>
+<table>
+<tr><th>Element</th><th>Current State</th><th>Recommendation</th></tr>
+<tr><td>Title Tag</td><td>The 7 Canasta Mistakes Beginners Make (and How to Avoid Them) – All7s Games</td><td>Great listicle title ✅</td></tr>
+<tr><td>Meta Description</td><td>✅ Present — mentions cheat sheet</td><td>Good ✅</td></tr>
+<tr><td>H1 Tags</td><td><span class="badge badge-red">2 H1s</span></td><td>Remove duplicate</td></tr>
+<tr><td>Heading Structure</td><td>Good — numbered H2s + H3 for cheat sheet</td><td>✅ Well structured</td></tr>
+<tr><td>Word Count</td><td>~8,827</td><td>Strong ✅</td></tr>
+<tr><td>Internal Blog Links</td><td>Links to How to Play + Strategy Tips</td><td>Add: FAQ, 2-3 Players, Ultimate Guide</td></tr>
+<tr><td>Course CTA</td><td>Has cheat sheet CTA ✅</td><td>Also add course CTA</td></tr>
+</table>
+<p><strong>Content gaps:</strong> Best article structure of the bunch. Add a "bonus mistake #8" section about not practicing with smaller groups first.</p>
+</div>
+
+<!-- Article 5 -->
+<div class="card">
+<h4>📄 Modern American Canasta FAQ</h4>
+<p><code>/blogs/all7s-games/modern-american-canasta-faq-all-your-questions-answered-here</code></p>
+<table>
+<tr><th>Element</th><th>Current State</th><th>Recommendation</th></tr>
+<tr><td>Title Tag</td><td>Modern American Canasta FAQ - All your questions answered here. – All7s Games</td><td>Improve: <strong>"Canasta FAQ: 20+ Common Questions About Modern American Canasta"</strong></td></tr>
+<tr><td>Meta Description</td><td>✅ Present</td><td>Good</td></tr>
+<tr><td>H1 Tags</td><td><span class="badge badge-red">2 H1s</span></td><td>Remove duplicate</td></tr>
+<tr><td>Heading Structure</td><td>All questions are H2 — good for FAQ schema</td><td>Consider adding FAQ schema markup (JSON-LD) for rich results</td></tr>
+<tr><td>Word Count</td><td>~9,480</td><td>Strong ✅</td></tr>
+<tr><td>Internal Blog Links</td><td><span class="badge badge-green">Best interlinking</span> — 9 blog links</td><td>Model for other articles</td></tr>
+<tr><td>Course CTA</td><td><span class="badge badge-red">Missing</span></td><td>Add after "Is Canasta hard to learn?" answer</td></tr>
+</table>
+<p><strong>Content gaps:</strong> Add FAQ schema (JSON-LD) for Google rich results. This is the #1 quick-win for this article. Add questions about scoring and point values.</p>
+</div>
+
+<!-- Article 6 -->
+<div class="card">
+<h4>📄 Modern American Canasta with 2 or 3 Players</h4>
+<p><code>/blogs/all7s-games/modern-american-canasta-with-2-or-3-players</code></p>
+<table>
+<tr><th>Element</th><th>Current State</th><th>Recommendation</th></tr>
+<tr><td>Title Tag</td><td>How to Play Modern American Canasta with 2 or 3 Players – All7s Games</td><td>Good ✅</td></tr>
+<tr><td>Meta Description</td><td>✅ Present</td><td>Good</td></tr>
+<tr><td>H1 Tags</td><td>✅ 1 H1</td><td>Good</td></tr>
+<tr><td>Heading Structure</td><td><span class="badge badge-red">Weak</span> — only 4 H2s, one is empty</td><td>Add H2/H3s for: 2-Player Rules, 3-Player Rules, Scoring Differences, Tips</td></tr>
+<tr><td>Word Count</td><td>~7,973</td><td>Could expand — shortest Canasta article</td></tr>
+<tr><td>Internal Blog Links</td><td>Links to How to Play + FAQ</td><td>Add: Strategy Tips, Beginner Mistakes</td></tr>
+<tr><td>Course CTA</td><td><span class="badge badge-red">Missing</span></td><td>Add CTA</td></tr>
+</table>
+<p><strong>Content gaps:</strong> Fix the empty H2. Expand with specific 2-player and 3-player rule differences as separate sections. Add a comparison table.</p>
+</div>
+
+<!-- Article 7 -->
+<div class="card">
+<h4>📄 Ultimate Guide to Canasta Variants</h4>
+<p><code>/blogs/all7s-games/the-ultimate-guide-to-canasta-modern-american-classic-and-hand-foot</code></p>
+<table>
+<tr><th>Element</th><th>Current State</th><th>Recommendation</th></tr>
+<tr><td>Title Tag</td><td>The Ultimate Guide to Canasta Variants: Modern American, Classic, and [truncated] – All7s Games</td><td>Shorten: <strong>"Canasta Variants Explained: Modern American vs Classic vs Hand & Foot"</strong></td></tr>
+<tr><td>Meta Description</td><td>✅ Present</td><td>Good</td></tr>
+<tr><td>H1 Tags</td><td><span class="badge badge-red">2 H1s</span></td><td>Remove duplicate</td></tr>
+<tr><td>Heading Structure</td><td>Only 3 H2s + 1 H3 for ~10,700 words</td><td>Add many more H2/H3 subheadings — wall of text issue</td></tr>
+<tr><td>Word Count</td><td>~10,789</td><td>Longest article — ensure scannable with more headings</td></tr>
+<tr><td>Internal Blog Links</td><td>Links to How to Play + FAQ</td><td>Add: Strategy Tips, Beginner Mistakes, Origin Story, 2-3 Players</td></tr>
+<tr><td>Course CTA</td><td><span class="badge badge-red">Missing</span></td><td>Add CTA for each variant section</td></tr>
+</table>
+<p><strong>Content gaps:</strong> Add a comparison table at the top. Add Hand & Foot scoring details. Desperately needs more subheadings for readability.</p>
+</div>
+
+<!-- Article 8, 9, 10 — Board game articles -->
+<div class="card">
+<h4>📄 Best Board Games for 8 Players</h4>
+<p><code>/blogs/all7s-games/best-board-games-for-8-players</code></p>
+<table>
+<tr><th>Element</th><th>Current State</th><th>Recommendation</th></tr>
+<tr><td>Title Tag</td><td>Best Board Games for 8 Players – Fun for Families, Friends & Big Group[s] – All7s Games</td><td>Good ✅</td></tr>
+<tr><td>Meta Description</td><td>✅ Present — mentions Rolling Jokers</td><td>Good</td></tr>
+<tr><td>H1 Tags</td><td>✅ 1 H1</td><td>Good</td></tr>
+<tr><td>Heading Structure</td><td>Good — numbered list, FAQ with H3s</td><td>✅ Well structured</td></tr>
+<tr><td>Internal Blog Links</td><td>Links to Family Reunions article (wrong blog prefix: nerkin-games)</td><td><span class="badge badge-red">Fix broken link</span> — should be /blogs/all7s-games/ not /blogs/nerkin-games/</td></tr>
+<tr><td>Canasta tie-in</td><td><span class="badge badge-red">Missing</span></td><td>Add Canasta as a mention (pairs game) with link to How to Play</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h4>📄 Best Board Games for Family Reunions</h4>
+<p><code>/blogs/all7s-games/best-board-games-for-family-reunions</code></p>
+<table>
+<tr><th>Element</th><th>Current State</th><th>Recommendation</th></tr>
+<tr><td>Title Tag</td><td>Best Board Games for Family Reunions – Fun for Every Generation – All7s Games</td><td>Good ✅</td></tr>
+<tr><td>Meta Description</td><td>✅ Present</td><td>Good</td></tr>
+<tr><td>H1 Tags</td><td><span class="badge badge-red">2 H1s</span></td><td>Remove duplicate</td></tr>
+<tr><td>Internal Blog Links</td><td>Links to 8-Players article (wrong blog prefix: nerkin-games)</td><td><span class="badge badge-red">Fix broken link</span></td></tr>
+<tr><td>Canasta tie-in</td><td><span class="badge badge-red">Missing</span></td><td>Add Canasta section — perfect for family reunions audience</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h4>📄 Games Like Aggravation</h4>
+<p><code>/blogs/all7s-games/games-like-aggravation</code></p>
+<table>
+<tr><th>Element</th><th>Current State</th><th>Recommendation</th></tr>
+<tr><td>Title Tag</td><td>Games Like Aggravation – Best Alternatives for Family & Multi-Generati[on] – All7s Games</td><td>Good ✅</td></tr>
+<tr><td>Meta Description</td><td>✅ Present</td><td>Good</td></tr>
+<tr><td>H1 Tags</td><td>✅ 1 H1</td><td>Good</td></tr>
+<tr><td>Heading Structure</td><td>Good but has <span class="badge badge-red">duplicate H2</span> ("Comparison: Games Like Aggravation" appears twice)</td><td>Remove duplicate H2</td></tr>
+<tr><td>Internal Blog Links</td><td><span class="badge badge-red">Zero blog links</span> (only nav)</td><td>Add links to: Family Reunions, 8-Players articles</td></tr>
+</table>
+</div>
+
+<!-- Travel Tales articles -->
+<h3 id="travel-articles">2B. Travel Tales Games Blog</h3>
+
+<div class="card">
+<h4>📄 30 Games in 30 Days</h4>
+<p><code>/blogs/travel-tales-games/30-games-in-30-days-your-ultimate-guide-to-classic-card-games</code></p>
+<table>
+<tr><th>Element</th><th>Current State</th><th>Recommendation</th></tr>
+<tr><td>H1 Tags</td><td><span class="badge badge-red">2 H1s</span></td><td>Remove duplicate</td></tr>
+<tr><td>Internal Blog Links</td><td><span class="badge badge-green">Excellent — 31 blog links</span></td><td>Hub page ✅ Best-linked article on site</td></tr>
+<tr><td>Canasta link</td><td>✅ Links to How to Play Canasta</td><td>Also add link to free Canasta course</td></tr>
+<tr><td>Meta Description</td><td>✅ Present but starts with spaces</td><td>Clean up leading whitespace</td></tr>
+</table>
+<p><strong>Opportunity:</strong> This is a powerful hub page. Ensure every game listed links to its how-to article. Add a "Featured Game: Canasta" callout box.</p>
+</div>
+
+<div class="card">
+<h4>📄 Category Roundup Articles (Matching, Quick-Play, Strategy, Trick-Taking)</h4>
+<p>All 4 follow a consistent template:</p>
+<table>
+<tr><th>Element</th><th>Status</th><th>Notes</th></tr>
+<tr><td>H1 Tags</td><td><span class="badge badge-red">All have 2 H1s</span></td><td>Remove duplicates across all 4</td></tr>
+<tr><td>Internal Blog Links</td><td><span class="badge badge-green">Good — 10-16 blog links each</span></td><td>Well-linked to individual game articles</td></tr>
+<tr><td>Email Signup CTA</td><td>✅ All have "Keep the Fun Going" email CTA</td><td>Good practice — replicate on Canasta blog</td></tr>
+<tr><td>Meta Descriptions</td><td>✅ All present</td><td>Good</td></tr>
+<tr><td>Heading depth</td><td><span class="badge badge-orange">Shallow</span> — most have only 2-3 H2s</td><td>Add more H2/H3 subheadings for each game covered</td></tr>
+<tr><td>Canasta links</td><td>Only Strategy links to Canasta</td><td>Add Canasta mention/link to Matching (it's a matching game!)</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h4>📄 How-to-Play Articles (Crazy Eights, Napoleon, Palace, Rummy, Sevens)</h4>
+<p>All 5 follow a consistent template:</p>
+<table>
+<tr><th>Element</th><th>Status</th><th>Notes</th></tr>
+<tr><td>H1 Tags</td><td><span class="badge badge-red">All have 2 H1s</span></td><td>Remove duplicates across all 5</td></tr>
+<tr><td>Structure</td><td><span class="badge badge-green">Good template</span></td><td>Overview → Setup → Rules → Strategy → Variations → FAQ → Related</td></tr>
+<tr><td>Word Count</td><td>~9,000-9,300 each</td><td>Strong ✅</td></tr>
+<tr><td>Meta Descriptions</td><td>✅ All present</td><td>Good</td></tr>
+<tr><td>"More Games" section</td><td>✅ All link to category pages</td><td>Good for internal linking</td></tr>
+<tr><td>Canasta cross-links</td><td>Palace + Sevens link to Canasta</td><td>Add Canasta mention to Rummy ("like Canasta, Rummy uses melds...")</td></tr>
+<tr><td>Product CTAs</td><td>Nav only</td><td>Add Travel Tales product link in body</td></tr>
+</table>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="keyword-map">3. Canasta Keyword Map</h2>
+
+<table>
+<tr><th>Article</th><th>Primary Keyword</th><th>Long-Tail Keywords to Target</th><th>Est. Monthly Searches</th></tr>
+<tr>
+  <td>How to Play Canasta</td>
+  <td><strong>how to play canasta</strong></td>
+  <td>canasta rules, canasta card game rules, modern american canasta rules, canasta instructions, canasta rules for beginners</td>
+  <td>12,000-18,000</td>
+</tr>
+<tr>
+  <td>Canasta Origin Story</td>
+  <td><strong>history of canasta</strong></td>
+  <td>where did canasta originate, who invented canasta, canasta origin, canasta history uruguay</td>
+  <td>500-1,000</td>
+</tr>
+<tr>
+  <td>Strategy Tips</td>
+  <td><strong>canasta strategy</strong></td>
+  <td>canasta tips and tricks, how to win at canasta, canasta advanced strategy, canasta partner signals</td>
+  <td>1,500-3,000</td>
+</tr>
+<tr>
+  <td>7 Beginner Mistakes</td>
+  <td><strong>canasta mistakes</strong></td>
+  <td>canasta beginner tips, canasta common mistakes, canasta for beginners, how not to play canasta</td>
+  <td>500-1,000</td>
+</tr>
+<tr>
+  <td>FAQ</td>
+  <td><strong>canasta FAQ</strong></td>
+  <td>canasta questions, canasta rules questions, can you pick up discard pile canasta, how many cards in canasta</td>
+  <td>2,000-4,000</td>
+</tr>
+<tr>
+  <td>2 or 3 Players</td>
+  <td><strong>canasta 2 players</strong></td>
+  <td>2 player canasta rules, canasta for 2, canasta for 3 players, two handed canasta</td>
+  <td>2,000-4,000</td>
+</tr>
+<tr>
+  <td>Ultimate Guide (Variants)</td>
+  <td><strong>canasta variants</strong></td>
+  <td>hand and foot canasta rules, classic canasta vs modern, types of canasta, canasta variations</td>
+  <td>3,000-5,000</td>
+</tr>
+<tr>
+  <td>8-Player Games</td>
+  <td><strong>best board games for 8 players</strong></td>
+  <td>8 player board games, games for large groups, party games for 8</td>
+  <td>2,000-4,000</td>
+</tr>
+<tr>
+  <td>Family Reunion Games</td>
+  <td><strong>best board games for family reunions</strong></td>
+  <td>family reunion games, multigenerational board games, games for all ages</td>
+  <td>1,000-2,000</td>
+</tr>
+<tr>
+  <td>Games Like Aggravation</td>
+  <td><strong>games like aggravation</strong></td>
+  <td>aggravation alternatives, games similar to aggravation, marble board games</td>
+  <td>1,000-2,000</td>
+</tr>
+</table>
+
+<!-- ============================================================ -->
+<h2 id="content-gaps">4. Content Gaps & Suggested New Articles</h2>
+
+<div class="card opportunity">
+<h3>🟢 High-Priority New Articles (Tier 2)</h3>
+<table>
+<tr><th>#</th><th>Suggested Article</th><th>Target Keyword</th><th>Est. Search Volume</th><th>Why</th></tr>
+<tr><td>1</td><td><strong>Canasta Scoring Guide & Point Values Chart</strong></td><td>canasta scoring, canasta point values</td><td>5,000-8,000</td><td>High search volume, no dedicated article. FAQ touches on it but doesn't own it.</td></tr>
+<tr><td>2</td><td><strong>Hand and Foot Canasta: Complete Rules & How to Play</strong></td><td>hand and foot canasta rules</td><td>8,000-12,000</td><td>Massive search volume. Ultimate Guide mentions it but doesn't have a standalone article.</td></tr>
+<tr><td>3</td><td><strong>Canasta Rules PDF: Free Printable Quick Reference</strong></td><td>canasta rules PDF, printable canasta rules</td><td>3,000-5,000</td><td>Lead magnet + SEO. People search for this specifically.</td></tr>
+<tr><td>4</td><td><strong>How Many Cards in Canasta? Setup & Deal Guide</strong></td><td>how many cards in canasta</td><td>2,000-4,000</td><td>Featured snippet opportunity. Quick-answer format.</td></tr>
+<tr><td>5</td><td><strong>Canasta vs Rummy: What's the Difference?</strong></td><td>canasta vs rummy, difference between canasta and rummy</td><td>1,500-3,000</td><td>Comparison content converts well. Links both blogs together.</td></tr>
+<tr><td>6</td><td><strong>Best Canasta Sets & Cards: Buyer's Guide (2026)</strong></td><td>best canasta cards, canasta set, canasta card set</td><td>2,000-4,000</td><td>Commercial intent — drives product sales directly.</td></tr>
+<tr><td>7</td><td><strong>How to Keep Score in Canasta (with Free Score Sheet)</strong></td><td>canasta score sheet, canasta scoring rules</td><td>3,000-5,000</td><td>Lead magnet opportunity. High utility content.</td></tr>
+<tr><td>8</td><td><strong>Canasta for Seniors: Why It's the Perfect Social Game</strong></td><td>canasta for seniors, card games for seniors</td><td>1,000-2,000</td><td>Directly targets the 50+ audience. Community angle.</td></tr>
+<tr><td>9</td><td><strong>How to Start a Canasta Group in Your Community</strong></td><td>canasta group, canasta club, how to start a card game group</td><td>500-1,000</td><td>Community building content. Email list builder.</td></tr>
+<tr><td>10</td><td><strong>Canasta Wild Cards & Special Cards Explained</strong></td><td>canasta wild cards, canasta jokers, canasta threes</td><td>1,000-2,000</td><td>Fills FAQ gaps. Featured snippet target.</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h3>🔵 Medium-Priority New Articles</h3>
+<ul>
+<li><strong>Canasta vs Bridge: Which Card Game Should You Learn?</strong> (comparison)</li>
+<li><strong>Canasta Tournament Rules & How to Host a Tournament</strong> (community)</li>
+<li><strong>Canasta Glossary: Every Term You Need to Know</strong> (reference/SEO)</li>
+<li><strong>Online Canasta: Best Apps & Websites to Play</strong> (informational)</li>
+<li><strong>Canasta for Couples: 2-Player Date Night Games</strong> (niche audience)</li>
+</ul>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="linking-matrix">5. Internal Linking Matrix</h2>
+
+<p>✅ = Link exists | <span class="badge badge-orange">ADD</span> = Should add link | — = Not relevant</p>
+
+<table class="matrix" style="font-size: 0.75rem;">
+<tr>
+  <th style="min-width:120px">FROM ↓ / TO →</th>
+  <th>How to Play</th>
+  <th>Origin</th>
+  <th>Strategy</th>
+  <th>Mistakes</th>
+  <th>FAQ</th>
+  <th>2-3 Players</th>
+  <th>Variants Guide</th>
+  <th>8-Players</th>
+  <th>Reunions</th>
+  <th>Aggravation</th>
+</tr>
+<tr>
+  <td><strong>How to Play</strong></td>
+  <td>—</td>
+  <td class="add">ADD</td>
+  <td class="add">ADD</td>
+  <td class="add">ADD</td>
+  <td class="yes">✅</td>
+  <td class="add">ADD</td>
+  <td class="add">ADD</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td><strong>Origin Story</strong></td>
+  <td class="yes">✅</td>
+  <td>—</td>
+  <td class="add">ADD</td>
+  <td class="add">ADD</td>
+  <td class="add">ADD</td>
+  <td>—</td>
+  <td class="yes">✅</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td><strong>Strategy Tips</strong></td>
+  <td class="yes">✅</td>
+  <td class="add">ADD</td>
+  <td>—</td>
+  <td class="add">ADD</td>
+  <td class="yes">✅</td>
+  <td class="add">ADD</td>
+  <td class="add">ADD</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td><strong>7 Mistakes</strong></td>
+  <td class="yes">✅</td>
+  <td class="add">ADD</td>
+  <td class="yes">✅</td>
+  <td>—</td>
+  <td class="add">ADD</td>
+  <td class="add">ADD</td>
+  <td class="add">ADD</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td><strong>FAQ</strong></td>
+  <td class="yes">✅</td>
+  <td class="yes">✅</td>
+  <td class="add">ADD</td>
+  <td class="add">ADD</td>
+  <td>—</td>
+  <td class="yes">✅</td>
+  <td class="yes">✅</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td><strong>2-3 Players</strong></td>
+  <td class="yes">✅</td>
+  <td class="add">ADD</td>
+  <td class="add">ADD</td>
+  <td class="add">ADD</td>
+  <td class="yes">✅</td>
+  <td>—</td>
+  <td class="add">ADD</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td><strong>Variants Guide</strong></td>
+  <td class="yes">✅</td>
+  <td class="add">ADD</td>
+  <td class="add">ADD</td>
+  <td class="add">ADD</td>
+  <td class="yes">✅</td>
+  <td class="add">ADD</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td><strong>8-Player Games</strong></td>
+  <td class="add">ADD</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td class="yes">✅*</td>
+  <td class="add">ADD</td>
+</tr>
+<tr>
+  <td><strong>Family Reunions</strong></td>
+  <td class="add">ADD</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td class="yes">✅*</td>
+  <td>—</td>
+  <td class="add">ADD</td>
+</tr>
+<tr>
+  <td><strong>Games Like Aggravation</strong></td>
+  <td class="add">ADD</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td class="add">ADD</td>
+  <td class="add">ADD</td>
+  <td>—</td>
+</tr>
+</table>
+<p><small>* These links exist but use wrong blog prefix (/blogs/nerkin-games/ instead of /blogs/all7s-games/) — <strong>fix immediately</strong>.</small></p>
+
+<h3>Cross-Blog Linking Opportunities</h3>
+<table>
+<tr><th>Travel Tales Article</th><th>Should Link To (All7s Blog)</th><th>Context</th></tr>
+<tr><td>How to Play Rummy</td><td>How to Play Canasta</td><td>"If you enjoy Rummy, you'll love Canasta — it evolved from Rummy!"</td></tr>
+<tr><td>Best Matching Games</td><td>How to Play Canasta</td><td>Canasta is a matching/melding game — add it to the list</td></tr>
+<tr><td>Best Strategy Games</td><td>How to Play Canasta, Strategy Tips</td><td>Already links to How to Play — also add Strategy Tips</td></tr>
+<tr><td>30 Games in 30 Days</td><td>Strategy Tips, Beginner Mistakes</td><td>Already links to How to Play — expand with more Canasta links</td></tr>
+<tr><td>How to Play Sevens</td><td>Strategy Tips</td><td>Already links to How to Play — add strategy article too</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2 id="priority-actions">6. Priority Action Items</h2>
+
+<div class="card issue">
+<h3>🔴 Critical Fixes (Do This Week)</h3>
+<ol>
+<li><strong>Fix duplicate H1 tags</strong> on these 8 articles:
+  <ul>
+    <li>How to Play Canasta</li>
+    <li>Canasta Strategy Tips</li>
+    <li>7 Beginner Mistakes</li>
+    <li>Canasta FAQ</li>
+    <li>Ultimate Guide to Variants</li>
+    <li>Family Reunions</li>
+    <li>30 Games in 30 Days</li>
+    <li>All Travel Tales how-to and category articles (5+)</li>
+  </ul>
+</li>
+<li><strong>Fix broken blog links</strong> in 8-Players and Family Reunions articles (nerkin-games → all7s-games prefix)</li>
+<li><strong>Remove duplicate H2</strong> in Games Like Aggravation</li>
+<li><strong>Fix empty H2</strong> in 2-3 Players article</li>
+<li><strong>Clean meta description</strong> whitespace in 30 Games in 30 Days</li>
+</ol>
+</div>
+
+<div class="card opportunity">
+<h3>🟢 Quick Wins (This Month)</h3>
+<ol>
+<li><strong>Add Canasta course CTA</strong> to all 7 Canasta articles — "Take our free beginner Canasta course" with link to Kajabi</li>
+<li><strong>Add FAQ schema markup</strong> (JSON-LD) to the FAQ article — enables Google rich results</li>
+<li><strong>Implement the internal linking matrix above</strong> — ~30 new internal links needed across Canasta articles</li>
+<li><strong>Add "Related Articles" section</strong> at the bottom of each Canasta blog post (3-4 related links)</li>
+<li><strong>Add inline product CTAs</strong> in article bodies — "Shop the Canasta Deluxe Set" with direct link</li>
+</ol>
+</div>
+
+<div class="card">
+<h3>🔵 Growth Actions (Next 60 Days)</h3>
+<ol>
+<li><strong>Write "Canasta Scoring Guide"</strong> — highest search volume gap</li>
+<li><strong>Write "Hand and Foot Canasta Rules"</strong> — massive search volume, standalone article warranted</li>
+<li><strong>Create Canasta Rules PDF</strong> — lead magnet for email collection + SEO target</li>
+<li><strong>Write "Best Canasta Sets" buyer's guide</strong> — commercial intent content</li>
+<li><strong>Add more subheadings</strong> to Ultimate Guide (currently 10,700 words with only 3 H2s)</li>
+<li><strong>Restructure heading hierarchy</strong> on How to Play Canasta (currently H1 → H3, skipping H2)</li>
+</ol>
+</div>
+
+<hr style="margin: 2rem 0;">
+<p style="color: var(--gray); font-size: 0.85rem;">Report generated February 24, 2026 by Chloe. All data based on live page fetches. Word counts include nav/footer boilerplate (~5,000-6,000 words); actual article content is roughly 3,000-5,000 words per article.</p>
+
+</body>
+</html>
