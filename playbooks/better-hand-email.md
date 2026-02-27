@@ -36,8 +36,11 @@ One punchy line that creates curiosity. Never generic.
    - Written conversationally, not textbook-y
    - Pull from `canasta-rules/strategy.jsonl` (approved entries only)
 4. **"Try this weekend" challenge:** One actionable sentence to test the tip
-5. **Coupon:** Soft, natural — "Weekend game night? 10% off with code FRIDAY10 → [link]"
-6. **Sign-off:** "—The All7s Team"
+5. **Coupon:** Soft, natural — "Weekend game night? 10% off with code CANASTA10 at checkout → [Shop All7s](https://www.amazon.com/stores/page/EA384EB6-4C8B-4632-96EC-6E899F61B850?maas=maas_adg_E0710C1268F76A7D58406646A7111714_afap_abs&ref_=aa_maas&tag=maas)"
+   - **Coupon code:** CANASTA10 (not FRIDAY10 — Amazon won't allow FRIDAY10)
+   - **Store URL (permanent):** `https://www.amazon.com/stores/page/EA384EB6-4C8B-4632-96EC-6E899F61B850?maas=maas_adg_E0710C1268F76A7D58406646A7111714_afap_abs&ref_=aa_maas&tag=maas`
+   - Always include "at checkout" after the code
+6. **Sign-off:** "Warmly, Ramon"
 7. **P.S.:** Rotating (see below)
 
 ### P.S. Rotation (3-week cycle)

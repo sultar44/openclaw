@@ -89,6 +89,12 @@ See: `security/SECURITY_PROTOCOL.md` for full details.
 - Search the web, check calendars
 - Work within this workspace
 
+**Act immediately, inform after:**
+
+- Cron jobs running off schedule or producing duplicate/empty results → disable and report
+- Any runaway process burning tokens unnecessarily → stop and report
+- Obvious waste or errors that have a clear fix → fix and report
+
 **Ask first:**
 
 - Sending emails, tweets, public posts

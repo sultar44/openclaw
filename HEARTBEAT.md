@@ -13,7 +13,7 @@ This script:
 - Compares to actual `nextRunAtMs` 
 - If a job was skipped (nextRunAtMs too far ahead), runs it with `--force`
 
-If any jobs are recovered, alert #chloebot:
+If any jobs are recovered, alert #chloebot and post ClickUp comments:
 "🔄 Cron Watchdog recovered X missed job(s): [names]"
 
 **Skip if:** Last watchdog ran < 30 minutes ago (check `memory/heartbeat-state.json`)

@@ -1,6 +1,6 @@
 # ROADMAP.md — Chloe + Ramon 12-Month Plan
 
-*Last updated: 2026-02-12*
+*Last updated: 2026-02-25*
 
 ---
 
@@ -59,13 +59,15 @@
 
 | Task | Description | Effort |
 |------|-------------|--------|
+| Klaviyo integration | Connect API, build post-purchase flows (check-in → testimonial → referral → upsell) | 3-5 days |
+| Sunday Ritual content engine | Tracker for article ideas, drafts, publish dates, performance metrics | 1-2 days |
+| Short-form video analytics | Track views, engagement, comments across platforms; identify what works | 2-3 days |
 | Short-form video ideas | Research trends, generate ideas for approval | Ongoing |
 | Video scripts | Write scripts based on approved ideas | Ongoing |
 | Newsletter topics | Research + propose weekly/biweekly topics | Ongoing |
 | Newsletter drafts | Write full drafts for approval | Ongoing |
 | Blog research | SEO keyword research, competitor content gaps | 2-3 days |
 | Blog writing | Draft posts for approval | Ongoing |
-| Post-purchase email sequences | Klaviyo flows: check-in → testimonial → referral → upsell | 3-5 days |
 
 ### Phase 4: PPC & Listings (2-4 months)
 
@@ -84,7 +86,14 @@
 | Local game table finder (MVP) | Web form → searchable directory of players/tables | 1-2 weeks |
 | Course engagement tracking | Kajabi analytics → identify drop-off, hot leads | 3-5 days |
 
-### Phase 6: Apps & Advanced (6-12 months)
+### Phase 6: Finance & Accounting (4-8 months)
+
+| Task | Description | Effort |
+|------|-------------|--------|
+| QBO API integration | Connect QuickBooks Online API, pull financial data/reports | 1 week |
+| A2X replacement | Map Amazon settlement reports → QBO journal entries, replace A2X | 2-3 weeks |
+
+### Phase 7: Apps & Advanced (6-12 months)
 
 | Task | Description | Effort |
 |------|-------------|--------|

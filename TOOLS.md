@@ -87,6 +87,30 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 
 ---
 
+## ClickUp Integration
+
+- **Workspace:** Goven (team 1235857)
+- **Chloe's account:** chloemercer32@gmail.com (user ID: 107688256)
+- **API Key:** In `~/amazon-data/.env` as `CLICKUP_API_KEY`
+- **Task List:** "Chloe Automated Tasks" in BIZ: Corporate (list ID: 901816342276)
+- **Config:** `~/amazon-data/collectors/clickup_config.json` (cron→task mapping)
+- **Integration script:** `~/amazon-data/collectors/clickup_integration.py`
+
+### Execution Logging Protocol
+- **All executions:** Post comment on ClickUp task with status + summary
+- **Success:** Mark task "complete" (recurring tasks auto-reopen on next due date)
+- **Partial failure:** Comment on task + message to #chloe-logs (C0AELHCGW4F)
+- **Critical failure:** Comment on task + message to #chloebot (C0AD9AZ7R6F)
+- **No more routine logging to #chloe-logs** — only partial failures go there
+
+### Adding New Cron Jobs
+When creating a new cron job, also:
+1. Create a ClickUp task in list 901816342276
+2. Add the cron_id → task_id mapping to `clickup_config.json`
+3. Set due date and recurrence matching the cron schedule
+
+---
+
 ## Cron Jobs
 
 **Default:** Always use `wakeMode: "now"` for scheduled jobs (daily/weekly/monthly).
@@ -94,11 +118,13 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 - `"now"` = triggers immediately at scheduled time ✅
 - `"next-heartbeat"` = waits for heartbeat, unreliable for timed jobs ❌
 
-**Logging:** All cron jobs must announce to **#chloe-logs** (C0AELHCGW4F):
-- Set `delivery: {mode: "announce", channel: "slack", to: "C0AELHCGW4F"}`
-- Include status summary in the job's final response
-- Format: `"Job Name completed - [brief status with key metrics]"`
-- This is for logging only — not for listening/instructions
+**Logging:** All cron jobs log to ClickUp (not Slack) by default:
+- Post execution comment to the matching ClickUp task via `clickup_integration.py`
+- Mark task "complete" on success
+- **Partial failures** → ClickUp comment + announce to #chloe-logs (C0AELHCGW4F)
+- **Critical failures** → ClickUp comment + announce to #chloebot (C0AD9AZ7R6F)
+- **Successes** → ClickUp comment only (no Slack message)
+- Config: `~/amazon-data/collectors/clickup_config.json`
 
 **Important:** Just putting "send a message to channel X" in the payload text doesn't work for isolated sessions. You MUST set the delivery config explicitly.
 
@@ -123,3 +149,20 @@ Things like:
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.
+
+## Shopify Blog Image Hosting
+
+**Problem:** Shopify doesn't support base64 inline images, and no file upload API access.
+**Solution:** Use a permanent hidden article (ID: 618201022747, "Image Host - Do Not Delete") to host inline images.
+
+**Process for blog images:**
+1. Download and verify image with vision before using
+2. Upload as featured image on the Image Host article via API (base64 attachment)
+3. Grab the CDN URL from the response
+4. Reference the CDN URL in the actual blog article's HTML
+5. **Never delete the Image Host article** — it kills the CDN URLs
+
+**Image Specs:**
+- Email: 600px wide, 3:2 ratio, <100KB, JPG, 72 DPI
+- Blog header: 1200px wide, 3:2 ratio, <200KB (use article featured image API)
+- Blog inline: 800-1000px wide, <150KB (host via Image Host article)

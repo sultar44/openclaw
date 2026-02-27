@@ -9,10 +9,10 @@
       "source_prefix": "FB",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-02-23",
+      "last_post_date": "2026-02-25",
       "oldest_scraped_date": "2026-01-22",
-      "posts_scraped": 57,
-      "notes": "Scraped Feb 23 10:30 PM - 5 new strategy/rules entries (FB045: wild canasta + wild in pair simultaneously; FB046: picking pack with ace must be clean; FB047: going out with 2+wild is table rule; FB048: Courtesy Special no penalty for open wilds; FB049: starting wild canasta after partner used wild). Checked both Most Relevant and New Posts feeds."
+      "posts_scraped": 60,
+      "notes": "Scraped Feb 25 10:30 PM - 3 new strategy/rules entries (FB050: must have clean triple to meld even if point total met; FB051: special hand must come from deck not discard; FB052: cannot split wilds between wild canasta and other melds). Skipped 1 social post (Rachel Poller - beginner vs intermediate question)."
     },
     {
       "id": "ccg",
@@ -73,8 +73,8 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-02-24T22:30:00-05:00",
-  "last_primary_result": "Canasta Lovers scraped: 2 new strategy/rules entries (CL015-CL016). Wild card canasta base scoring with special hands, and melding 4 queens under rule-of-5.",
+  "last_primary_run": "2026-02-25T22:30:00-05:00",
+  "last_primary_result": "Modern American Canasta scraped: 3 new strategy/rules entries (FB050-FB052). Clean triple meld requirement, special hand from deck only, cannot split wilds between canasta and other melds.",
   "last_backup_run": "2026-02-13T05:36:00-05:00",
   "last_backup_result": "No-op: duplicate trigger #14+ at 05:36 AM. Backup completed 05:05-05:08 AM (1 new post: FB034). CRON JOB STILL FIRING REPEATEDLY - needs schedule fix urgently.",
   "cron_issue_detected": "2026-02-13T05:02:00-05:00",
