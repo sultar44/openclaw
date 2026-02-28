@@ -1,0 +1,13 @@
+{
+  "rotation": [
+    "course",
+    "social",
+    "engagement"
+  ],
+  "nextIndex": 1,
+  "templates": {
+    "course": "P.S. Taking our free Canasta course? 500+ players are already in. Start here \u2192 [Join the Course](https://canastacourse.com)",
+    "social": "P.S. We share tips like this every week on Instagram. Come say hi \u2192 [Follow All7s](https://instagram.com/all7sgames)",
+    "engagement": "P.S. What's your go-to opening strategy? Hit reply and tell us \u2014 we read every one."
+  }
+}

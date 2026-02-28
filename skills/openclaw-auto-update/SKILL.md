@@ -13,8 +13,8 @@ openclaw gateway update
 ```
 
 ## Behavior
-- Runs `gateway.update.run` to check for and install updates
-- If updates installed: read changelog, summarize new features, propose business applications for Ramon
+- Runs `openclaw gateway update` to check for and install updates
+- If updates installed: read changelog, summarize new features, propose business applications for Ramon considering our current implementation
 - If no updates: log clean status and exit
 - Timeout: 900s
 
@@ -23,8 +23,9 @@ openclaw gateway update
 - Log full error output for debugging
 
 ## Alerts & Delivery
-- **Log to:** #chloe-logs (C0AELHCGW4F)
-- **Alert to:** #chloebot on failure
+- **ClickUp task comment:** Status only — "✅ Updated to vX.Y.Z" or "ℹ️ No new update tonight" or "❌ Install failure: [reason]"
+- **#chloe-logs (C0AELHCGW4F):** Recommendations only — when there's a new version, post a summary of new features and how they could benefit our business
+- **#chloebot (C0AD9AZ7R6F):** Only on critical failure
 
 ## Dependencies
 - OpenClaw CLI (`openclaw` command)

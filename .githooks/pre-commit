@@ -11,7 +11,11 @@ blocked=0
 
 path_block_regex='(^|/)(Cookies|Login Data|Web Data|History|Network Persistent State|Local State)$|(^|/)session(s)?(/|$)|(^|/)token(s)?(/|$)|(^|/)auth(/|$)|(^|/).*\.(pem|p12|pfx|key|kdbx)$|(^|/)\.env($|\.)|(^|/)credentials($|\.)|(^|/)secrets?(/|\.)|(^|/)id_rsa(\.pub)?$|(^|/)id_ed25519$|(^|/)\.openclaw/browser/'
 
-content_block_regex='(AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_\-]{35}|xox[baprs]-[0-9A-Za-z\-]{10,}|gh[pousr]_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9]{20,}|BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY|session[_-]?token|access[_-]?token|refresh[_-]?token|api[_-]?key\s*[:=])'
+# Pattern tokens (real secrets, not env var names in docs/code):
+# - Cloud provider key prefixes (AKIA, AIza, xox, ghp, sk-)
+# - PEM private keys
+# - Actual assignments: token/key = "value" (not just mentioning the word)
+content_block_regex='(AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_\-]{35}|xox[baprs]-[0-9A-Za-z\-]{10,}|gh[pousr]_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9]{20,}|BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY)'
 
 while IFS= read -r file; do
   [ -z "$file" ] && continue

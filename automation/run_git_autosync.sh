@@ -23,9 +23,21 @@ log_msg() {
   fi
 }
 
+PYTHON_BIN="/Users/ramongonzalez/amazon-data/.venv/bin/python"
+
+clickup_log() {
+  local status="$1"
+  local summary="$2"
+  "$PYTHON_BIN" /Users/ramongonzalez/amazon-data/collectors/clickup_integration.py \
+    --cron-id launchd_git_sync --status "$status" --summary "$summary" >/dev/null 2>&1 || true
+}
+
+TIMESTAMP="$(TZ=America/New_York date '+%Y-%m-%d %H:%M:%S %Z')"
+
 if "$WORKSPACE/automation/git_autosync.sh"; then
-  log_msg "✅ Git auto-sync completed successfully ($(TZ=America/New_York date '+%Y-%m-%d %H:%M:%S %Z'))." "${SYNC_SUCCESS_CHANNEL:-C0AELHCGW4F}"
+  clickup_log "success" "Git auto-sync completed successfully ($TIMESTAMP)"
 else
-  log_msg "🚨 Git auto-sync failed ($(TZ=America/New_York date '+%Y-%m-%d %H:%M:%S %Z')). Check $WORKSPACE/backups/logs/git_autosync.log" "${SYNC_FAILURE_CHANNEL:-C0AD9AZ7R6F}"
+  clickup_log "critical" "Git auto-sync FAILED ($TIMESTAMP). Check $WORKSPACE/backups/logs/git_autosync.log"
+  log_msg "🚨 Git auto-sync failed ($TIMESTAMP). Check $WORKSPACE/backups/logs/git_autosync.log" "C0AD9AZ7R6F"
   exit 1
 fi

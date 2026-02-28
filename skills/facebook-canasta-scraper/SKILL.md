@@ -1,7 +1,7 @@
 # Facebook Canasta Scraper
 
 ## Purpose
-Scrapes Canasta Facebook groups for strategy content, rotating through one group per run. Saves approved tips to strategy.jsonl for use in email newsletters.
+Scrapes ALL Canasta Facebook groups for strategy content every run. Saves approved tips to strategy.jsonl for use in email newsletters.
 
 ## Schedule
 - **Cron:** `30 22 * * *` (America/New_York)
@@ -15,9 +15,11 @@ Scrapes Canasta Facebook groups for strategy content, rotating through one group
 ```
 
 ## Behavior
-- Scrapes **ONE group per run**, rotating through groups in order
+- Scrapes **ALL groups** listed in `groups_config.json` every run (currently 4, but handles any number added)
+- For each group, scan posts from the **last 24 hours**
+- If new groups are added to the config, they are automatically included
 - Source prefixes: FB (Modern American Canasta), CCG (Canasta Card Game), CL (Canasta Lovers), NYMC (Not Your Mother's Canasta)
-- Stop after ~50 posts OR 25 minutes, whichever comes first
+- Stop each group after ~50 posts OR 25 minutes, whichever comes first
 - No emails sent — content saved to strategy.jsonl only
 - Each entry tagged with source prefix, date, and approval status
 - Timeout: 1800s

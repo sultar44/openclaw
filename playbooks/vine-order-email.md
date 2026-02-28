@@ -16,7 +16,7 @@ Parse the email body and add a new row to the **bottom** of the "Por Vender" tab
 | D | (leave blank) | |
 | E | (leave blank) | |
 | F | ASIN | Found in product links like `/dp/B0GCFL2BTZ` |
-| G | (leave blank) | |
+| G | **DO NOT WRITE** — populated by formula | |
 | H | Brand | Look up the product on Amazon (`amazon.com/dp/{ASIN}`) and find the brand from the "Visit the X Store" byline |
 | I | Product description | Very short (2-4 words). Examples: "wine chiller", "EV charger", "Cold Press Juicer". Look at existing values in column I for style guidance |
 
@@ -24,7 +24,9 @@ Parse the email body and add a new row to the **bottom** of the "Por Vender" tab
 - **Sheet access:** Use `gog sheets` with `--account openclaw-sheets@lustrous-bounty-460801-b9.iam.gserviceaccount.com`
 - **Find last row:** Get column A to find how many rows exist, then write to the next row
 - **Write columns A-C:** Update range `Por Vender!A{row}:C{row}`
-- **Write columns F, H-I:** Update range `Por Vender!F{row}:I{row}` (with blank G)
+- **Write column F:** Update range `Por Vender!F{row}` (ASIN only)
+- **Write columns H-I:** Update range `Por Vender!H{row}:I{row}` (Brand + Product)
+- **NEVER write to column G** — it has a formula that auto-generates the link from column F
 - **Brand lookup:** Use `curl` to fetch `amazon.com/dp/{ASIN}` and grep for `bylineInfo` to find brand name
 
 ### Delivery

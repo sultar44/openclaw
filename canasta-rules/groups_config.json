@@ -9,10 +9,10 @@
       "source_prefix": "FB",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-02-25",
+      "last_post_date": "2026-02-27",
       "oldest_scraped_date": "2026-01-22",
-      "posts_scraped": 60,
-      "notes": "Scraped Feb 25 10:30 PM - 3 new strategy/rules entries (FB050: must have clean triple to meld even if point total met; FB051: special hand must come from deck not discard; FB052: cannot split wilds between wild canasta and other melds). Skipped 1 social post (Rachel Poller - beginner vs intermediate question)."
+      "posts_scraped": 62,
+      "notes": "Scraped Feb 27 10:30 PM - 2 new rules entries (FB053: under 5-card rule, cannot go out with 2+wild, enforce 5-card minimum even going out; FB054: unreplaced talon 3 stuck in hand scores -5 not -100). Skipped social posts: Marilyn Robinson (LFG Boynton Beach), Andrea Jaffe (LFG Los Angeles), Lynda Greenberg (LFG Delray)."
     },
     {
       "id": "ccg",
@@ -36,10 +36,10 @@
       "source_prefix": "CL",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-02-24",
-      "posts_scraped": 16,
+      "last_post_date": "2026-02-26",
+      "posts_scraped": 17,
       "oldest_scraped_date": "2026-01-10",
-      "notes": "Scraped Feb 24 10:30 PM - 2 new strategy/rules entries (CL015: wild card canasta counts toward base when opponent gets special hand; CL016: melding 4 queens + discarding joker under rule-of-5). Also saw Special Hands scoring chart post by Heidi Sue (All-star) — reference image, not a rule debate, skipped. Several social/looking-for-players posts skipped."
+      "notes": "Scraped Feb 26 10:30 PM - 1 new strategy/rules entry (CL017: under 5-card rule, can you put down 2+wild when going out? Split community \u2014 recommendation: default to requiring 5 cards even going out, acknowledge going-out exception as common table rule). Skipped social posts: David Grant (looking for game in Boca), Judy Reines (intro), Rhonda Goldman Sussman (game in Great Neck), Judi Friedberg (image-only post)."
     },
     {
       "id": "cpg",
@@ -73,8 +73,8 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-02-25T22:30:00-05:00",
-  "last_primary_result": "Modern American Canasta scraped: 3 new strategy/rules entries (FB050-FB052). Clean triple meld requirement, special hand from deck only, cannot split wilds between canasta and other melds.",
+  "last_primary_run": "2026-02-27T22:30:00-05:00",
+  "last_primary_result": "MAC scraped: 2 new rules entries (FB053, FB054). 5-card rule going-out exception and talon 3 scoring.",
   "last_backup_run": "2026-02-13T05:36:00-05:00",
   "last_backup_result": "No-op: duplicate trigger #14+ at 05:36 AM. Backup completed 05:05-05:08 AM (1 new post: FB034). CRON JOB STILL FIRING REPEATEDLY - needs schedule fix urgently.",
   "cron_issue_detected": "2026-02-13T05:02:00-05:00",

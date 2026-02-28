@@ -128,9 +128,14 @@ def cleanup_old_backups(service, folder_id, keep=7):
     ).execute()
     files = resp.get('files', [])
     old = files[keep:]
+    deleted = 0
     for f in old:
-        service.files().delete(fileId=f['id'], supportsAllDrives=True).execute()
-    return len(old)
+        try:
+            service.files().delete(fileId=f['id'], supportsAllDrives=True).execute()
+            deleted += 1
+        except Exception:
+            pass  # file already gone, skip
+    return deleted
 
 
 def main():

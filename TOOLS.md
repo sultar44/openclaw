@@ -166,3 +166,11 @@ Add whatever helps you do your job. This is your cheat sheet.
 - Email: 600px wide, 3:2 ratio, <100KB, JPG, 72 DPI
 - Blog header: 1200px wide, 3:2 ratio, <200KB (use article featured image API)
 - Blog inline: 800-1000px wide, <150KB (host via Image Host article)
+
+## Google Drive API (Service Account)
+
+- **Always use `supportsAllDrives=True`** on all Drive API calls (get, update, list, etc.)
+- Without it, the SA gets 404 even on files it has Editor access to
+- The SA email: `openclaw-sheets@lustrous-bounty-460801-b9.iam.gserviceaccount.com`
+- Credentials: `~/amazon-data/google_sheets_credentials.json`
+- Scopes needed: `drive` and `drive.file`

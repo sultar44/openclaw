@@ -1,7 +1,7 @@
 # Weekly Listing Optimization
 
 ## Purpose
-Pulls 90 days of order data via SP-API for CA marketplace, computes ideal restock window and average orders per day, and updates the optimization sheet.
+Pulls 90 days of order data via SP-API for US and CA marketplaces, computes ideal restock window and average orders per day, and updates the optimization sheet.
 
 ## Schedule
 - **Cron:** `0 22 * * 0` (America/New_York)
@@ -11,13 +11,14 @@ Pulls 90 days of order data via SP-API for CA marketplace, computes ideal restoc
 ```bash
 # AI-driven task using SP-API
 # Pull 90 days orders in 3x 30-day windows
+# US marketplace: ATVPDKIKX0DER
 # CA marketplace: A2EUQ1WTGCTBG2
 # Update Sheet: 1z7WGoXHJ-k2K72wUmp5VU81h37wKaKyqcf9F5cwy_2s
 ```
 
 ## Behavior
 - Pull orders from SP-API in three 30-day windows (90 days total)
-- Marketplace: CA (A2EUQ1WTGCTBG2)
+- Marketplaces: US (ATVPDKIKX0DER) AND CA (A2EUQ1WTGCTBG2) — process both every run
 - Compute `ideal_window` and `avg_order_per_day` for each SKU
 - **IMPORTANT:** Find columns by header NAME, not column index — headers may shift
 - Update Google Sheet: `1z7WGoXHJ-k2K72wUmp5VU81h37wKaKyqcf9F5cwy_2s`
@@ -28,7 +29,7 @@ Pulls 90 days of order data via SP-API for CA marketplace, computes ideal restoc
 - If sheet structure changed, log warning and skip rather than writing to wrong columns
 
 ## Alerts & Delivery
-- **Log to:** #chloe-logs (C0AELHCGW4F)
+- **Log to:** #chloelogs (C0AELHCGW4F)
 - **Alert to:** None
 
 ## Dependencies

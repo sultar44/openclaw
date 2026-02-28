@@ -22,9 +22,19 @@ notify() {
     --message "$msg" >/dev/null 2>&1 || true
 }
 
+clickup_log() {
+  local status="$1"
+  local summary="$2"
+  "$PYTHON_BIN" /Users/ramongonzalez/amazon-data/collectors/clickup_integration.py \
+    --cron-id launchd_sqlite_backup --status "$status" --summary "$summary" >/dev/null 2>&1 || true
+}
+
+TIMESTAMP="$(TZ=America/New_York date '+%Y-%m-%d %H:%M:%S %Z')"
+
 if "$PYTHON_BIN" "$WORKSPACE/automation/sqlite_backup_to_gdrive.py"; then
-  notify "✅ SQLite backup completed successfully ($(TZ=America/New_York date '+%Y-%m-%d %H:%M:%S %Z'))." "${SYNC_SUCCESS_CHANNEL:-C0AELHCGW4F}"
+  clickup_log "success" "SQLite backup completed successfully ($TIMESTAMP)"
 else
-  notify "🚨 SQLite backup FAILED ($(TZ=America/New_York date '+%Y-%m-%d %H:%M:%S %Z')). Check $WORKSPACE/backups/logs/sqlite_backup.log" "${SYNC_FAILURE_CHANNEL:-C0AD9AZ7R6F}"
+  clickup_log "critical" "SQLite backup FAILED ($TIMESTAMP). Check $WORKSPACE/backups/logs/sqlite_backup.log"
+  notify "🚨 SQLite backup FAILED ($TIMESTAMP). Check $WORKSPACE/backups/logs/sqlite_backup.log" "C0AD9AZ7R6F"
   exit 1
 fi

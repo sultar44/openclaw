@@ -4,7 +4,7 @@ import { Sidebar } from "@/components/sidebar";
 
 export const metadata: Metadata = {
   title: "All7s Mission Control",
-  description: "Cron + Strategy Review in one dashboard",
+  description: "All7s operational dashboard",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

@@ -4,8 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const links = [
-  { href: "/cron", label: "Cron Calendar" },
   { href: "/strategy-review", label: "Canasta Strategy Review" },
+  { href: "/better-hand", label: "Better Hand Emails" },
+  { href: "/sunday-ritual", label: "Sunday Ritual" },
 ];
 
 export function Sidebar() {

@@ -30,7 +30,7 @@ Reviews Wikipedia's "Signs of AI writing" article, compares findings to the curr
 - Never break existing rules — only add or improve
 
 ## Alerts & Delivery
-- **Log to:** #chloe-logs (C0AELHCGW4F)
+- **Log to:** #chloelogs (C0AELHCGW4F)
 - **Alert to:** None (improvements applied silently)
 
 ## Dependencies
