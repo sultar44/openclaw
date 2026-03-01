@@ -36,10 +36,10 @@
       "source_prefix": "CL",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-02-26",
-      "posts_scraped": 17,
+      "last_post_date": "2026-02-28",
+      "posts_scraped": 19,
       "oldest_scraped_date": "2026-01-10",
-      "notes": "Scraped Feb 26 10:30 PM - 1 new strategy/rules entry (CL017: under 5-card rule, can you put down 2+wild when going out? Split community \u2014 recommendation: default to requiring 5 cards even going out, acknowledge going-out exception as common table rule). Skipped social posts: David Grant (looking for game in Boca), Judy Reines (intro), Rhonda Goldman Sussman (game in Great Neck), Judi Friedberg (image-only post)."
+      "notes": "Scraped Feb 28 10:30 PM - 2 new entries (CL018: drawing red 3s procedure, unanimous; CL019: special hands scoring reference chart, split - recommend flat 2500). Skipped social/promo: Marilyn Rosenzweig, Donna Miller-Small, Wendy Werner Roos, Eileen Cohen Bachrad, Barbara Kelly, Dara Collins, David Grant. Already scraped: 25942078728735274, 25939258495683964."
     },
     {
       "id": "cpg",
@@ -73,8 +73,8 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-02-27T22:30:00-05:00",
-  "last_primary_result": "MAC scraped: 2 new rules entries (FB053, FB054). 5-card rule going-out exception and talon 3 scoring.",
+  "last_primary_run": "2026-02-28T22:30:00-05:00",
+  "last_primary_result": "CL scraped: 2 new entries (CL018: red 3 drawing procedure, unanimous; CL019: special hands scoring chart, split). 19 total CL posts.",
   "last_backup_run": "2026-02-13T05:36:00-05:00",
   "last_backup_result": "No-op: duplicate trigger #14+ at 05:36 AM. Backup completed 05:05-05:08 AM (1 new post: FB034). CRON JOB STILL FIRING REPEATEDLY - needs schedule fix urgently.",
   "cron_issue_detected": "2026-02-13T05:02:00-05:00",

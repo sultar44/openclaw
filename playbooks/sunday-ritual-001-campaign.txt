@@ -1,0 +1,63 @@
+SUNDAY RITUAL #1 — CAMPAIGN READY
+===================================
+
+SETTINGS:
+- Sender name: Ramon from All7s
+- Subject: The Sunday Ritual: She Set the Table
+- Preview text: Julia Child didn't become famous because she loved food.
+- Send as: Plain text (or Klaviyo "Text Only" block — no template)
+- List: All subscribers
+- Schedule: Sunday March 1, 9:00 AM EST
+
+---
+
+EMAIL COPY (paste into Klaviyo):
+
+Hey friend,
+
+Welcome to The Sunday Ritual.
+
+Each week, I want to share one story about a woman who understood something most of us slowly forget: connection does not happen by accident. It is built. On purpose. On a schedule.
+
+These are stories about women who created structure. Who set a night. Who opened a door and kept it open.
+
+This week's story is about Julia Child.
+
+Julia did not become famous because she loved food. She became famous because she invited people into her kitchen.
+
+Before the TV cameras, before the cookbooks, she hosted dinners. She set the table. She poured the wine. She made the invitation feel normal. Expected.
+
+People returned. Not because the recipes were perfect. Because the gathering was.
+
+After fifty, many women stop hosting. Not because they forgot how. Because the built-in structure disappears. No school functions. No automatic reasons to open the door. The table gets quieter. And slowly, so does the house.
+
+Julia understood something simple. Connection does not appear on its own. It is arranged.
+
+She set the table. And people came back to it.
+
+If you have been thinking about starting a weekly gathering, you do not need a reason. You need a date.
+
+Read the full story on our blog → https://all7s.co/blogs/the-sunday-ritual/julia-child
+
+Warmly,
+Ramon
+
+P.S. Hit reply and tell me — when was the last time you hosted a game night? I read every one.
+
+---
+
+FOOTER (required, keep minimal):
+{% unsubscribe 'Unsubscribe' %}
+{{ organization.name }} {{ organization.full_address }}
+
+---
+
+CHANGES FROM ORIGINAL:
+✅ Removed All7s logo image
+✅ Removed Julia Child image (lives on blog only)
+✅ Removed Facebook/Instagram social icons
+✅ Removed footer Canasta Course link
+✅ Changed PS from course CTA → reply prompt (no link)
+✅ Plain text format (no HTML template)
+✅ Total links: 1 blog link + 1 unsubscribe
+✅ Sender changed to "Ramon from All7s"
