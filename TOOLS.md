@@ -135,6 +135,13 @@ When creating a new cron job, also:
 - Persistent instructions saved at: `/Users/ramongonzalez/.openclaw/workspace/playbooks/product-review-writing.md`
 - Use this playbook whenever Ramon asks for Amazon product review writing.
 
+## Email Trigger Policy (Ramon preference)
+
+- **Always use Gmail Pub/Sub webhook** (`openclaw webhooks gmail`) for email-triggered workflows
+- **Never use polling crons or heartbeat checks** for email detection
+- Process: Gmail → Pub/Sub → Tailscale funnel → OpenClaw hook → session with playbook
+- Create a playbook in `playbooks/` for each email trigger type
+
 ## What Goes Here
 
 Things like:
