@@ -30,8 +30,15 @@ Parse the email body and add a new row to the **bottom** of the "Por Vender" tab
 - **Brand lookup:** Use `curl` to fetch `amazon.com/dp/{ASIN}` and grep for `bylineInfo` to find brand name
 
 ### Delivery
-After processing, announce to #chloe-logs (C0AELHCGW4F):
+After processing, announce to #chloelogs (C0AELHCGW4F):
 "📦 Vine order added: {Brand} - {short description} (Order #{order_id})"
+
+### Post-Processing: Archive Email
+After successfully processing the Vine order email, **archive it** from Chloe's inbox:
+```
+gog gmail modify <messageId> --remove-labels INBOX
+```
+This keeps the inbox clean so Ramon can spot unprocessed emails (failure detection).
 
 ### Skip If
 - Email is NOT an Amazon order confirmation (no "Ordered:" in subject)

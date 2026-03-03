@@ -30,7 +30,7 @@ Scrapes ALL Canasta Facebook groups for strategy content every run. Saves approv
 - On timeout, save whatever was collected
 
 ## Alerts & Delivery
-- **Log to:** #chloe-logs (C0AELHCGW4F)
+- **Log to:** #chloelogs (C0AELHCGW4F)
 - **Alert to:** None (passive collection)
 
 ## Dependencies

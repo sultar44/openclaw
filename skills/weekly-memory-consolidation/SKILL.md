@@ -26,7 +26,7 @@ Reviews the past week's daily memory files, promotes important insights to MEMOR
 - Never delete memory files, only consolidate from them
 
 ## Alerts & Delivery
-- **Log to:** #chloe-logs (C0AELHCGW4F)
+- **Log to:** #chloelogs (C0AELHCGW4F)
 - **Alert to:** None
 
 ## Dependencies

@@ -130,7 +130,7 @@ Your picks (paste URLs):
 ## Alert Hierarchy
 1. **Always:** Comment on ClickUp task (https://app.clickup.com/t/86ewr9291) with execution summary
 2. **Success / notifications:** Post to #all7s-marketing (C9T8MAM71) tagging <@U92L1SVD2>
-3. **Partial failure:** ClickUp comment + alert to #chloe-logs (C0AELHCGW4F)
+3. **Partial failure:** ClickUp comment + alert to #chloelogs (C0AELHCGW4F)
 4. **Critical failure:** ClickUp comment + alert to #chloebot (C0AD9AZ7R6F)
 
 ## ClickUp Logging (REQUIRED)

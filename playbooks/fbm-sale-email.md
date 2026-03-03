@@ -30,8 +30,15 @@ Post the sale notification to **#ops_fbm** (C08TU971Z2P) via Slack.
 - SKU not found in the MC sheet (log a warning instead)
 
 ### Logging
-- **Success:** Post ONLY to #ops_fbm. Do NOT post success summaries to #chloe-logs or #chloebot.
+- **Success:** Post ONLY to #ops_fbm. Do NOT post success summaries to #chloelogs or #chloebot.
 - **Failure:** Post to #chloebot (C0AD9AZ7R6F) only.
+
+### Post-Processing: Archive Email
+After successfully processing the FBM sale email, **archive it** from Chloe's inbox:
+```
+gog gmail modify <messageId> --remove-labels INBOX
+```
+This keeps the inbox clean so Ramon can spot unprocessed emails (failure detection).
 
 ### Error Handling
 - If SKU not found in sheet → post to #chloebot: "⚠️ FBM sale for unknown SKU: {SKU}"

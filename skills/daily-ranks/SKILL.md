@@ -36,7 +36,7 @@ cd ~/amazon-data && source .venv/bin/activate && python collectors/daily_ranks.p
 
 ## Alerts & Delivery
 - **Success:** ClickUp task comment only (no Slack)
-- **Partial (retrying):** ClickUp task comment + alert #chloe-logs (C0AELHCGW4F)
+- **Partial (retrying):** ClickUp task comment + alert #chloelogs (C0AELHCGW4F)
 - **Critical failure:** ClickUp task comment + alert #chloebot (C0AD9AZ7R6F)
 
 ## Dependencies

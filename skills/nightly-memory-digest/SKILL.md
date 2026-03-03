@@ -25,7 +25,7 @@ cd ~/amazon-data && source .venv/bin/activate && python collectors/nightly_memor
 - On failure, log error — non-critical job
 
 ## Alerts & Delivery
-- **Log to:** #chloe-logs (C0AELHCGW4F)
+- **Log to:** #chloelogs (C0AELHCGW4F)
 - **Alert to:** None
 
 ## Dependencies

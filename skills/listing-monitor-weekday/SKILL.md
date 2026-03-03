@@ -25,7 +25,7 @@ cd ~/amazon-data && source .venv/bin/activate && python collectors/listing_monit
 - On failure, log — next run will catch changes
 
 ## Alerts & Delivery
-- **Log to:** #chloe-logs (C0AELHCGW4F)
+- **Log to:** #chloelogs (C0AELHCGW4F)
 - **Alert to:** #all7s-alerts (CF9T43YMQ) — only when changes detected
 
 ## Dependencies

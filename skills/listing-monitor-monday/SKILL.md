@@ -29,7 +29,7 @@ cd ~/amazon-data && source .venv/bin/activate && python -u collectors/listing_mo
 ## Alert Hierarchy
 1. **Always:** Comment on ClickUp task (https://app.clickup.com/t/86ewr9288) with execution summary
 2. **Success:** ClickUp comment only. Send report to #ops_amazon (CF9T43YMQ). No Slack logging.
-3. **Partial failure:** ClickUp comment + alert to #chloe-logs (C0AELHCGW4F)
+3. **Partial failure:** ClickUp comment + alert to #chloelogs (C0AELHCGW4F)
 4. **Critical failure:** ClickUp comment + alert to #chloebot (C0AD9AZ7R6F)
 
 ## ClickUp Logging (REQUIRED)

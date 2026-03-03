@@ -24,7 +24,7 @@ cd ~/amazon-data && source .venv/bin/activate && python collectors/buybox_checke
 
 ## Alerts & Delivery
 - **Successful completion:** ClickUp task comment only (no Slack alerts)
-- **Partial completion:** ClickUp task comment + alert #chloe-logs (C0AELHCGW4F)
+- **Partial completion:** ClickUp task comment + alert #chloelogs (C0AELHCGW4F)
 - **Critical failure:** ClickUp task comment + alert #chloebot (C0AD9AZ7R6F)
 
 ## Dependencies

@@ -100,6 +100,23 @@
 - Default `wakeMode: "now"` for scheduled jobs
 - Retry wrapper (`retry_wrapper.sh`) for Amazon API jobs
 
+## PR Opportunity Workflow (HARO/SOS) — Built Mar 2, 2026
+
+- Gmail webhook intercepts HARO/SOS emails via `gmail-security.js` transform
+- Senders: `haro@helpareporter.com`, `peter@shankman.com`, `peter@sourceofsources.com`
+- Two lanes: Product Placement + Thought Leadership
+- Scoring threshold: >= 70 out of 100
+- Draft packages emailed to `ramon@goven.com` (never contact reporters directly)
+- Notifications in `#mar_marketing` (C9T8MAM71)
+- Silent when no qualifying hits
+- Sheet: `1ekrQwL_OHI784GFm-E8KSPynNP4w4MyDYWKh3jELokc` (Opportunities tab)
+- Columns: Date, Source, Outlet, Summary, Reporter Name, Reporter Email, AI Score, AI Reasoning, Status, Thread ID, Last Action Date, Lane, Follow-up Due
+- Statuses: Draft 1 Ready → Sent 1 → Sent 2 → Sent 3 → Closed/Replied
+- BCC learning loop: Ramon BCCs chloemercer32@gmail.com when he sends a pitch → I study his edits, update pitch database, advance row status
+- Daily cron at 10 AM EST checks for 7-day follow-ups (job: `pr-followup-check`)
+- Playbooks: `playbooks/pr-opportunity-workflow.md` + `playbooks/pr-followup-check.md`
+- Learn from Ramon's rejections (Closed without sending)
+
 ## SEO Baseline (Feb 2025)
 - all7s.co ranks for ZERO keywords in top 100 (starting from scratch)
 - Google has 78 pages indexed

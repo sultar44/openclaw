@@ -44,7 +44,7 @@ Audit 9 areas, rating each as **Healthy** / **Watch** / **Risk** with evidence:
 - **Send health scorecard to:** #chloebot (C0AD9AZ7R6F)
 
 ### On Partial Failure
-- ClickUp task comment + alert to #chloe-logs (C0AELHCGW4F)
+- ClickUp task comment + alert to #chloelogs (C0AELHCGW4F)
 
 ### On Critical Failure
 - ClickUp task comment + alert to #chloebot (C0AD9AZ7R6F)

@@ -99,9 +99,9 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 ### Execution Logging Protocol
 - **All executions:** Post comment on ClickUp task with status + summary
 - **Success:** Mark task "complete" (recurring tasks auto-reopen on next due date)
-- **Partial failure:** Comment on task + message to #chloe-logs (C0AELHCGW4F)
+- **Partial failure:** Comment on task + message to #chloelogs (C0AELHCGW4F)
 - **Critical failure:** Comment on task + message to #chloebot (C0AD9AZ7R6F)
-- **No more routine logging to #chloe-logs** — only partial failures go there
+- **No more routine logging to #chloelogs** — only partial failures go there
 
 ### Adding New Cron Jobs
 When creating a new cron job, also:
@@ -121,7 +121,7 @@ When creating a new cron job, also:
 **Logging:** All cron jobs log to ClickUp (not Slack) by default:
 - Post execution comment to the matching ClickUp task via `clickup_integration.py`
 - Mark task "complete" on success
-- **Partial failures** → ClickUp comment + announce to #chloe-logs (C0AELHCGW4F)
+- **Partial failures** → ClickUp comment + announce to #chloelogs (C0AELHCGW4F)
 - **Critical failures** → ClickUp comment + announce to #chloebot (C0AD9AZ7R6F)
 - **Successes** → ClickUp comment only (no Slack message)
 - Config: `~/amazon-data/collectors/clickup_config.json`
@@ -134,6 +134,12 @@ When creating a new cron job, also:
 
 - Persistent instructions saved at: `/Users/ramongonzalez/.openclaw/workspace/playbooks/product-review-writing.md`
 - Use this playbook whenever Ramon asks for Amazon product review writing.
+
+## Email Post-Processing Rule (Ramon preference)
+
+- **After processing any forwarded email** (SOS, HARO, BCC learning loop, sold/ship-now, or any other), **archive it** in Gmail
+- This keeps Chloe's inbox as a "failure detector" — unprocessed emails remain visible
+- Use `gog gmail modify <messageId> --remove-labels INBOX` to archive
 
 ## Email Trigger Policy (Ramon preference)
 

@@ -21,7 +21,7 @@ cd ~/.openclaw/workspace && python canasta-rules/manage_strategy.py report
 - On failure, log error — non-critical
 
 ## Alerts & Delivery
-- **Log to:** #chloe-logs (C0AELHCGW4F)
+- **Log to:** #chloelogs (C0AELHCGW4F)
 - **Alert to:** None
 
 ## Dependencies

@@ -44,7 +44,7 @@ wholesale_pricing (6:00 AM) ← reads inventory from SQLite (no SP-API call for 
 
 ## Alerts & Delivery
 - **Success:** ClickUp task comment only (no Slack)
-- **Partial failure:** ClickUp task comment + alert #chloe-logs (C0AELHCGW4F)
+- **Partial failure:** ClickUp task comment + alert #chloelogs (C0AELHCGW4F)
 - **Critical failure:** ClickUp task comment + alert #chloebot (C0AD9AZ7R6F)
 
 ## Dependencies

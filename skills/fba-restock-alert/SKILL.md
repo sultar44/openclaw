@@ -39,7 +39,7 @@ cd ~/amazon-data && source .venv/bin/activate && python collectors/daily_invento
 - **Send restock report to:** #ops_amazon (CF9T43YMQ)
 
 ### On Partial Failure
-- ClickUp task comment + alert to #chloe-logs (C0AELHCGW4F)
+- ClickUp task comment + alert to #chloelogs (C0AELHCGW4F)
 
 ### On Critical Failure
 - ClickUp task comment + alert to #chloebot (C0AD9AZ7R6F)

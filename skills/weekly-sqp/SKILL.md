@@ -23,7 +23,7 @@ cd ~/amazon-data && source .venv/bin/activate && python collectors/weekly_sqp.py
 - On API throttle, backoff and continue
 
 ## Alerts & Delivery
-- **Standard hierarchy:** Success → ClickUp only, Partial failure → ClickUp + #chloe-logs (C0AELHCGW4F), Critical failure → ClickUp + #chloebot (C0AD9AZ7R6F)
+- **Standard hierarchy:** Success → ClickUp only, Partial failure → ClickUp + #chloelogs (C0AELHCGW4F), Critical failure → ClickUp + #chloebot (C0AD9AZ7R6F)
 
 ## Dependencies
 - `~/amazon-data/collectors/weekly_sqp.py`

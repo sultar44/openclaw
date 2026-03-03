@@ -24,7 +24,7 @@ openclaw gateway update
 
 ## Alerts & Delivery
 - **ClickUp task comment:** Status only — "✅ Updated to vX.Y.Z" or "ℹ️ No new update tonight" or "❌ Install failure: [reason]"
-- **#chloe-logs (C0AELHCGW4F):** Recommendations only — when there's a new version, post a summary of new features and how they could benefit our business
+- **#chloelogs (C0AELHCGW4F):** Recommendations only — when there's a new version, post a summary of new features and how they could benefit our business
 - **#chloebot (C0AD9AZ7R6F):** Only on critical failure
 
 ## Dependencies

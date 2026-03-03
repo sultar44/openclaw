@@ -33,7 +33,7 @@ Auto-discovers SQLite databases, creates encrypted tar backups, uploads to Googl
 - On success: mark ClickUp task complete (recurring tasks auto-reopen)
 
 ### On Partial Failure
-- ClickUp task comment + alert to #chloe-logs (C0AELHCGW4F)
+- ClickUp task comment + alert to #chloelogs (C0AELHCGW4F)
 
 ### On Critical Failure
 - ClickUp task comment + alert to #chloebot (C0AD9AZ7R6F)

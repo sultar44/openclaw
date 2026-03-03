@@ -49,7 +49,7 @@ State tracked in: `playbooks/better-hand-ps-state.json`
 
 ## Alert Hierarchy
 - **Always:** Comment on ClickUp task (86ewr928u)
-- **Partial failures:** ClickUp + #chloe-logs (C0AELHCGW4F)
+- **Partial failures:** ClickUp + #chloelogs (C0AELHCGW4F)
 - **Critical failures:** ClickUp + #chloebot (C0AD9AZ7R6F)
 - **Task completion:** #mar_marketing (C9T8MAM71) tagging @Ramon with review link
 - **Campaign created:** #mar_marketing (C9T8MAM71) with Klaviyo campaign link

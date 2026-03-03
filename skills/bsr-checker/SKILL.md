@@ -25,7 +25,7 @@ cd ~/amazon-data && source .venv/bin/activate && python collectors/bsr_checker.p
 - Log ASINs that failed to fetch
 
 ## Alerts & Delivery
-- **Log to:** #chloe-logs (C0AELHCGW4F)
+- **Log to:** #chloelogs (C0AELHCGW4F)
 - **Alert to:** #chloebot when P1='Ship' (shipping-ready items)
 
 ## Dependencies

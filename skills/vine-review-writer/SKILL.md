@@ -40,7 +40,7 @@ Follow: `~/.openclaw/workspace/playbooks/product-review-writing.md`
 
 ## Alert Hierarchy
 1. **Always:** Comment on ClickUp task + mark task complete
-2. **Partial failure** (some rows failed): ClickUp + #chloe-logs (C0AELHCGW4F)
+2. **Partial failure** (some rows failed): ClickUp + #chloelogs (C0AELHCGW4F)
 3. **Critical failure** (no rows processed): ClickUp + #chloebot (C0AD9AZ7R6F)
 4. **Success:** ClickUp only, no Slack
 
