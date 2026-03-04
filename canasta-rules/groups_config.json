@@ -9,10 +9,10 @@
       "source_prefix": "FB",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-01",
+      "last_post_date": "2026-03-03",
       "oldest_scraped_date": "2026-01-22",
-      "posts_scraped": 63,
-      "notes": "Scraped Mar 1 10:30 PM - 1 new rules entry (FB055: straight special hand requires Big Joker, A-K+Joker=14 cards, unanimous 18 comments; also clarified 'Garbage' is now 4-4-3-3 not a straight). Skipped: Sue Scheider (beginner question), MAC admin (tournament promo)."
+      "posts_scraped": 64,
+      "notes": "Scraped Mar 3 10:30 PM - 1 new rules entry (FB056: pack-taking rules when opening with 180, strong consensus 12 comments from top contributors; pair used to pick pack CAN be from meld but meld must stand alone without pack). Skipped: Patricia Susan (LFG Westchester), Marilyn Robinson (LFG Boynton Beach), Marilyn Banack (YouTube video share)."
     },
     {
       "id": "ccg",
@@ -73,8 +73,8 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-03-02T22:30:00-05:00",
-  "last_primary_result": "CL scraped: 0 new entries. Reviewed ~15 posts since Feb 28 — all social/intro/promo, no rules/strategy content.",
+  "last_primary_run": "2026-03-03T22:30:00-05:00",
+  "last_primary_result": "MAC scraped: 1 new entry (FB056). Reviewed ~5 posts since Mar 1 — 1 rules post (Lydia Weiselberg, pack-taking when opening), rest LFG/promo/video shares.",
   "last_backup_run": "2026-02-13T05:36:00-05:00",
   "last_backup_result": "No-op: duplicate trigger #14+ at 05:36 AM. Backup completed 05:05-05:08 AM (1 new post: FB034). CRON JOB STILL FIRING REPEATEDLY - needs schedule fix urgently.",
   "cron_issue_detected": "2026-02-13T05:02:00-05:00",

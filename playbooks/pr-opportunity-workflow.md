@@ -42,21 +42,80 @@ Each parsed query is classified into one of three lanes:
 - Outlet relevance/quality: 0-20
 - Actionability (clear ask + deadline + contact): 0-20
 
-Threshold: **>= 70 → draft package.** Below 70 → ignore.
+Threshold: **>= 70 → proceed to domain quality check.** Below 70 → ignore.
+
+## Domain Quality Gate (ETV Check)
+
+After a query scores >= 70, check the outlet's domain quality BEFORE drafting:
+
+1. Extract the outlet domain from the query
+2. Run: `cd ~/amazon-data/collectors && python3 pr_domain_checker.py <domain>`
+3. This calls DataForSEO Labs (~$0.01/lookup) and returns Estimated Monthly Traffic (ETV)
+
+**Rules:**
+- **ETV >= 1,000** → Qualifies. Proceed to draft email.
+- **ETV < 1,000** → Skip. Do NOT create a row. Do NOT draft an email. Silent skip.
+- If the domain can't be resolved or has no data → skip (assume too small)
+- **Exception:** If the outlet syndicates to a major platform (MSN, Yahoo, etc.), it qualifies regardless of its own domain ETV. Check the syndication target's ETV instead.
+
+Log the ETV value in the sheet's "ETV" column for qualifying opportunities.
+
+## Placement Cooldown Check
+
+After ETV passes, check the Placements tab for cooldown conflicts BEFORE drafting:
+
+1. Run: `cd ~/amazon-data/collectors && python3 pr_placement_checker.py <domain> "<guide type>"`
+2. This checks the Placements tab for same outlet + same seasonal guide group within the last 12 months.
+
+**Seasonal groups** (queries in the same group are considered duplicates):
+- **spring:** spring, easter, mother's day
+- **summer:** summer, father's day, graduation
+- **fall:** fall, back to school, halloween, thanksgiving
+- **holiday:** holiday, christmas, winter, black friday
+- **general:** reviews, roundups, features (non-seasonal)
+
+**Rules:**
+- **BLOCKED** → Same outlet + same seasonal group within 12 months = skip silently. No row, no draft.
+- **CLEAR** → Proceed to draft email.
+- Same outlet + DIFFERENT seasonal group = fine (e.g. ConsumerQueen Spring 2026 → ConsumerQueen Holiday 2026 is OK)
+
+**When a row status changes to "Replied":**
+1. Add entry to the Placements tab: Date, Outlet, Domain, Reporter, Guide Type, Notes
+2. This ensures future queries against the same outlet+season are caught
+
+Script: `~/amazon-data/collectors/pr_placement_checker.py`
 
 ## Email Drafting Rules
 
-### Standard Links (include where appropriate in all drafts)
-- Website: https://all7s.co
-- Amazon product: https://www.amazon.com/dp/B07KBB1WJS?th=1&psc=1
-- Free Canasta course: https://canastacourse.com
+### Link Strategy (IMPORTANT - backlink priority)
+The #1 goal of every PR email is to earn backlinks to **all7s.co**, not Amazon.
+
+**Link hierarchy:**
+1. **Primary (always include):** https://all7s.co — this is our website, our Shopify store, and where we want backlinks pointed
+2. **Secondary (mention only):** Amazon — only include if the reporter explicitly asks for an Amazon/marketplace link, or if the guide format requires a marketplace buy link. Use: https://www.amazon.com/dp/B07KBB1WJS?th=1&psc=1
+3. **Course link:** https://canastacourse.com — include when relevant (note: this builds Kajabi's domain, not ours)
+
+**"Where can I buy it?"** → all7s.co (it IS a store, they can buy there)
+**Reporter says "Amazon link only"** → provide Amazon link
+**Gift guide with buy links** → all7s.co product page as primary, "also available on Amazon" as secondary
+**Default in all drafts** → all7s.co featured prominently, Amazon mentioned casually if at all
+
+**Why:** all7s.co has zero domain authority. Every quality backlink from an editorial site builds the foundation for organic traffic. Amazon.com (DA ~96) doesn't need our backlinks. We're building all7s.co's authority now so that when the $60 premium set launches and we turn on Meta ads, the site already has SEO traction.
+
+**In practice:** When drafting emails, weave in "learn more at all7s.co" or "visit us at all7s.co" naturally. If including a product link, use the all7s.co product page URL rather than the Amazon listing URL.
+
+### Sender Email
+- **Always send from:** ramon@all7s.co (brand recognition, credibility)
+- **NOT from:** ramon@goven.com (editors don't know Goven, weakens brand connection)
+- Include "SEND FROM: ramon@all7s.co" in every draft package to Ramon
 
 ### PR Spreadsheet Link (include at bottom of every draft email to Ramon)
 - https://docs.google.com/spreadsheets/d/1ekrQwL_OHI784GFm-E8KSPynNP4w4MyDYWKh3jELokc/edit?gid=0#gid=0
 
 ### Product Placement Lane
-- Lead with the Canasta Deluxe Set ($26 on Amazon)
+- Lead with the Canasta Deluxe Set ($26 at all7s.co)
 - Mention: women 50+ audience, brain health + social connection angle
+- Link to all7s.co product page, NOT Amazon
 - Offer to send a complimentary set for review
 - Include product images/links if requested
 - Keep concise, professional, warm
@@ -111,17 +170,19 @@ Sheet ID: `1ekrQwL_OHI784GFm-E8KSPynNP4w4MyDYWKh3jELokc`
 Tab: `Opportunities`
 Service account: `openclaw-sheets@lustrous-bounty-460801-b9.iam.gserviceaccount.com`
 
-Columns (existing): Date, Source, Outlet, Summary, Reporter Name, Reporter Email, AI Score, AI Reasoning, Status, Thread ID, Last Action Date
-
-Additional columns to append if missing: Lane, Follow-up Due
+Columns: Date, Source, Outlet, Summary, Reporter Name, Reporter Email, AI Score, AI Reasoning, Status, Last Action Date, Lane, Follow-up Due, ETV
 
 ### Status Values
-- `Draft 1 Ready` — row added, email package sent to Ramon
-- `Sent 1` — Ramon forwarded Email 1 to reporter
-- `Sent 2` — Ramon forwarded Email 2 (follow-up 1)
-- `Sent 3` — Ramon forwarded Email 3 (follow-up 2)
+- `Draft 1 Ready` — Chloe drafted Email 1, sent package to Ramon
+- `Sent 1` — Ramon forwarded Email 1 to reporter (set via BCC learning loop)
+- `Draft 2 Ready` — Chloe drafted follow-up Email 2, sent package to Ramon
+- `Sent 2` — Ramon forwarded Email 2 to reporter (set via BCC learning loop)
+- `Draft 3 Ready` — Chloe drafted follow-up Email 3, sent package to Ramon (SOS only)
+- `Sent 3` — Ramon forwarded Email 3 to reporter (set via BCC learning loop)
 - `Replied` — Reporter responded (Ramon takes over)
 - `Closed` — Rejected by Ramon or abandoned after 3 attempts
+
+**RULE:** Chloe ONLY sets "Draft X Ready" statuses. "Sent X" is ONLY set via the BCC learning loop when Ramon actually forwards the email.
 
 ## Slack Notification
 Post in `#mar_marketing` (C9T8MAM71) when a package is sent:
@@ -161,5 +222,6 @@ This keeps the inbox clean so Ramon can spot unprocessed emails (failure detecti
 - **No hardcoded API keys**
 - **Tread Lightly with HARO**: HARO (Help A Reporter Out) is aggressively banning/shadowbanning accounts suspected of using AI for pitches. They use AI detection tools like Pangram.
 - **Humanization Requirement**: Before sending any draft package to Ramon, the draft MUST be run through the `humanizer-pro` skill to remove AI patterns and sound authentic.
+- **Em Dash Ban (CRITICAL)**: All drafts must have ZERO em dashes (—). This is Ramon's #1 content rule. Check explicitly after humanizing.
 - **HARO Follow-up Policy**: For HARO specifically, we will ONLY send one follow-up (Sent 2) if no response. Do not send Sent 3 for HARO sources to avoid spam flagging.
 - Use OpenClaw's native LLM for scoring/drafting.

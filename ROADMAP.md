@@ -1,6 +1,6 @@
 # ROADMAP.md — Chloe + Ramon 12-Month Plan
 
-*Last updated: 2026-02-25*
+*Last updated: 2026-03-03*
 
 ---
 
@@ -50,24 +50,25 @@
 
 | Task | Description | Effort |
 |------|-------------|--------|
-| FBA restock alerts | "Ship XXX units to US/CA" based on velocity + lead time | 3-5 days |
-| AWD integration | Monitor AWD levels, trigger replenishment recommendations | 2-3 days |
+| ~~AWD integration~~ | ✅ Done — AWD monitoring + replenishment recommendations | Done |
+| FBA restock alerts | 🔧 In progress — "Ship XXX units to US/CA" based on velocity + lead time | 3-5 days |
+| PO projection model | 🔧 In progress — Forecast demand → recommend China PO quantities + timing | 1 week |
 | Canada manual process docs | Document current CA workflow, identify automation points | 1 day |
-| PO projection model | Forecast demand → recommend China PO quantities + timing | 1 week |
 
 ### Phase 3: Marketing & Content (2-4 months)
 
 | Task | Description | Effort |
 |------|-------------|--------|
-| Klaviyo integration | Connect API, build post-purchase flows (check-in → testimonial → referral → upsell) | 3-5 days |
-| Sunday Ritual content engine | Tracker for article ideas, drafts, publish dates, performance metrics | 1-2 days |
+| ~~Klaviyo integration~~ | ✅ Done — API connected, flows built | Done |
+| Sunday Ritual content engine | 🔧 In progress — Tracker for article ideas, drafts, publish dates, performance metrics | 1-2 days |
 | Short-form video analytics | Track views, engagement, comments across platforms; identify what works | 2-3 days |
 | Short-form video ideas | Research trends, generate ideas for approval | Ongoing |
 | Video scripts | Write scripts based on approved ideas | Ongoing |
-| Newsletter topics | Research + propose weekly/biweekly topics | Ongoing |
+| Newsletter topics | 🔧 In progress — Research + propose weekly/biweekly topics | Ongoing |
 | Newsletter drafts | Write full drafts for approval | Ongoing |
-| Blog research | SEO keyword research, competitor content gaps | 2-3 days |
+| Blog research | 🔧 In progress — SEO keyword research, competitor content gaps | 2-3 days |
 | Blog writing | Draft posts for approval | Ongoing |
+| PR outreach system | ✅ Done — Reactive (HARO/SOS) + Proactive (cold pitches) + Monthly discovery | Done |
 
 ### Phase 4: PPC & Listings (2-4 months)
 

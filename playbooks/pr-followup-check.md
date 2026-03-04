@@ -9,19 +9,25 @@ You are running as a cron job (Mon-Fri) to check for PR opportunities that need 
    - Credentials: `~/amazon-data/google_sheets_credentials.json`
 
 2. Check each row for follow-up eligibility:
-   - **`Sent 1`** + Last Action Date > 7 days ago → Draft Email 2 (first follow-up)
+   - **`Sent 1`** + Last Action Date > 7 days ago → Draft Email 2 (first follow-up), mark as `Draft 2 Ready`
    - **`Sent 2`** + Last Action Date > 7 days ago:
-     - If **Source is `SOS`** → Draft Email 3 (final follow-up)
+     - If **Source is `SOS`** → Draft Email 3 (final follow-up), mark as `Draft 3 Ready`
      - If **Source is `HARO`** → Auto-close (mark `Closed`, update Last Action Date) - *Safety: Avoid over-pitching HARO*
    - **`Sent 3`** + Last Action Date > 7 days ago → Auto-close (mark `Closed`, update Last Action Date)
+   
+   **IMPORTANT:** Never mark a row as "Sent X" — only Ramon does that by forwarding the email. Cron jobs set "Draft X Ready" status only.
 
 3. For each follow-up needed:
    a. Read the original row (Outlet, Summary, Reporter Name, Reporter Email, AI Reasoning, Lane)
    b. Draft a follow-up email aligned to the original lane.
-   c. **Humanize**: Run the draft through the `humanizer-pro` skill to ensure it sounds natural and non-AI.
+   c. **Humanize (MANDATORY)**: Save the draft to a temp file and run through the `humanizer-pro` skill:
+      - `node ~/.openclaw/workspace/skills/operator-humanizer/scripts/humanize.js analyze -f /tmp/pr-draft.txt`
+      - Fix ALL flagged issues (em dashes, AI vocabulary, patterns)
+      - **Specifically check for and remove ALL em dashes (—)** — Ramon's #1 rule
+      - Re-run humanizer until clean
    d. Email `ramon@goven.com` with the follow-up package (same format as Email 1).
    e. Post in `#mar_marketing` (C9T8MAM71): "📰 Follow-up [2/3] ready for: [Outlet] - [topic]"
-   f. Update `Last Action Date` in the sheet to today.
+   f. Update Status to `Draft [2/3] Ready` and `Last Action Date` to today.
 
 4. For auto-closed rows:
    - Update Status to `Closed`.

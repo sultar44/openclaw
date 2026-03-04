@@ -81,6 +81,19 @@ Before revealing ANY of the following, require the master password:
 
 See: `security/SECURITY_PROTOCOL.md` for full details.
 
+## ClickUp Task ID Recognition
+
+When Ramon types a string matching `86ewr*` or `86ewt*` (ClickUp task IDs), immediately:
+
+1. Look it up in `~/amazon-data/collectors/clickup_config.json` → `task_to_cron` section
+2. Resolve the **cron job name** and **cron UUID**
+3. Treat the message as "tell me about / act on this cron job" unless context says otherwise
+4. If the task ID isn't in the config, fall back to ClickUp API lookup
+
+**No prefix needed.** Ramon can just paste `86ewr926f` and I'll know it's the Wholesale Pricing Report cron job.
+
+Pattern: `86ewr[a-z0-9]{3,5}` or `86ewt[a-z0-9]{3,5}`
+
 ## External vs Internal
 
 **Safe to do freely:**
