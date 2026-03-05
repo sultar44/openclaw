@@ -10,7 +10,7 @@ Transform AI-generated text into authentic human writing by removing robotic pat
 ## What This Skill Does
 
 **Core Capabilities:**
-- Detects 24 AI writing patterns (significance inflation, promotional language, filler phrases, etc.)
+- Detects 27 AI writing patterns (significance inflation, promotional language, filler phrases, LLM artifacts, etc.)
 - Identifies 500+ AI vocabulary terms across 3 severity tiers
 - Analyzes statistical signals (burstiness, type-token ratio, sentence uniformity)
 - Removes chatbot artifacts and sycophantic tone
@@ -91,7 +91,7 @@ Remove these automatically:
 - "It is important to note that" → (just say it)
 - "In the event that" → "if"
 
-## The 24 Patterns (Quick Reference)
+## The 27 Patterns (Quick Reference)
 
 For full details with examples, see `references/patterns.md`.
 
@@ -101,11 +101,11 @@ For full details with examples, see `references/patterns.md`.
 | 2 | Notability name-dropping | Listing media outlets without specific claims |
 | 3 | Superficial -ing analyses | "...showcasing... reflecting... highlighting..." |
 | 4 | Promotional language | "nestled", "breathtaking", "stunning", "renowned" |
-| 5 | Vague attributions | "Experts believe", "Studies show", "Industry reports" |
+| 5 | Vague attributions | "Experts believe", "Studies show", "several publications" |
 | 6 | Formulaic challenges | "Despite challenges... continues to thrive" |
 | 7 | AI vocabulary (500+ words) | "delve", "tapestry", "landscape", "showcase" |
 | 8 | Copula avoidance | "serves as", "boasts" instead of "is", "has" |
-| 9 | Negative parallelisms | "It's not just X, it's Y" |
+| 9 | Negative parallelisms | "It's not just X, it's Y" / "Not X, but Y" |
 | 10 | Rule of three | "innovation, inspiration, and insights" |
 | 11 | Synonym cycling | "protagonist... main character... central figure..." |
 | 12 | False ranges | "from the Big Bang to dark matter" |
@@ -121,14 +121,17 @@ For full details with examples, see `references/patterns.md`.
 | 22 | Filler phrases | "In order to", "Due to the fact that" |
 | 23 | Excessive hedging | "could potentially possibly", "might arguably" |
 | 24 | Generic conclusions | "The future looks bright", "Exciting times lie ahead" |
+| 25 | Unnecessary tables | Small rigid tables that should be prose |
+| 26 | Markdown leakage | `**bold**`, `## headers` in non-Markdown output |
+| 27 | LLM reference artifacts | `turn0search0`, `utm_source=chatgpt.com`, `oaicite` |
 
 ## Vocabulary Tiers
 
 ### Tier 1 (Dead Giveaways - NEVER USE)
-delve, tapestry, vibrant, crucial, comprehensive, meticulous, embark, robust, seamless, groundbreaking, leverage, synergy, transformative, paramount, multifaceted, myriad, cornerstone, reimagine, empower, catalyst, invaluable, bustling, nestled, realm
+delve, tapestry, vibrant, crucial, comprehensive, meticulous/meticulously, embark, robust, seamless, groundbreaking, leverage, synergy, transformative, paramount, multifaceted, myriad, cornerstone, reimagine, empower, catalyst, invaluable, bustling, nestled, realm
 
 ### Tier 2 (Suspicious - Use Sparingly)
-furthermore, moreover, paradigm, holistic, utilize, facilitate, nuanced, illuminate, encompasses, catalyze, proactive, ubiquitous, quintessential
+furthermore, moreover, paradigm, holistic, utilize, facilitate, nuanced, illuminate, encompasses, catalyze, proactive, ubiquitous, quintessential, boasts (meaning "has")
 
 ### Tier 3 (Context-Dependent - Watch Density)
 landscape (abstract), journey (metaphorical), ecosystem, framework, roadmap, touchpoint, pain point, streamline, optimize, scalable

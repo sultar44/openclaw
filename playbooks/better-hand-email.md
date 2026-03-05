@@ -16,9 +16,16 @@ Always: `The Better Hand: [Topic Hook] 🃏`
 ### Preview Text
 One punchy line that creates curiosity. Never generic.
 
+### Format: Plain Text Only (Updated March 4, 2026)
+- **No HTML at all.** Plain text emails only.
+- Klaviyo template: set `text` field only. Include minimal HTML wrapper for email clients that require it, but content is plain text.
+- **Font size: 20px** (Georgia serif, 1.5 line height) — applies to all Better Hand and Sunday Ritual emails.
+- No bold, no links with anchor text. Use bare URLs.
+- No images, logos, or social icons.
+
 ### Writing Style (Humanizer Rules — apply to ALL written content)
 - Use clear, simple language. Short sentences. Active voice.
-- **No em dashes.** Use periods or commas instead.
+- **No em dashes.** Use periods, commas, or colons instead.
 - No metaphors or cliches.
 - No hype adjectives or unnecessary adverbs.
 - No wrap-up phrases like "in conclusion."
@@ -43,10 +50,11 @@ One punchy line that creates curiosity. Never generic.
 6. **Sign-off:** "Warmly, Ramon"
 7. **P.S.:** Rotating (see below)
 
-### P.S. Rotation (3-week cycle)
-1. **Course:** "P.S. Taking our free Canasta course? 500+ players are already in. Start here → [course link]"
-2. **Social:** "P.S. We share tips like this every week on Instagram. Come say hi → [IG link]"
-3. **Engagement:** "P.S. What's your go-to opening strategy? Hit reply and tell us — we read every one."
+### P.S. Rotation (3-week cycle, ALL reply-only, no links)
+Better Hand emails use their 1 allowed link for the Amazon store CTA. No room for course or social links.
+1. **Story:** "P.S. Got a Canasta story that still makes you laugh? Reply and tell us. We collect the best ones."
+2. **Strategy:** "P.S. What's your go-to opening strategy? Hit reply and tell us. We read every one."
+3. **Feedback:** "P.S. Did last week's tip change anything at your table? Reply and tell us. We love hearing what works."
 
 ### What to Skip
 - Product images

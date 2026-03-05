@@ -54,6 +54,8 @@
 - Store URL: Amazon storefront with attribution tag
 - Sign-off: "Warmly, Ramon"
 - **Better Hand #1 performance: 48.68% open rate, 6.58% CTR** — excellent baseline
+- **PS rotation: reply-only prompts** (story/strategy/feedback). No links. Amazon CTA uses the 1 allowed link.
+- Brand socials are "playall7s" (FB/IG/TT/YT) but dormant. Video content going to "Ramon Gonzalez" personal pages per agency advice.
 
 ### Sunday Ritual (Sunday, community/story email)
 - Stories about women who built connection on purpose
@@ -66,7 +68,10 @@
 - Evergreen flow (not campaigns) — each subscriber gets #1 first, then weekly
 
 ### Deliverability Rules (all relationship emails)
-- Plain text HTML, no Klaviyo templates, no images/logos/social icons
+- **Plain text only. No HTML at all.** (Updated March 4, 2026)
+- **Font size: 20px** (Georgia serif, 1.5 line height) for all emails
+- No Klaviyo templates, no images/logos/social icons
+- No bold, no anchor-text links. Bare URLs only.
 - Minimize links (1 content link + unsubscribe)
 - Klaviyo personalization: `{{ person.first_name|default:'friend' }}`
 

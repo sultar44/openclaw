@@ -135,6 +135,24 @@ The Haolai River supports several endemic fish species, according to a 2019 surv
 
 **Why it works:** Names specific source, cites specific finding, removes vague "experts believe" claim.
 
+#### Sub-pattern: Overgeneralization of Source Quantity
+
+AI also exaggerates how widely held an opinion is. It presents views from one or two sources as if many agree, or implies lists are non-exhaustive when sources give no such indication.
+
+**Words to watch:**
+- "several publications have cited"
+- "multiple sources confirm"
+- "numerous experts agree"
+- "such as" (before exhaustive lists presented as non-exhaustive)
+
+**Before:**
+Her approach has been praised by several industry publications, including Forbes and TechCrunch, as a new paradigm for content marketing.
+
+**After:**
+A 2024 Forbes profile described her approach as "refreshingly direct" for B2B content.
+
+**Why it works:** One specific citation with a real quote replaces vague "several publications" claims. If only two sources exist, don't imply there are more.
+
 ---
 
 ### Pattern 6: Outline-like "Challenges and Future Prospects" Sections
@@ -478,6 +496,58 @@ The company plans to open two more locations next year.
 
 ---
 
+---
+
+## Pattern 25: Unnecessary Tables
+
+**What it is:** AI creates small, rigid tables for information that would read better as prose. This is especially common for statistics, comparisons, and key facts.
+
+**Before:**
+| Metric | Value |
+|--------|-------|
+| Market Size | $2.1 billion |
+| Growth Rate | 12% annually |
+| Key Players | Company A, Company B |
+
+**After:**
+The market is worth about $2.1 billion and growing around 12% annually, led by Company A and Company B.
+
+**Why it works:** Prose is more natural and readable. Tables feel like auto-generated data dumps. Use tables only when comparing 4+ items across 3+ dimensions.
+
+---
+
+## Pattern 26: Markdown Leakage
+
+**What it is:** AI chatbots default to Markdown formatting (`**bold**`, `## headers`, `[links](url)`). When output is pasted into non-Markdown contexts (blogs, articles, emails), Markdown syntax leaks through.
+
+**Signs to watch:**
+- `**bold text**` instead of actual bold
+- `## Section Header` instead of proper heading
+- `[link text](url)` instead of hyperlinks
+- ` ```code blocks``` ` in non-technical writing
+- Triple backticks or fenced code blocks
+
+**Why it matters:** Markdown in published prose is a dead giveaway of copy-pasted AI output. Always convert to the target format.
+
+---
+
+## Pattern 27: LLM Reference Artifacts
+
+**What it is:** ChatGPT and other LLMs leave technical artifacts in their output that get copy-pasted into published text.
+
+**Artifacts to watch:**
+- `turn0search0`, `turn0search1` (ChatGPT citation placeholders)
+- `oaicite:0`, `contentReference[oaicite:0]` (ChatGPT reference bugs)
+- `utm_source=chatgpt.com` or `utm_source=openai` in URLs
+- `utm_source=copilot.com` in URLs from Microsoft Copilot
+- `referrer=grok.com` in URLs from Grok
+- `[attached_file:1]` (Perplexity citation markers)
+- `[INSERT_X_HERE]` placeholder templates the user forgot to fill in
+
+**Why it matters:** These are 100% proof of AI involvement. Scan all URLs and reference sections before publishing.
+
+---
+
 ## Quick Detection Checklist
 
 Use this checklist for rapid pattern scanning:
@@ -506,6 +576,10 @@ Use this checklist for rapid pattern scanning:
 - [ ] Check for "in order to", "due to the fact that", etc.
 - [ ] Look for stacked hedges (could possibly potentially might)
 - [ ] Check last paragraph for "future looks bright" or similar
+- [ ] Look for small unnecessary tables (should be prose)
+- [ ] Check for Markdown syntax leakage (`**bold**`, `## headers`)
+- [ ] Scan URLs for `utm_source=chatgpt.com` or similar LLM tracking params
+- [ ] Look for `turn0search`, `oaicite`, `[attached_file]` artifacts
 
 **If 5+ patterns detected:** Text is very likely AI-generated
 **If 10+ patterns detected:** Text is almost certainly AI-generated

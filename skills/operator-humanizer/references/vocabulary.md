@@ -37,7 +37,7 @@ Complete database of 500+ AI-telltale words and phrases across 3 severity tiers.
 - indelible
 - invaluable
 - leverage
-- meticulous
+- meticulous / meticulously
 - multifaceted
 - myriad
 
@@ -76,6 +76,24 @@ Complete database of 500+ AI-telltale words and phrases across 3 severity tiers.
 - "it is worth noting"
 - "it's important to note"
 
+### Tier 1 Phrases (Additional)
+
+- "maintains an active social media presence"
+- "maintains a strong digital presence"
+- "keeps much of [their] personal life private"
+- "not widely documented/available/disclosed"
+- "based on available information"
+
+### Era-Specific Vocabulary Shifts
+
+AI vocabulary evolves as models update. Knowing which words map to which era helps identify when AI text was generated:
+
+- **2023–mid 2024 (GPT-4 era):** Additionally, boasts, bolstered, crucial, delve, emphasizing, enduring, garner, intricate/intricacies, interplay, key, landscape, meticulous/meticulously, pivotal, underscore, tapestry, testament, valuable, vibrant
+- **Mid 2024–mid 2025 (GPT-4o era):** align with, bolstered, crucial, emphasizing, enhance, enduring, fostering, highlighting, pivotal, showcasing, underscore, vibrant
+- **Mid 2025+ (GPT-5 era):** emphasizing, enhance, highlighting, showcasing (plus heavy attribution/notability language)
+
+**Key trend:** Later models use fewer obvious Tier 1 words but shift toward subtler patterns like over-attribution, source name-dropping, and "active social media presence" claims.
+
 ### Why Tier 1 Terms Are Banned
 
 These words rarely appear in human writing but are extremely common in LLM output. They're "educated" vocabulary that sounds smart but feels artificial. Humans prefer simpler alternatives:
@@ -97,6 +115,7 @@ These words rarely appear in human writing but are extremely common in LLM outpu
 **A-F:**
 - additionally
 - align / alignment
+- boasts (meaning "has")
 - bolster
 - catalyze
 - cultivate

@@ -49,7 +49,30 @@ const FILLER_PHRASES = [
 const CHATBOT_PHRASES = [
   'i hope this helps', 'great question', 'certainly!', 'of course!',
   'you\'re absolutely right', 'would you like', 'let me know',
-  'here is a', 'here are some'
+  'here is a', 'here are some', 'maintains an active social media presence',
+  'maintains a strong digital presence', 'keeps much of his personal life private',
+  'keeps much of her personal life private', 'not widely documented',
+  'based on available information'
+];
+
+// LLM reference artifacts (Pattern 27)
+const LLM_ARTIFACT_PATTERNS = [
+  /turn0search\d+/gi,
+  /oaicite:\d+/gi,
+  /contentReference\[oaicite:\d+\]/gi,
+  /utm_source=(chatgpt\.com|openai|copilot\.com)/gi,
+  /referrer=grok\.com/gi,
+  /\[attached_file:\d+\]/gi,
+  /\[INSERT_[A-Z_]+\]/gi,
+  /oai_citation:\d+/gi
+];
+
+// Markdown leakage patterns (Pattern 26)
+const MARKDOWN_PATTERNS = [
+  /\*\*[^*]+\*\*/g,   // **bold**
+  /^#{1,6}\s+/gm,     // ## headers
+  /\[([^\]]+)\]\(([^)]+)\)/g,  // [text](url)
+  /```[\s\S]*?```/g   // fenced code blocks
 ];
 
 /**
@@ -153,6 +176,30 @@ function detectFillerPhrases(text) {
 }
 
 /**
+ * Detect LLM reference artifacts (Pattern 27)
+ */
+function detectLLMArtifacts(text) {
+  const matches = [];
+  for (const pattern of LLM_ARTIFACT_PATTERNS) {
+    const found = text.match(pattern);
+    if (found) matches.push(...found);
+  }
+  return matches;
+}
+
+/**
+ * Detect Markdown leakage (Pattern 26)
+ */
+function detectMarkdownLeakage(text) {
+  const matches = [];
+  for (const pattern of MARKDOWN_PATTERNS) {
+    const found = text.match(pattern);
+    if (found) matches.push(...found.slice(0, 5)); // cap at 5 examples
+  }
+  return matches;
+}
+
+/**
  * Calculate composite AI score
  */
 function calculateAIScore(text) {
@@ -163,6 +210,8 @@ function calculateAIScore(text) {
   const chatbot = detectChatbotArtifacts(text);
   const emDashes = detectEmDashes(text);
   const filler = detectFillerPhrases(text);
+  const llmArtifacts = detectLLMArtifacts(text);
+  const markdownLeaks = detectMarkdownLeakage(text);
   
   // Score individual components (0-100)
   const bScore = burstiness.burstiness < 0.2 ? 100 : 
@@ -182,16 +231,20 @@ function calculateAIScore(text) {
   const chatbotScore = chatbot.length * 30;
   const emDashScore = emDashes > 5 ? 50 : emDashes > 2 ? 25 : 0;
   const fillerScore = filler.length * 10;
+  const artifactScore = llmArtifacts.length > 0 ? 100 : 0; // Instant flag
+  const markdownScore = markdownLeaks.length > 3 ? 40 : markdownLeaks.length > 0 ? 20 : 0;
   
-  // Weighted composite
+  // Weighted composite (adjusted weights to fit new signals)
   const composite = Math.min(100, 
-    bScore * 0.15 +
-    tScore * 0.10 +
-    cScore * 0.15 +
-    vocabScore * 0.30 +
-    chatbotScore * 0.15 +
+    bScore * 0.12 +
+    tScore * 0.08 +
+    cScore * 0.12 +
+    vocabScore * 0.25 +
+    chatbotScore * 0.13 +
     emDashScore * 0.05 +
-    fillerScore * 0.10
+    fillerScore * 0.08 +
+    artifactScore * 0.10 +
+    markdownScore * 0.07
   );
   
   return {
@@ -203,7 +256,9 @@ function calculateAIScore(text) {
       vocabulary: { tier1: vocab.tier1Words.length, tier2: vocab.tier2Words.length, score: Math.min(100, vocabScore) },
       chatbot: { count: chatbot.length, score: Math.min(100, chatbotScore) },
       emDashes: { count: emDashes, score: emDashScore },
-      filler: { count: filler.length, score: Math.min(100, fillerScore) }
+      filler: { count: filler.length, score: Math.min(100, fillerScore) },
+      llmArtifacts: { count: llmArtifacts.length, score: artifactScore },
+      markdownLeakage: { count: markdownLeaks.length, score: markdownScore }
     },
     details: {
       burstiness,
@@ -211,7 +266,9 @@ function calculateAIScore(text) {
       cov,
       vocab,
       chatbot,
-      filler
+      filler,
+      llmArtifacts,
+      markdownLeaks
     }
   };
 }
@@ -294,6 +351,24 @@ function generateSuggestions(analysis) {
     });
   }
   
+  if (analysis.details.llmArtifacts.length > 0) {
+    suggestions.push({
+      priority: 'HIGH',
+      category: 'LLM Artifacts',
+      issue: `Found ${analysis.details.llmArtifacts.length} LLM artifact(s): ${analysis.details.llmArtifacts.slice(0, 3).join(', ')}`,
+      fix: 'Remove all LLM reference artifacts (turn0search, oaicite, utm_source params). These are 100% AI proof.'
+    });
+  }
+  
+  if (analysis.details.markdownLeaks.length > 0) {
+    suggestions.push({
+      priority: 'MEDIUM',
+      category: 'Markdown Leakage',
+      issue: `Found ${analysis.details.markdownLeaks.length} Markdown syntax instance(s)`,
+      fix: 'Convert Markdown to target format. Remove **bold**, ## headers, [link](url) syntax.'
+    });
+  }
+  
   return suggestions;
 }
 
@@ -323,7 +398,9 @@ function printReport(analysis) {
   console.log(`Tier 2 Vocabulary: ${analysis.components.vocabulary.tier2} words (${Math.min(100, analysis.components.vocabulary.tier2 * 5)}/100)`);
   console.log(`Chatbot Artifacts: ${analysis.components.chatbot.count} (${analysis.components.chatbot.score}/100)`);
   console.log(`Filler Phrases: ${analysis.components.filler.count} (${Math.min(100, analysis.components.filler.score)}/100)`);
-  console.log(`Em Dashes: ${analysis.components.emDashes.count} (${analysis.components.emDashes.score}/100)\n`);
+  console.log(`Em Dashes: ${analysis.components.emDashes.count} (${analysis.components.emDashes.score}/100)`);
+  console.log(`LLM Artifacts: ${analysis.components.llmArtifacts.count} (${analysis.components.llmArtifacts.score}/100)`);
+  console.log(`Markdown Leakage: ${analysis.components.markdownLeakage.count} (${analysis.components.markdownLeakage.score}/100)\n`);
 }
 
 /**

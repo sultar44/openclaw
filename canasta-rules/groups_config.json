@@ -9,10 +9,12 @@
       "source_prefix": "FB",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-03",
+      "last_post_date": "2026-03-04",
       "oldest_scraped_date": "2026-01-22",
       "posts_scraped": 64,
-      "notes": "Scraped Mar 3 10:30 PM - 1 new rules entry (FB056: pack-taking rules when opening with 180, strong consensus 12 comments from top contributors; pair used to pick pack CAN be from meld but meld must stand alone without pack). Skipped: Patricia Susan (LFG Westchester), Marilyn Robinson (LFG Boynton Beach), Marilyn Banack (YouTube video share)."
+      "pending_review": "1894138884805102",
+      "pending_review_note": "Amy Beer Brown - 3s scoring penalties when no canastas (red vs black). Posted Mar 4 ~10 PM, only 2 comments from Top contributors (Shoshana Fluss Pilevsky, Penny Goldner Reich). Both agree on 100/300/500/1000 scale per color. Let marinate for more responses.",
+      "notes": "Scraped Mar 4 10:30 PM - bonus check alongside CL primary run. 0 new entries. 1 fresh rules post flagged for tomorrow (Amy Beer Brown, 3s scoring). Skipped: Sue Scheider (general newbie), MAC Admin (tournament promo), Marilyn Banack (YouTube share)."
     },
     {
       "id": "ccg",
@@ -36,10 +38,10 @@
       "source_prefix": "CL",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-02",
+      "last_post_date": "2026-03-04",
       "posts_scraped": 19,
       "oldest_scraped_date": "2026-01-10",
-      "notes": "Scraped Mar 2 10:30 PM - reviewed ~15 new posts since Feb 28. All social/intro/promo, zero rules/strategy content. Skipped: Diane Taggart (beginner intro), Deborah Fleischer (Samba classes), Barbara Talty (game screenshot), Jodi Blieberg Shapiro (tournament promo), Marilyn Rosenzweig (LFG Spring Hill), Donna Miller-Small (Miraval retreat promo), Wendy Werner Roos (Etsy promo), Eileen Cohen Bachrad (Etsy promo), Barbara Kelly (beginner intro), Dara Collins (MAC tournament promo), Denise Cooperman Brachman (Etsy promo), Judi Friedberg (photos x2), David Grant (LFG Boca), Judy Reines (social intro)."
+      "notes": "Scraped Mar 4 10:30 PM (primary run) - reviewed ~12 new posts since Mar 2. All social/intro/promo, zero rules/strategy content. Skipped: Judi Friedberg (Instagram sketch share), Diane Taggart (beginner intro), Barbara Talty (game screenshot - wilds hand), Jodi Blieberg Shapiro (tournament promo Scarsdale), Marilyn Rosenzweig (LFG Spring Hill), Donna Miller-Small (Miraval retreat promo), Wendy Werner Roos (Etsy scorekeeping promo), Dara Collins (MAC tournament promo), Denise Cooperman Brachman (Etsy joker spinner promo), Judi Friedberg (photo), Judy Reines (social intro), Bonnie Glick Witler (welcome comment)."
     },
     {
       "id": "cpg",
@@ -73,8 +75,8 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-03-03T22:30:00-05:00",
-  "last_primary_result": "MAC scraped: 1 new entry (FB056). Reviewed ~5 posts since Mar 1 — 1 rules post (Lydia Weiselberg, pack-taking when opening), rest LFG/promo/video shares.",
+  "last_primary_run": "2026-03-04T22:30:00-05:00",
+  "last_primary_result": "CL primary + MAC bonus check. 0 new entries. CL: ~12 posts reviewed, all social/promo. MAC: 1 fresh rules post flagged for tomorrow (Amy Beer Brown, 3s scoring penalties, post 1894138884805102).",
   "last_backup_run": "2026-02-13T05:36:00-05:00",
   "last_backup_result": "No-op: duplicate trigger #14+ at 05:36 AM. Backup completed 05:05-05:08 AM (1 new post: FB034). CRON JOB STILL FIRING REPEATEDLY - needs schedule fix urgently.",
   "cron_issue_detected": "2026-02-13T05:02:00-05:00",
