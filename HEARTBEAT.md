@@ -1,22 +1,15 @@
 # HEARTBEAT.md
 
-## 🔧 Cron Watchdog (EVERY heartbeat)
-Run the watchdog script to detect and recover missed cron jobs:
+## 🔧 Lightweight Cron Health Check (EVERY heartbeat)
+Quick check: run `openclaw cron list --json` (ONE call) and scan for:
+- `consecutiveErrors >= 3` → alert #chloebot with job name
+- `lastStatus: "error"` on jobs that ran in the last 2 hours → note but don't alert (single errors are normal)
+- Any job with `runningAtMs` that's been running > 2x its normal duration → alert #chloebot
 
-```bash
-cd ~/amazon-data && source .venv/bin/activate && python collectors/cron_watchdog.py --run
-```
+**DO NOT** run the full `cron_watchdog.py` script. That's been retired.
+**DO NOT** call `openclaw cron runs` for individual jobs. One `list` call is enough.
 
-This script:
-- Gets all cron jobs from OpenClaw
-- Calculates when each should have last run
-- Compares to actual `nextRunAtMs` 
-- If a job was skipped (nextRunAtMs too far ahead), runs it with `--force`
-
-If any jobs are recovered, alert #chloebot and post ClickUp comments:
-"🔄 Cron Watchdog recovered X missed job(s): [names]"
-
-**Skip if:** Last watchdog ran < 30 minutes ago (check `memory/heartbeat-state.json`)
+If nothing looks wrong, move on silently.
 
 ## Daily Cron Audit (once per day, early morning)
 If it's between 5:00-6:00 AM EST and you haven't audited today:

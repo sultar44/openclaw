@@ -175,6 +175,15 @@
 - DataForSEO set up with $0.50/day budget cap, $10 min balance floor
 - Top target keywords: "canasta rules" (12,100/mo), "how to play canasta" (6,600/mo)
 
+## Ramon's Socials (Content Strategy)
+- **Full working doc:** `memory/ramons-socials.md` (load when Ramon says "Ramon's socials" or discusses video/content strategy)
+- 4-pillar video strategy: Isolation/Ritual (10), Famous Women (5), The Table (10), Practical (5)
+- Idea Bank in Google Sheet: `1l9VL3DCkz3MNe2kAGy6obqmEulvffmX1UdIGgVIx_YU` (Idea Bank tab + Scripts Archive tab + Content Tracker tab)
+- Batch 1 (30 videos) already shot, posting starts March 6, 2026
+- Batch 2 scripts in review with new 4-pillar approach
+- Kallaway framework is the strategic foundation
+- Email strategy is SEPARATE from video strategy (discussed separately)
+
 ## Working With Ramon
 
 - Filter all advice through: "Does this help All7s, Canasta, community, or email growth?"
