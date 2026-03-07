@@ -194,7 +194,8 @@ def generate_report():
         report.append(f"\n--- {source.upper()} ({len(source_entries)} entries) ---\n")
         
         for e in source_entries:
-            report.append(f"[{e['id']}]")
+            entry_id = e.get('id') or e.get('entry_id', 'NO_ID')
+            report.append(f"[{entry_id}]")
             if e.get('question'):
                 report.append(f"Q: {e['question'][:100]}...")
             elif e.get('title'):

@@ -9,10 +9,10 @@
       "source_prefix": "FB",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-05",
+      "last_post_date": "2026-03-06",
       "oldest_scraped_date": "2026-01-22",
-      "posts_scraped": 66,
-      "notes": "Scraped Mar 5 10:30 PM - resolved pending Amy Beer Brown post (FB035, 3s scoring penalties, 4 comments strong consensus). Captured Chris Bradley post (FB036, closed rank/dead cards, 34 comments unanimous). Skipped: MAC Admin (tournament promo Ft Lauderdale), Patricia Susan (LFG Westchester), Marilyn Robinson (LFG Boynton Beach)."
+      "posts_scraped": 68,
+      "notes": "Scraped Mar 6 10:30 PM - 2 new entries. FB057 (Michele Miele, two questions: joker discard in straight special hand + taking back cards after pack, 6 comments unanimous). FB058 (Wendy Klang, wild card discard when only card left, 5 comments unanimous). Skipped: David Grant (LFG Boca Raton), MAC Admin (tournament promo Tuesday)."
     },
     {
       "id": "ccg",
@@ -25,7 +25,7 @@
       "lookback_complete": true,
       "last_post_date": "2026-02-12",
       "posts_scraped": 1,
-      "notes": "Scraped Mar 5 10:45 PM - reviewed New Posts feed. Latest posts: Alan Bakst (CanastaMatch beta promo), Jill Greenstein Fine (LFG Palm Beach), Ash Moran (LFG Australia), Howard Norris (Play OK cheating rant), Judi Pedersen (LFG Port St Lucie). All social/promo, zero rules content. Posts are weeks old. Continue low-frequency monitoring."
+      "notes": "Scraped Mar 5 10:45 PM - reviewed New Posts feed. All social/promo, zero rules content. Posts are weeks old. Skipped Mar 6 (low-frequency monitoring, checked 24h ago)."
     },
     {
       "id": "cl",
@@ -36,10 +36,10 @@
       "source_prefix": "CL",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-05",
-      "posts_scraped": 19,
+      "last_post_date": "2026-03-06",
+      "posts_scraped": 21,
       "oldest_scraped_date": "2026-01-10",
-      "notes": "Scraped Mar 5 10:40 PM - reviewed New Posts feed. Latest posts: Judi Friedberg (Instagram reel share), Diane Taggart (beginner intro), Barbara Talty (game screenshot wilds hand), Jodi Blieberg Shapiro (Shuffle Sisters tournament promo Scarsdale). All social/intro/promo, zero rules content."
+      "notes": "Scraped Mar 6 10:30 PM - 2 new entries. CL020 (Helaine Tantleff Neiman, opening with dirty closed canasta, 20 comments moderate consensus YES with points+clean triple). CL021 (Judy Levinthal Workman, pack vs talon when melding, 10 comments unanimous NO). Skipped: Donna Bottone Bianco (celebration post special hand), Donna Miller-Small (instructor recruitment Long Island), David Grant (LFG Boca), Sheryl Herzberg (score pad promo)."
     },
     {
       "id": "cpg",
@@ -64,7 +64,7 @@
       "lookback_complete": true,
       "last_post_date": "2026-02-12",
       "posts_scraped": 0,
-      "notes": "Scraped Mar 5 10:50 PM - reviewed New Posts feed. Latest posts: Judi Goldman Weinberg (synagogue event link), Cathy Kabinoff Hauserman (no game March 10 announcement), Wendy Werner Roos (Etsy coasters promo). All social/promo, zero rules content. Continue low-frequency monitoring."
+      "notes": "Scraped Mar 5 10:50 PM - all social/promo, zero rules content. Skipped Mar 6 (low-frequency monitoring, checked 24h ago)."
     }
   ],
   "schedule": {
@@ -73,6 +73,6 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-03-05T22:30:00-05:00",
-  "last_primary_result": "MAC primary: 2 new entries (FB035 3s scoring penalties, FB036 closed ranks). CL/CCG/NYMC: all social, 0 new entries. CPG: awaiting approval."
+  "last_primary_run": "2026-03-06T22:30:00-05:00",
+  "last_primary_result": "CL primary: 2 new entries (CL020 dirty canasta opening, CL021 pack vs talon). MAC: 2 new entries (FB057 joker discard + take back cards, FB058 wild card discard). CCG/NYMC: skipped (low-frequency). CPG: awaiting approval."
 }
