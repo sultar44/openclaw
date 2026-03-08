@@ -67,6 +67,9 @@
 - Multi-phase workflow: Thu draft → Ramon review → revisions → publish blog + Klaviyo
 - Evergreen flow (not campaigns) — each subscriber gets #1 first, then weekly
 
+### Course Link (Updated Mar 7, 2026)
+- **Use all7s.co/courses** (NOT canastacourse.com) for all blog CTAs and links going forward
+
 ### Deliverability Rules (all relationship emails)
 - **Plain text only. No HTML at all.** (Updated March 4, 2026)
 - **Font size: 20px** (Georgia serif, 1.5 line height) for all emails

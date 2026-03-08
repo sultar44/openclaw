@@ -112,6 +112,12 @@ The #1 goal of every PR email is to earn backlinks to **all7s.co**, not Amazon.
 ### PR Spreadsheet Link (include at bottom of every draft email to Ramon)
 - https://docs.google.com/spreadsheets/d/1ekrQwL_OHI784GFm-E8KSPynNP4w4MyDYWKh3jELokc/edit?gid=0#gid=0
 
+### Product Image (ALWAYS include in email body)
+- Include this URL in the draft body so Ramon can easily add the image:
+  https://cdn.shopify.com/s/files/1/0828/1692/5979/files/canasta_ffbb7786-59c7-451b-81f2-f03824363710.png?v=1772579041
+- Format in draft as: "Product image: [URL]" so Ramon can set it as an inline image when forwarding
+- This saves Ramon from searching for the image every time
+
 ### Product Placement Lane
 - Lead with the Canasta Deluxe Set ($26 at all7s.co)
 - Mention: women 50+ audience, brain health + social connection angle
@@ -222,6 +228,6 @@ This keeps the inbox clean so Ramon can spot unprocessed emails (failure detecti
 - **No hardcoded API keys**
 - **Tread Lightly with HARO**: HARO (Help A Reporter Out) is aggressively banning/shadowbanning accounts suspected of using AI for pitches. They use AI detection tools like Pangram.
 - **Humanization Requirement**: Before sending any draft package to Ramon, the draft MUST be run through the `humanizer-pro` skill to remove AI patterns and sound authentic.
-- **Em Dash Ban (CRITICAL)**: All drafts must have ZERO em dashes (—). This is Ramon's #1 content rule. Check explicitly after humanizing.
+- **Em Dash Ban (CRITICAL)**: ALL text must have ZERO em dashes (—). This includes the email body, subject lines, suggested subject lines, wrapper text, and the email package subject sent to Ramon. Check EVERYTHING, not just the body. Use hyphens (-) or rewrite.
 - **HARO Follow-up Policy**: For HARO specifically, we will ONLY send one follow-up (Sent 2) if no response. Do not send Sent 3 for HARO sources to avoid spam flagging.
 - Use OpenClaw's native LLM for scoring/drafting.
