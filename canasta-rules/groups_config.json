@@ -9,10 +9,10 @@
       "source_prefix": "FB",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-07",
+      "last_post_date": "2026-03-08",
       "oldest_scraped_date": "2026-01-22",
-      "posts_scraped": 69,
-      "notes": "Scraped Mar 7 10:30 PM - 1 new entry. FB059 (Merri Geri, can next player pick pack after last card drawn from stock, 18 comments unanimous YES). Skipped: Andrew Freedman (Real Canasta app/bot feedback), David Grant (LFG Boca Raton)."
+      "posts_scraped": 70,
+      "notes": "Scraped Mar 8 10:30 PM - 1 new entry. FB060 (Andrew Freedman, replace red 3 from talon before drawing - strategy best practice, 23 comments unanimous). Skipped: Andrew Freedman (Real Canasta app/bot feedback), Leslie Carol Berg Weiss (3 in hand scoring - already scraped)."
     },
     {
       "id": "ccg",
@@ -25,7 +25,7 @@
       "lookback_complete": true,
       "last_post_date": "2026-02-12",
       "posts_scraped": 1,
-      "notes": "Skipped Mar 7 (low-frequency monitoring, checked Mar 5). Next check Mar 8."
+      "notes": "Checked Mar 8 - no new rules/strategy content. Wade Holden scoring app promo, Alan Bakst CanastaMatch beta promo, old LFG posts. Next check Mar 11."
     },
     {
       "id": "cl",
@@ -36,10 +36,10 @@
       "source_prefix": "CL",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-07",
-      "posts_scraped": 22,
+      "last_post_date": "2026-03-08",
       "oldest_scraped_date": "2026-01-10",
-      "notes": "Scraped Mar 7 10:30 PM - 1 new entry. CL022 (Amy Beer Brown, late initial meld at turn card - can you take full talon?, 14 comments unanimous NO - only turn card). Skipped: Wade Holden (scoring app promo), Amy Beer Brown (welcome/intro post), Donna Bottone Bianco (special hand celebration), Donna Miller-Small (instructor recruitment Long Island)."
+      "posts_scraped": 22,
+      "notes": "Scraped Mar 8 10:30 PM - 0 new entries. Skipped: Donna Bottone Bianco (special hand celebration), Wade Holden (scoring app promo), Amy Beer Brown (welcome/intro), David Grant (LFG Boca), Donna Miller-Small (instructor recruitment Long Island), Elizabeth Borman Liebovitz (Canasta events community)."
     },
     {
       "id": "cpg",
@@ -64,7 +64,7 @@
       "lookback_complete": true,
       "last_post_date": "2026-02-12",
       "posts_scraped": 0,
-      "notes": "Skipped Mar 7 (low-frequency monitoring, checked Mar 5). Next check Mar 8."
+      "notes": "Checked Mar 8 - no new rules/strategy content. Andrew Freedman (app feedback cross-post), Judi Goldman Weinberg (synagogue event), Cathy Kabinoff Hauserman (game cancellation), Wendy Werner Roos (coasters for sale). Next check Mar 11."
     }
   ],
   "schedule": {
@@ -73,6 +73,6 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-03-07T22:30:00-05:00",
-  "last_primary_result": "MAC: 1 new entry (FB059 pack pickup after last stock card). CL: 1 new entry (CL022 talon at turn card). CCG/NYMC: skipped (low-frequency). CPG: awaiting approval."
+  "last_primary_run": "2026-03-08T22:30:00-05:00",
+  "last_primary_result": "MAC: 1 new entry (FB060 red 3 talon replacement strategy). CL: 0 new entries (quiet day). CCG/NYMC: checked, no content. CPG: awaiting approval."
 }

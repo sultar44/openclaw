@@ -136,6 +136,14 @@ If Chloe-generated scripts need minimal agency editing, Ramon may shift to self-
 - Calm, reflective tone (but hooks can be confrontational/provocative)
 - CTA on select videos only (comment-based preferred)
 
+### Gender Voice Rule (Mirror, Don't Lecture)
+Ramon is a man speaking to women 50+. Specificity ("women") builds connection, but delivery matters.
+- **Keep "women" when mirroring a shared experience:** "After fifty, many women stop hosting" — empathy, observation
+- **Switch to "you/your/the ones who" when it could sound prescriptive:** "The women who wait are the loneliest" → "If you're waiting for the invitation, you'll wait forever"
+- **Test:** "I see this happening" = mirror ✅ | "Women need to stop doing X" = lecture ❌
+- A man standing *beside* his audience, not above them
+- Apply this rule to all future script writing, email copy, and content
+
 ---
 
 ## Email vs Video (Separate Topic — To Be Discussed)
