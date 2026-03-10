@@ -293,6 +293,16 @@
 ## Slack Bot Capabilities
 - `files:read` + `files:write` scopes added (Mar 6, 2026) — Chloe can now see images shared in Slack
 
+## Fridge Moments — Gianna's Business (SEPARATE)
+- **Channel:** #fridgemoments (C0AKA6QRCVB)
+- **Rule:** When in this channel, ONLY discuss Fridge Moments. No Amazon, no All7s, no main business.
+- Custom photo fridge magnets, Shopify/Etsy only
+- Domain: fridgemoments.com
+- Budget: $1,000 total
+- Phase 1: Inkjet → Phase 2: Sublimation (after 25 sales)
+- Drive folder: 0ANkC691BDrRwUk9PVA
+- Profit sheet: 1fIsb896d2md7EGmS0QXh78fOi7QkyjS81k4JPQzmTs4
+
 ## Pending Items
 - **all7s.com domain acquisition:** Reached out to owner (disbanded CA heavy metal band) via Facebook as Chloe. Message viewed, awaiting response. Budget: under $1,000. Use Escrow.com if they respond.
 - **Postiz self-hosting:** Revisit June 5 for batch video scheduling automation (replace manual posting flow)

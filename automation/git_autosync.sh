@@ -68,4 +68,22 @@ else
   git push -u origin "$BRANCH" --follow-tags
 fi
 
-log "SUCCESS: autosync completed"
+log "SUCCESS: workspace autosync completed"
+
+# --- Also sync ~/amazon-data (local-only, no remote) ---
+AMAZON_DIR="/Users/ramongonzalez/amazon-data"
+if [ -d "$AMAZON_DIR/.git" ]; then
+  log "--- amazon-data sync ---"
+  cd "$AMAZON_DIR"
+  git add -A
+  if ! git diff --cached --quiet; then
+    git commit -m "nightly auto-commit ${timestamp_human}"
+    log "amazon-data: committed changes"
+  else
+    log "amazon-data: no changes to commit"
+  fi
+else
+  log "amazon-data: not a git repo, skipping"
+fi
+
+log "SUCCESS: all repos synced"

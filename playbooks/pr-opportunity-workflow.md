@@ -176,6 +176,8 @@ Sheet ID: `1ekrQwL_OHI784GFm-E8KSPynNP4w4MyDYWKh3jELokc`
 Tab: `Opportunities`
 Service account: `openclaw-sheets@lustrous-bounty-460801-b9.iam.gserviceaccount.com`
 
+**Row insertion order: NEWEST ON TOP.** Always insert new rows at row 2 (right under the header). Push existing rows down. This keeps the most recent opportunities visible at the top.
+
 Columns: Date, Source, Outlet, Summary, Reporter Name, Reporter Email, AI Score, AI Reasoning, Status, Last Action Date, Lane, Follow-up Due, ETV
 
 ### Status Values

@@ -9,10 +9,10 @@
       "source_prefix": "FB",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-08",
+      "last_post_date": "2026-03-09",
       "oldest_scraped_date": "2026-01-22",
-      "posts_scraped": 70,
-      "notes": "Scraped Mar 8 10:30 PM - 1 new entry. FB060 (Andrew Freedman, replace red 3 from talon before drawing - strategy best practice, 23 comments unanimous). Skipped: Andrew Freedman (Real Canasta app/bot feedback), Leslie Carol Berg Weiss (3 in hand scoring - already scraped)."
+      "posts_scraped": 74,
+      "notes": "Scraped Mar 9 10:30 PM - 4 new entries. FB061 (Adele Schubert Reinstein, red 3 as last stock card ends game immediately, 3 comments majority). FB062 (Leslie Carol Berg Weiss, cannot pick pack to open with dirty aces - must be clean, 10 comments unanimous, page 37 confirmed). FB063 (Lynda Garber, Splash = clean canasta opening worth 500 not 3500, not a special hand, 6 comments unanimous). FB064 (Merri Geri, cannot discard joker strategically to avoid points unless only wilds remain, 5 comments unanimous). Skipped: Debbie Dobin Perkiss (LFG post), Kathy Fortier (LFG/teacher search), Andrew Freedman (Real Canasta app feedback)."
     },
     {
       "id": "ccg",
@@ -73,6 +73,6 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-03-08T22:30:00-05:00",
-  "last_primary_result": "MAC: 1 new entry (FB060 red 3 talon replacement strategy). CL: 0 new entries (quiet day). CCG/NYMC: checked, no content. CPG: awaiting approval."
+  "last_primary_run": "2026-03-09T22:30:00-05:00",
+  "last_primary_result": "MAC: 4 new entries (FB061 red 3 last card, FB062 dirty aces pack pickup, FB063 splash definition, FB064 joker discard rules). CL/CCG/NYMC: not checked tonight (CCG/NYMC next check Mar 11, CL next run). CPG: awaiting approval."
 }

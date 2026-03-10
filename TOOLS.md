@@ -103,11 +103,16 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 - **Critical failure:** Comment on task + message to #chloebot (C0AD9AZ7R6F)
 - **No more routine logging to #chloelogs** — only partial failures go there
 
-### Adding New Cron Jobs
-When creating a new cron job, also:
-1. Create a ClickUp task in list 901816342276
-2. Add the cron_id → task_id mapping to `clickup_config.json`
-3. Set due date and recurrence matching the cron schedule
+### 🚨 Cron Creation Checklist (MANDATORY)
+Every new cron job requires ALL FOUR in the same action. No exceptions:
+1. **Create the cron job** in OpenClaw
+2. **Create a ClickUp task** in list 901816342276
+3. **Add a row to the Cron Registry sheet** (`1aPek6nXAht0BYkO5fR-ildJ4u7gnOFSsXMyqjDXMPDQ`, tab: Cron Registry)
+4. **Update `clickup_config.json`** with cron_id → task_id mapping
+
+The Cron Registry sheet is the source of truth. The daily sync (6:15 AM) catches orphans, but that's the safety net, not the process.
+
+If a cron job is **recreated** (new ID), update the sheet row + clickup_config.json immediately.
 
 ---
 
@@ -118,13 +123,17 @@ When creating a new cron job, also:
 - `"now"` = triggers immediately at scheduled time ✅
 - `"next-heartbeat"` = waits for heartbeat, unreliable for timed jobs ❌
 
+**Cron Registry Sheet:** `1aPek6nXAht0BYkO5fR-ildJ4u7gnOFSsXMyqjDXMPDQ` (tab: Cron Registry)
+- Source of truth for all cron jobs, ClickUp mappings, objectives, outcomes
+- Daily sync playbook: `playbooks/cron-registry-sync.md`
+
 **Logging:** All cron jobs log to ClickUp (not Slack) by default:
 - Post execution comment to the matching ClickUp task via `clickup_integration.py`
 - Mark task "complete" on success
 - **Partial failures** → ClickUp comment + announce to #chloelogs (C0AELHCGW4F)
 - **Critical failures** → ClickUp comment + announce to #chloebot (C0AD9AZ7R6F)
 - **Successes** → ClickUp comment only (no Slack message)
-- Config: `~/amazon-data/collectors/clickup_config.json`
+- Config: `~/amazon-data/collectors/clickup_config.json` (local cache, sheet is authority)
 
 **Important:** Just putting "send a message to channel X" in the payload text doesn't work for isolated sessions. You MUST set the delivery config explicitly.
 
