@@ -9,10 +9,10 @@
       "source_prefix": "FB",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-09",
+      "last_post_date": "2026-03-10",
       "oldest_scraped_date": "2026-01-22",
-      "posts_scraped": 74,
-      "notes": "Scraped Mar 9 10:30 PM - 4 new entries. FB061 (Adele Schubert Reinstein, red 3 as last stock card ends game immediately, 3 comments majority). FB062 (Leslie Carol Berg Weiss, cannot pick pack to open with dirty aces - must be clean, 10 comments unanimous, page 37 confirmed). FB063 (Lynda Garber, Splash = clean canasta opening worth 500 not 3500, not a special hand, 6 comments unanimous). FB064 (Merri Geri, cannot discard joker strategically to avoid points unless only wilds remain, 5 comments unanimous). Skipped: Debbie Dobin Perkiss (LFG post), Kathy Fortier (LFG/teacher search), Andrew Freedman (Real Canasta app feedback)."
+      "posts_scraped": 76,
+      "notes": "Scraped Mar 10 10:30 PM - 2 new entries. FB065 (Anita Pfeil, pack picking requirements for initial meld - don't need extra queens beyond natural pair, Florida table rules vs MAC, 10 comments near-unanimous). FB066 (Sheryl Robin, black 3s always combined as team for scoring - not kept separate until meld, 9 comments unanimous on 3s, sub-debate on hand penalties for Aces/7s)."
     },
     {
       "id": "ccg",
@@ -25,7 +25,7 @@
       "lookback_complete": true,
       "last_post_date": "2026-02-12",
       "posts_scraped": 1,
-      "notes": "Checked Mar 8 - no new rules/strategy content. Wade Holden scoring app promo, Alan Bakst CanastaMatch beta promo, old LFG posts. Next check Mar 11."
+      "notes": "Checked Mar 10 - no new rules/strategy content. Wade Holden scoring app promo, Alan Bakst beta test promo, LFG posts only. Next check Mar 14."
     },
     {
       "id": "cl",
@@ -36,10 +36,10 @@
       "source_prefix": "CL",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-08",
+      "last_post_date": "2026-03-09",
       "oldest_scraped_date": "2026-01-10",
-      "posts_scraped": 22,
-      "notes": "Scraped Mar 8 10:30 PM - 0 new entries. Skipped: Donna Bottone Bianco (special hand celebration), Wade Holden (scoring app promo), Amy Beer Brown (welcome/intro), David Grant (LFG Boca), Donna Miller-Small (instructor recruitment Long Island), Elizabeth Borman Liebovitz (Canasta events community)."
+      "posts_scraped": 23,
+      "notes": "Scraped Mar 10 10:30 PM - 1 new entry. CL023 (Joe Santoro Jr., no special hands in 2-player/1v1 canasta, 8 comments unanimous). Skipped: Wade Holden (app promo), Donna Bottone Bianco (special hand celebration), Donna Miller-Small (instructor/event), Dara Collins (tournament promo), multiple LFG/welcome posts, product promos."
     },
     {
       "id": "cpg",
@@ -64,7 +64,7 @@
       "lookback_complete": true,
       "last_post_date": "2026-02-12",
       "posts_scraped": 0,
-      "notes": "Checked Mar 8 - no new rules/strategy content. Andrew Freedman (app feedback cross-post), Judi Goldman Weinberg (synagogue event), Cathy Kabinoff Hauserman (game cancellation), Wendy Werner Roos (coasters for sale). Next check Mar 11."
+      "notes": "Checked Mar 10 - no new rules/strategy content. David Grant (LFG Boca), Bonnie Bergman Keiles (welcome post), Andrew Freedman (Real Canasta app feedback), south FL game cancellations. Next check Mar 14."
     }
   ],
   "schedule": {
@@ -73,6 +73,6 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-03-09T22:30:00-05:00",
-  "last_primary_result": "MAC: 4 new entries (FB061 red 3 last card, FB062 dirty aces pack pickup, FB063 splash definition, FB064 joker discard rules). CL/CCG/NYMC: not checked tonight (CCG/NYMC next check Mar 11, CL next run). CPG: awaiting approval."
+  "last_primary_run": "2026-03-10T22:30:00-05:00",
+  "last_primary_result": "CL: 1 new entry (CL023 no special hands in 1v1). MAC: 2 new entries (FB065 pack picking/Florida rules, FB066 black 3s team scoring). CCG: no rules content. NYMC: no rules content. CPG: awaiting approval."
 }
