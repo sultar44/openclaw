@@ -1,8 +1,10 @@
 # PR Follow-up Check (Daily Cron)
 
-You are running as a cron job (Mon-Fri) to check for PR opportunities that need follow-up emails.
+You are running as a cron job (Mon-Fri) to check for PR follow-ups across BOTH tabs.
 
 ## Steps
+
+### Part 1: Opportunities Tab (HARO/SOS — 7-day follow-up)
 
 1. Read the PR Opportunities sheet (ID: `1ekrQwL_OHI784GFm-E8KSPynNP4w4MyDYWKh3jELokc`, tab: `Opportunities`)
    - Use service account via: `cd ~/amazon-data && source .venv/bin/activate && python3 -c "..."`
@@ -34,36 +36,77 @@ You are running as a cron job (Mon-Fri) to check for PR opportunities that need 
    - Update Last Action Date to today.
    - No notifications needed.
 
-5. If nothing needs follow-up → reply with ONLY: NO_REPLY
+---
 
-## Email Package Format (same as initial)
-```
-Subject: PR Follow-up [2/3]: [Outlet] - [Brief Topic]
+### Part 2: Outreach Tab (Cold Pitches — 14-day follow-up)
 
-REPORTER: [Name]
-EMAIL: [reporter@email.com] (Email to use when forwarding)
-OUTLET: [Outlet Name]
-FOLLOW-UP: Email [2/3]
-ORIGINAL SENT: [date of last action]
+5. Read the same sheet, tab: `Outreach`
+   - Columns: Publication(A), Article Title(B), Guide URL(C), Guide Type(D), Author/Editor(E), Email(F), ETV(G), Last Updated(H), Expected Update(I), Pitch Window(J), Email 1 Date(K), Email 2 Date(L), Email 3 Date(M), Status(N), Notes(O), Cycle(P)
 
---- EMAIL BODY (copy and forward) ---
+6. Check each row for follow-up eligibility:
+   - **`Sent 1`** + Email 1 Date > 14 days ago + Email 2 Date is empty → Draft Email 2, mark as `Email 2 Ready`
+   - **`Sent 2`** + Email 2 Date > 14 days ago + Email 3 Date is empty → Draft Email 3, mark as `Email 3 Ready`
+   - **`Sent 3`** + Email 3 Date > 14 days ago → Auto-close (mark `No Response`, no notification needed)
 
-[Full humanized follow-up draft ready to forward]
+   **IMPORTANT:** Never mark a row as "Sent X" — only Ramon does that by forwarding the email.
 
---- ORIGINAL REQUEST ---
+7. For each Outreach follow-up needed:
+   a. Read the row: Publication, Article Title, Guide URL, Author/Editor, Email, Guide Type, Notes
+   b. Draft a follow-up email per the outreach playbook rules:
+      - **Email 2:** Short. Reference Email 1. One new angle or value-add (customer testimonial, sales milestone, social proof). Reiterate offer to send a set. Link to all7s.co product page.
+      - **Email 3:** Final touch. Acknowledge they're busy. One compelling data point. Leave the door open. No pressure.
+   c. **Humanize (MANDATORY)**: Same process as Opportunities — run through humanizer, fix ALL issues, zero em dashes.
+   d. Email `ramon@goven.com` with the follow-up package:
+   ```
+   Subject: PR Outreach Follow-up [2/3]: [Publication] - [Article Title]
 
-[Full original query text from the HARO/SOS email]
+   EDITOR: [Name]
+   EMAIL: [editor@email.com] (Email to use when forwarding)
+   PUBLICATION: [Publication Name]
+   ARTICLE: [Article Title]
+   GUIDE URL: [URL]
+   FOLLOW-UP: Email [2/3]
+   LAST EMAIL SENT: [Email 1 or 2 date]
+   SEND FROM: ramon@all7s.co
 
---- END ---
-```
+   --- EMAIL BODY (copy and forward) ---
+
+   [Full humanized follow-up draft ready to forward]
+
+   --- END ---
+   ```
+   e. Post in `#mar_marketing` (C9T8MAM71): "📰 Outreach follow-up [2/3] ready for: [Publication] - [Article Title]"
+   f. Update Status to `Email [2/3] Ready` (do NOT fill in the Email 2/3 Date — that happens when Ramon sends it via BCC loop)
+
+8. For auto-closed Outreach rows:
+   - Update Status to `No Response`
+   - No notifications needed
+
+---
+
+### Part 3: New Outreach Emails Due (Pitch Window Check)
+
+9. Also check for Outreach rows where:
+   - Status is `Queued` or `Ready to Pitch`
+   - Pitch Window date has arrived or passed (today >= Pitch Window)
+   - Email 1 Date is empty
+   → Draft Email 1 per the outreach playbook, send package to Ramon, mark as `Email 1 Ready`
+   → Post in `#mar_marketing`: "📰 New outreach pitch ready for: [Publication] - [Article Title]"
+
+---
+
+## Final Step
+
+10. If nothing needs action across both tabs → reply with ONLY: NO_REPLY
 
 ## ClickUp Logging
 After completion, log to ClickUp using the integration script:
 ```bash
-cd ~/amazon-data && source .venv/bin/activate && python3 collectors/clickup_integration.py --cron-id pr-followup-check --status success --summary \"Checked X rows, Y follow-ups sent, Z auto-closed\"
+cd ~/amazon-data && source .venv/bin/activate && python3 collectors/clickup_integration.py --cron-id pr-followup-check --status success --summary "Opportunities: X follow-ups, Y auto-closed. Outreach: X follow-ups, Y new pitches, Z auto-closed"
 ```
 
 ## Safety
-- Never email reporters directly
+- Never email reporters/editors directly
 - Only email ramon@goven.com
-- Only update Status and Last Action Date columns
+- Only update Status columns (never fill in "Sent X" or Email dates — that's Ramon's action via BCC loop)
+- All emails must use SEND FROM: ramon@all7s.co

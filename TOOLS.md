@@ -150,11 +150,12 @@ If a cron job is **recreated** (new ID), update the sheet row + clickup_config.j
 - This keeps Chloe's inbox as a "failure detector" — unprocessed emails remain visible
 - Use `gog gmail modify <messageId> --remove-labels INBOX` to archive
 
-## Email Trigger Policy (Ramon preference)
+## Email Trigger Policy (Updated Mar 11, 2026)
 
-- **Always use Gmail Pub/Sub webhook** (`openclaw webhooks gmail`) for email-triggered workflows
-- **Never use polling crons or heartbeat checks** for email detection
-- Process: Gmail → Pub/Sub → Tailscale funnel → OpenClaw hook → session with playbook
+- **Primary: Polling cron every 30 min** — "Gmail Inbox Processor" (`61b00e02`)
+- Gmail Pub/Sub watcher is broken (stale historyId bug in gog) — do not rely on it
+- Cron checks full inbox, classifies each email, processes via appropriate playbook
+- Playbook: `playbooks/gmail-poll-safety-net.md`
 - Create a playbook in `playbooks/` for each email trigger type
 
 ## What Goes Here
@@ -192,7 +193,8 @@ Add whatever helps you do your job. This is your cheat sheet.
 ## Google Drive API (Service Account)
 
 - **Always use `supportsAllDrives=True`** on all Drive API calls (get, update, list, etc.)
-- Without it, the SA gets 404 even on files it has Editor access to
+- **Always use `includeItemsFromAllDrives=True`** on all `files().list()` calls — all folders are on a Shared Drive
+- Without these flags, the SA gets 404s or empty results even on files it has access to
 - The SA email: `openclaw-sheets@lustrous-bounty-460801-b9.iam.gserviceaccount.com`
 - Credentials: `~/amazon-data/google_sheets_credentials.json`
 - Scopes needed: `drive` and `drive.file`

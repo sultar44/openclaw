@@ -51,7 +51,9 @@ export async function updateEntry(
   const entries = await loadEntries();
 
   for (const e of entries) {
-    if (e.id !== entryId) continue;
+    // Match on id or entry_id (FB scrape entries use entry_id)
+    const eid = e.id ?? (e as Record<string, unknown>).entry_id;
+    if (eid !== entryId) continue;
     e.status = newStatus;
     e.reviewed_at = new Date().toISOString();
 

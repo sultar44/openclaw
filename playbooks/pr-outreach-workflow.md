@@ -28,8 +28,10 @@ Columns: Publication, Article Title, Guide URL, Guide Type, Author/Editor, Email
 ## Timing Logic
 1. **Expected Update** = same month as "Last Updated", next year (or year after if already past)
 2. **Pitch Window** = 8 weeks before Expected Update (when Email 1 goes out)
-3. **Email 2** = 2 weeks after Email 1
-4. **Email 3** = 2 weeks after Email 2
+3. **Email 2** = 14 days after Email 1
+4. **Email 3** = 14 days after Email 2
+
+**Follow-ups are handled by the daily `pr-followup-check` cron (Mon-Fri 10 AM), NOT the weekly outreach cron.**
 
 ## Status Flow
 `Queued` → `Ready to Pitch` → `Email 1 Ready` → `Sent 1` → `Email 2 Ready` → `Sent 2` → `Email 3 Ready` → `Sent 3` → `Placed` / `No Response` / `Declined`
@@ -39,13 +41,12 @@ Columns: Publication, Article Title, Guide URL, Guide Type, Author/Editor, Email
 - `Sent X` only when Ramon forwards the email (via BCC learning loop)
 - `Placed` when the editor confirms inclusion or we verify our product on the page
 
-## Weekly Cron Behavior
-Every Monday at 9 AM EST, the outreach cron checks:
+## Weekly Cron Behavior (Mondays 9 AM)
+The weekly outreach cron handles DISCOVERY ONLY:
+- **Queued rows entering pitch window** — pitch window just opened → update status to "Ready to Pitch"
+- Scan for new guides to add (see pr-discovery.md)
 
-1. **Ready to Pitch rows** — pitch window is open, no Email 1 sent yet → draft Email 1, send to Ramon
-2. **Sent 1 rows where Email 2 is due** — 2+ weeks since Email 1, no Email 2 sent → draft Email 2, send to Ramon
-3. **Sent 2 rows where Email 3 is due** — 2+ weeks since Email 2, no Email 3 sent → draft Email 3, send to Ramon
-4. **Queued rows entering pitch window** — pitch window just opened → update status to "Ready to Pitch"
+**Follow-ups (Email 1/2/3 drafting) are handled by the daily `pr-followup-check` cron**, which checks both Opportunities AND Outreach tabs Mon-Fri at 10 AM.
 
 ## Email Drafting Rules
 

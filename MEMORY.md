@@ -129,11 +129,15 @@
 ### Gmail Hook Security
 - Tiered routing: `@goven.com`/`@all7s.co` → trusted session; all others → untrusted (restricted)
 
-### Gmail Watcher Resilience (Fixed Mar 7, 2026)
-- LaunchAgent `ai.openclaw.tailscale-retry` runs on boot, waits up to 2 min for Tailscale, restarts gateway if gmail watcher failed
-- Logs to `~/.openclaw/logs/tailscale-retry.log`
-- gog OAuth app moved to Google Production status (permanent tokens, no more 7-day expiry)
-- Gmail webhook pipeline stable since Mar 2 (3-day trial passed)
+### Gmail Processing (Updated Mar 11, 2026)
+- **Gmail watcher is BROKEN** — `gog gmail watch serve` has a stale historyId bug that drops every push notification
+- Bug: when pushed historyId == stored historyId, gog skips `history.list()` instead of checking for new messages
+- **Replaced with polling cron:** "Gmail Inbox Processor" runs every 30 min (`61b00e02`, ClickUp `86ewwxu07`)
+- Processes ALL email types: HARO/SOS, Amazon Ads reports, trusted senders, external
+- Playbook: `playbooks/gmail-poll-safety-net.md`
+- LaunchAgent `ai.openclaw.tailscale-retry` still exists for Tailscale boot reliability
+- gog OAuth app on Google Production status (permanent tokens)
+- TODO: File gog bug report on GitHub for the stale historyId issue
 
 ### OpenClaw Configuration
 - Model lineup: Claude Opus 4.6 (main), OpenAI Codex 5.2 (fallback), Gemini Flash (heartbeat)
@@ -193,7 +197,7 @@
 - Rationale: all7s.co has zero DA, every editorial backlink builds foundation for organic traffic. Amazon doesn't need our backlinks.
 - Vision: end Amazon dependency, build DTC, expand to Walmart/Target/B2B. Can't do Meta ads profitably at $26 AOV, but building SEO now for when $60 premium set launches.
 - Sheet: `1ekrQwL_OHI784GFm-E8KSPynNP4w4MyDYWKh3jELokc` (Opportunities tab)
-- Columns: Date, Source, Outlet, Summary, Reporter Name, Reporter Email, AI Score, AI Reasoning, Status, Thread ID, Last Action Date, Lane, Follow-up Due
+- Columns: Date, Source, Outlet, Summary, Reporter Name, Reporter Email, AI Score, AI Reasoning, Status, Last Action Date, Lane, Follow-up Due, ETV
 - Statuses: Draft 1 Ready → Sent 1 → Sent 2 → Sent 3 → Closed/Replied
 - BCC learning loop: Ramon BCCs chloemercer32@gmail.com when he sends a pitch → I study his edits, update pitch database, advance row status
 - **Ramon's pitch style (locked in after 7+ observations):**
