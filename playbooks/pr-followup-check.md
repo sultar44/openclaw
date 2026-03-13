@@ -9,6 +9,9 @@ You are running as a cron job (Mon-Fri) to check for PR follow-ups across BOTH t
 1. Read the PR Opportunities sheet (ID: `1ekrQwL_OHI784GFm-E8KSPynNP4w4MyDYWKh3jELokc`, tab: `Opportunities`)
    - Use service account via: `cd ~/amazon-data && source .venv/bin/activate && python3 -c "..."`
    - Credentials: `~/amazon-data/google_sheets_credentials.json`
+   
+   **⚠️ ROW TARGETING — MANDATORY VERIFICATION:**
+   Row 1 = header. Before writing ANY update to a row, READ BACK that exact row range (e.g. `Opportunities!A40:M40`) and confirm the outlet/reporter name matches the one you intend to update. Do not rely on index math alone — always verify.
 
 2. Check each row for follow-up eligibility:
    - **`Sent 1`** + Last Action Date > 7 days ago → Draft Email 2 (first follow-up), mark as `Draft 2 Ready`

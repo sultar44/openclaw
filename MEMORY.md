@@ -200,7 +200,7 @@
 - Columns: Date, Source, Outlet, Summary, Reporter Name, Reporter Email, AI Score, AI Reasoning, Status, Last Action Date, Lane, Follow-up Due, ETV
 - Statuses: Draft 1 Ready → Sent 1 → Sent 2 → Sent 3 → Closed/Replied
 - BCC learning loop: Ramon BCCs chloemercer32@gmail.com when he sends a pitch → I study his edits, update pitch database, advance row status
-- **Ramon's pitch style (locked in after 7+ observations):**
+- **Ramon's pitch style (locked in after 8+ observations):**
   - ~100-120 words, one-scroll length
   - Opens with specific reference to reporter's article/segment
   - Core message: 4-player game → weekly social commitment → real friendships
@@ -209,6 +209,7 @@
   - No product image attachments for cold outreach (text-only)
   - Sign-off varies by warmth: "Warmly, Ramon" (cold) or "Best, Ramon" (established relationship)
   - No em dashes, conversational but professional
+  - **Follow-up strategy:** Focuses on "demo potential" for TV (rotating trays are visual), emphasizes "recap" and "reconnecting with friends" angle. Ends with "Thanks for your time either way."
 - **PR Wins (as of Mar 8):**
   - ConsumerQueen: 2 confirmed placements (Spring guide + Mother's Day guide, syndicated to MSN)
   - MarketingSherpa: positive reply from Daniel Burstein (Senior Director, Content)
@@ -271,15 +272,17 @@
 - Drive folders: To Post = `1ogCw4xV7u_PDlT2C9NxZL6xsrYXBaLbf`, Posted = `16X4cz-UYwEKg4uB_pcE26ZUVgpu3_tva`
 - Content Tracker: `1l9VL3DCkz3MNe2kAGy6obqmEulvffmX1UdIGgVIx_YU` (Content Tracker tab), 120 rows (4 platforms × 30 videos)
 - Platforms: TikTok, IG Reels, YT Shorts, FB Reels
-- Pinned comment: "Comment START" (B1), will switch to "SUNDAY" for B2
-- TikTok pinned comment uses "DM me START" (ManyChat triggers off DMs on TikTok)
+- Pinned comment: single version for ALL platforms — "Comment START" (no more "DM me START" variant)
+- Will switch pinned comment to "SUNDAY" for B2
+- Description CTA: "comment START for..." line in all descriptions. No "follow @playall7s" (Ramon prefers emails over followers, tags all7s as collaborator instead)
 - After Ramon says "done": update spreadsheet + move video from To Post → Posted in Drive
 
-### ManyChat + Klaviyo Integration (Mar 6, 2026)
-- Trigger words: "START" and "SUNDAY" on IG/FB comments and TikTok DMs
-- Flow: Comment/DM → ManyChat DM → collect email in-app → push to Klaviyo list
+### Comment Automation (Updated Mar 12, 2026)
+- IG/FB: ManyChat (comment trigger → DM → collect email → Klaviyo)
+- TikTok: TikTok's native automation (comment trigger → sends all7s.co/sunday link)
+- YouTube: Manual (Ramon replies)
 - ManyChat has separate Klaviyo API keys (don't share Chloe's keys)
-- Will transition to "SUNDAY" keyword only for B2+
+- Will transition to "SUNDAY" keyword for B2+
 
 ## Product Compliance
 - **Intertek CPC recertification** — Scavenger Hunt product failed (missing CPSIA Section 103 tracking labels per ASTM F963)

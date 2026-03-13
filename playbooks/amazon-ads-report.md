@@ -35,15 +35,17 @@ with open('/tmp/amazon_cookies.txt', 'w') as f:
         f.write(f\"{domain}\t{domain_flag}\t{path}\t{secure}\t{expires}\t{c['name']}\t{c['value']}\n\")
 "
 
-# Download the report
+# Download the report (extract-url now returns direct URLs, not CL0 tracker URLs)
 curl -sL -b /tmp/amazon_cookies.txt -o /tmp/ads_report.xlsx "<DOWNLOAD_URL>"
 
 # Verify it's a real xlsx (not an HTML login page)
 file /tmp/ads_report.xlsx
 ```
 
+**Note:** The extract-url command automatically unwraps Amazon's `na.r.ads.amazon.com/CL0/` click tracker URLs into direct `advertising.amazon.com` download URLs. The CL0 tracker sometimes returns HTTP 400 to curl even with valid cookies. Direct URLs work reliably.
+
 If `file` shows "HTML document" instead of "Microsoft OOXML", the Amazon Ads session has expired.
-Tell Ramon to log in at advertising.amazon.com in the OpenClaw browser profile.
+Try logging in with stored credentials first. Only ask Ramon if 2FA (phone pin) is required.
 
 ### 3. Parse and load into BigQuery
 ```bash
@@ -51,6 +53,8 @@ GOOGLE_APPLICATION_CREDENTIALS=~/amazon-data/google_sheets_credentials.json pyth
 ```
 The script auto-detects the report type from column headers and routes to the correct BQ table.
 You can force a type with `--type campaigns` if needed.
+
+**Note:** Amazon sometimes sends CSV instead of XLSX. The script handles both formats automatically. If `file` shows "CSV text", rename to `.csv` before loading — the script detects format by extension or content.
 
 ### 4. Archive the email
 ```bash

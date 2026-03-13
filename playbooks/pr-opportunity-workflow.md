@@ -209,11 +209,23 @@ A cron job checks the Opportunities sheet (Mon-Fri at 10 AM EST):
 Ramon will BCC chloemercer32@gmail.com when he sends a pitch to a reporter. When I receive a BCC'd pitch email:
 1. **Study the email** — analyze Ramon's tone, structure, talking points, and what he changed from my draft
 2. **Update the pitch database** — note patterns, preferred language, successful angles in memory
-3. **Update the sheet** — find the matching row by reporter email/outlet and advance the status:
-   - If currently `Draft 1 Ready` → set to `Sent 1`
-   - If currently `Sent 1` → set to `Sent 2`
-   - If currently `Sent 2` → set to `Sent 3`
-   - Update `Last Action Date` to today
+3. **Update the sheet** — use `pr_bcc_processor.py` (deterministic, no LLM needed):
+   ```bash
+   cd ~/amazon-data && source .venv/bin/activate
+   # By reporter email (preferred - most precise):
+   python3 collectors/pr_bcc_processor.py --reporter-email "reporter@example.com" --tab opportunities --action advance
+   # By outlet name (fallback):
+   python3 collectors/pr_bcc_processor.py --outlet "Outlet Name" --tab opportunities --action advance
+   # For Outreach tab:
+   python3 collectors/pr_bcc_processor.py --outlet "Publication" --tab outreach --action advance
+   # To close a row:
+   python3 collectors/pr_bcc_processor.py --outlet "Outlet" --tab opportunities --action close
+   # Dry run (preview without writing):
+   python3 collectors/pr_bcc_processor.py --outlet "Outlet" --tab opportunities --action advance --dry-run
+   ```
+   The script handles all row math internally, verifies the target row before writing, and outputs JSON with the result.
+   
+   **DO NOT update rows ad-hoc with manual sheet API calls. Always use pr_bcc_processor.py.**
 
 ## Learning from Rejections
 When Ramon marks a row `Closed` without ever sending, I should note the pattern in memory. Over time this refines scoring accuracy.

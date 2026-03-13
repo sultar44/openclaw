@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
         psType = ps.type;
 
         // Create Klaviyo campaign
-        klaviyoCampaignId = await createKlaviyoCampaign(draft.subject);
+        klaviyoCampaignId = await createKlaviyoCampaign(draft.subject, draft.subject, draft.previewText);
 
         // Log to approved history
         await addToApprovedHistory({

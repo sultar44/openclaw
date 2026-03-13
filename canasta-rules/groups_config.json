@@ -9,10 +9,10 @@
       "source_prefix": "FB",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-11",
+      "last_post_date": "2026-03-12",
       "oldest_scraped_date": "2026-01-22",
-      "posts_scraped": 80,
-      "notes": "Scraped Mar 11 10:30 PM - 4 new entries. FB067 (Alberta Catherine, wild card canasta scoring - count both canasta bonus AND card points inside, 6 comments unanimous). FB068 (Robin Shane Rashkind, opening with one card left - depends on turn card: before=can discard last card and draw talon, after=must keep a card, 47 comments split with majority). FB069 (Shoshana Fluss Pilevsky, going out final discard is face down - any card works, 14 comments unanimous). FB070 (Ellen Leikind, opening strategy at 125 level - situational based on deck position/opponent status/pairs, 6 comments general agreement). Skipped: Lynda Greenberg (LFG Delray), Modern American Canasta (live event promo)."
+      "posts_scraped": 82,
+      "notes": "Scraped Mar 12 10:30 PM - 2 new entries. FB071 (Susie Linder Rozanczyk, melding dirty/clean aces after partner's mismeld - clean aces unanimous NO due to knowledge contamination, dirty aces split with penalty, extends to wilds/7s, 6 comments). FB072 (Shoshana Fluss Pilevsky, wilds in zip code special hand - overwhelmingly a TABLE RULE, default allows matching wilds, some groups ban to increase difficulty, 20 comments strong majority). Skipped: Sue Tucker (LFG Bucks County), Lynda Greenberg (LFG Delray)."
     },
     {
       "id": "ccg",
@@ -36,10 +36,10 @@
       "source_prefix": "CL",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-09",
+      "last_post_date": "2026-03-12",
       "oldest_scraped_date": "2026-01-10",
       "posts_scraped": 23,
-      "notes": "Scraped Mar 10 10:30 PM - 1 new entry. CL023 (Joe Santoro Jr., no special hands in 2-player/1v1 canasta, 8 comments unanimous). Skipped: Wade Holden (app promo), Donna Bottone Bianco (special hand celebration), Donna Miller-Small (instructor/event), Dara Collins (tournament promo), multiple LFG/welcome posts, product promos."
+      "notes": "Scraped Mar 12 10:30 PM - 0 new entries. No new rules/strategy content since Mar 9. Feed dominated by event promos (Shuffle Sisters, MAC Con, Miraval), product promos (napkin holders, scorekeeper bling, card spinners), LFG posts (Delray, Spring Hill), welcome/social posts, tournament promos, Canasta scoring app recommendations. The Rumasta variant mention (Jasmin Hicks) was social/casual, not a rules debate. Next scrape Mar 14."
     },
     {
       "id": "cpg",
@@ -73,6 +73,6 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-03-11T22:30:00-05:00",
-  "last_primary_result": "MAC: 4 new entries (FB067 wild canasta scoring, FB068 opening with one card left/turn card, FB069 face-down final discard, FB070 opening strategy at 125). CCG: next check Mar 14. CL: next tonight or tomorrow. NYMC: next check Mar 14. CPG: awaiting approval."
+  "last_primary_run": "2026-03-12T22:30:00-05:00",
+  "last_primary_result": "MAC: 2 new entries (FB071 mismeld aces/knowledge contamination, FB072 wilds in zip code table rule). CL: 0 new entries (no rules content since Mar 9, heavy promo/social). CCG: next check Mar 14. NYMC: next check Mar 14. CPG: awaiting approval."
 }

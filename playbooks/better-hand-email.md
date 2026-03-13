@@ -1,4 +1,4 @@
-# The Better Hand — Friday Email Playbook
+# The Better Hand - Friday Email Playbook
 
 ## Overview
 Weekly Friday email for All7s Games subscribers. Strategy tip + soft coupon + rotating P.S.
@@ -19,11 +19,11 @@ One punchy line that creates curiosity. Never generic.
 ### Format: Plain Text Only (Updated March 4, 2026)
 - **No HTML at all.** Plain text emails only.
 - Klaviyo template: set `text` field only. Include minimal HTML wrapper for email clients that require it, but content is plain text.
-- **Font size: 20px** (Georgia serif, 1.5 line height) — applies to all Better Hand and Sunday Ritual emails.
+- **Font size: 20px** (Georgia serif, 1.5 line height). Applies to all Better Hand and Sunday Ritual emails.
 - No bold, no links with anchor text. Use bare URLs.
 - No images, logos, or social icons.
 
-### Writing Style (Humanizer Rules — apply to ALL written content)
+### Writing Style (ALWAYS run through humanizer before presenting to Ramon)
 - Use clear, simple language. Short sentences. Active voice.
 - **No em dashes.** Use periods, commas, or colons instead.
 - No metaphors or cliches.
@@ -36,17 +36,19 @@ One punchy line that creates curiosity. Never generic.
 ### Body (~150 words, scannable in 60 seconds)
 
 1. **Greeting:** "Hey friend," (warm, consistent)
-2. **Intro:** "Here's this week's Better Hand — one tip to sharpen your game before the weekend."
+2. **Intro:** "Here's this week's Better Hand. One tip to sharpen your game before the weekend."
 3. **The Tip:** 
    - Bold question or scenario as header
    - 2-3 short paragraphs explaining the strategy
    - Written conversationally, not textbook-y
    - Pull from `canasta-rules/strategy.jsonl` (approved entries only)
 4. **"Try this weekend" challenge:** One actionable sentence to test the tip
-5. **Coupon:** Soft, natural — "Weekend game night? 10% off with code CANASTA10 at checkout → [Shop All7s](https://www.amazon.com/stores/page/EA384EB6-4C8B-4632-96EC-6E899F61B850?maas=maas_adg_E0710C1268F76A7D58406646A7111714_afap_abs&ref_=aa_maas&tag=maas)"
-   - **Coupon code:** CANASTA10 (not FRIDAY10 — Amazon won't allow FRIDAY10)
+5. **Coupon:** Soft, natural. Use hyperlinked text, NOT bare URLs.
+   - **Format:** `Weekend game night? 10% off with code CANASTA10 at checkout: <a href="https://www.amazon.com/stores/page/EA384EB6-4C8B-4632-96EC-6E899F61B850?maas=maas_adg_E0710C1268F76A7D58406646A7111714_afap_abs&ref_=aa_maas&tag=maas">Shop All7s</a>`
+   - **Coupon code:** CANASTA10 (not FRIDAY10, Amazon won't allow FRIDAY10)
    - **Store URL (permanent):** `https://www.amazon.com/stores/page/EA384EB6-4C8B-4632-96EC-6E899F61B850?maas=maas_adg_E0710C1268F76A7D58406646A7111714_afap_abs&ref_=aa_maas&tag=maas`
    - Always include "at checkout" after the code
+   - Always hyperlink as "Shop All7s" (never show raw URL to readers)
 6. **Sign-off:** "Warmly, Ramon"
 7. **P.S.:** Rotating (see below)
 

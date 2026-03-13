@@ -123,26 +123,54 @@ export async function advancePSRotation(): Promise<void> {
   fsSync.writeFileSync(PS_STATE_FILE, JSON.stringify(state, null, 2), "utf-8");
 }
 
-export async function createKlaviyoCampaign(subject: string): Promise<string | null> {
+export async function createKlaviyoCampaign(subject: string, emailSubject?: string, previewText?: string): Promise<string | null> {
   const apiKey = loadEnvVar("KLAVIYO_API_KEY");
   if (!apiKey) throw new Error("KLAVIYO_API_KEY not found in .env");
 
-  const listId = loadEnvVar("KLAVIYO_LIST_ID");
+  const listId = loadEnvVar("KLAVIYO_LIST_ID") || "TMu4eG";
+
+  // Get sequential number from approved history (2 already sent before this system existed)
+  const approved = await loadApprovedHistory();
+  const campaignNumber = approved.length + 1;
+
+  // Schedule for next day at 10 AM EST (15:00 UTC)
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const sendDate = `${tomorrow.getFullYear()}-${String(tomorrow.getMonth() + 1).padStart(2, "0")}-${String(tomorrow.getDate()).padStart(2, "0")}T15:00:00+00:00`;
+
+  // Extract topic from subject (strip "The Better Hand: " prefix if present)
+  const topic = subject.replace(/^The Better Hand:\s*/i, "").replace(/\s*🃏\s*$/, "");
 
   const payload = {
     data: {
       type: "campaign",
       attributes: {
-        name: `The Better Hand: ${subject}`,
+        name: `The Better Hand #${campaignNumber}: ${topic}`,
         audiences: {
-          included: listId ? [listId] : [],
+          included: [listId],
           excluded: [],
         },
         send_strategy: {
           method: "static" as const,
-          options_static: { datetime: null },
+          datetime: sendDate,
         },
-        campaign_messages: [{ channel: "email", label: "default" }],
+        "campaign-messages": {
+          data: [{
+            type: "campaign-message",
+            attributes: {
+              definition: {
+                channel: "email",
+                label: "default",
+                content: {
+                  subject: emailSubject || subject,
+                  preview_text: previewText || "",
+                  from_email: "hello@all7s.co",
+                  from_label: "Ramon from All7s",
+                },
+              },
+            },
+          }],
+        },
       },
     },
   };
@@ -151,7 +179,7 @@ export async function createKlaviyoCampaign(subject: string): Promise<string | n
     method: "POST",
     headers: {
       Authorization: `Klaviyo-API-Key ${apiKey}`,
-      revision: "2024-10-15",
+      revision: "2025-01-15",
       "Content-Type": "application/json",
     },
     body: JSON.stringify(payload),

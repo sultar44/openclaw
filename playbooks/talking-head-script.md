@@ -107,8 +107,36 @@ Use these categories when brainstorming:
 
 ---
 
+## Magnetic Personal Brand Principles (Kallaway — Added Mar 12, 2026)
+
+These principles apply to ALL scripts. They shape tone, framing, and structure beyond the mechanical formula above.
+
+### Positioning: Territory + Beliefs
+- **Territory compression**: Ramon's territory is "social card games for women 50+ fighting isolation." Every script must serve this territory. Don't widen it.
+- **Contrarian beliefs**: The strongest scripts challenge assumptions ("You're not an introvert, you're out of practice"). Prioritize scripts with a take most people wouldn't say.
+- **Origin story**: Periodically include scripts that explain WHY Ramon owns this territory. His mother rebuilt social structure from zero after immigration. Customer emails confirm the pattern. This is his "territory defense." At least 1 per batch.
+
+### Execution: Confidence + Quality
+- **Speak in outcomes, not scenarios**: Say "this will" not "this might." Say "let it be you" not "it might as well be you." Kill hedge words: might, maybe, perhaps, could, possibly, it's fine.
+- **Effortless zone**: Dark room, sitting, talking head, calm delivery. This IS Ramon's format. Don't change it.
+- **Quality bar**: Each script should be the best 60-second video on its topic. Not just a rep. Best on the internet for this specific angle.
+
+### Psychology: Three Mechanisms (every script should hit at least one)
+1. **Change how they think** (reframe): Give the viewer a new lens on a familiar problem while they watch. No action required. They leave thinking differently. Example: "That's not peace. That's drift."
+2. **Make them feel heard** (relate): Describe their specific emotional experience so precisely they feel understood. Example: "You draft something. Delete it. Draft again." Don't sanitize the feeling.
+3. **Speed to first win** (act): Give one small concrete action the viewer can take immediately. Not a life transformation. One micro-step. Example: "Right now, think of the friend you haven't seen in over a month. She's your first text." Add to 30-40% of scripts, not all.
+
+### What NOT to do
+- Don't make it about Ramon first. Make it about the viewer first. They care about their problem. Only after consistent value delivery do they start caring about you.
+- Don't post lifestyle/morning routine content before earning authority through value.
+- Don't cast a wide net. Speak to one specific person in the territory.
+- Don't rely solely on tactics ("do X then Y"). Reframes and emotional recognition stick longer than instructions.
+
+---
+
 ## Sources
 Frameworks extracted from:
-- Callaway: "Say This in Your Videos, It'll Improve Your Storytelling by 10x"
-- Callaway: "Copy This Hook, It'll Blow Up Your Social Media"
-- Callaway: "How to Create Irresistible Hooks (and blow up your content)"
+- Kallaway: "Say This in Your Videos, It'll Improve Your Storytelling by 10x"
+- Kallaway: "Copy This Hook, It'll Blow Up Your Social Media"
+- Kallaway: "How to Create Irresistible Hooks (and blow up your content)"
+- Kallaway: "The 4-Step Playbook for Building a Magnetic Personal Brand" (Mar 12, 2026)

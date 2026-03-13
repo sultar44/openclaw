@@ -150,6 +150,14 @@ If a cron job is **recreated** (new ID), update the sheet row + clickup_config.j
 - This keeps Chloe's inbox as a "failure detector" — unprocessed emails remain visible
 - Use `gog gmail modify <messageId> --remove-labels INBOX` to archive
 
+## Email Processing Alert Rule (Added Mar 12, 2026)
+
+- **Every email that gets archived MUST produce a confirmation alert in #chloelogs (C0AELHCGW4F)**
+- No silent archiving — Ramon needs proof of life that emails are being processed
+- One-line alert with emoji prefix: 📬 HARO/SOS, 📊 Ads reports, 📦 Vine/FBM, 📨 other
+- Format: `{emoji} {type}: {from or subject} — {outcome}`
+- See `playbooks/gmail-poll-safety-net.md` for full routing details
+
 ## Email Trigger Policy (Updated Mar 11, 2026)
 
 - **Primary: Polling cron every 30 min** — "Gmail Inbox Processor" (`61b00e02`)
