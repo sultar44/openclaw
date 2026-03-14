@@ -91,9 +91,10 @@ Script: `~/amazon-data/collectors/pr_placement_checker.py`
 The #1 goal of every PR email is to earn backlinks to **all7s.co**, not Amazon.
 
 **Link hierarchy:**
-1. **Primary (always include):** https://all7s.co — this is our website, our Shopify store, and where we want backlinks pointed
-2. **Secondary (mention only):** Amazon — only include if the reporter explicitly asks for an Amazon/marketplace link, or if the guide format requires a marketplace buy link. Use: https://www.amazon.com/dp/B07KBB1WJS?th=1&psc=1
-3. **Course link:** https://canastacourse.com — include when relevant (note: this builds Kajabi's domain, not ours)
+1. **Primary (always include):** https://all7s.co — this is our website.
+2. **Product Page (for Product Placement):** https://www.all7s.co/products/canasta-cards-deluxe-game-set
+3. **Secondary (mention only):** Amazon — only include if the reporter explicitly asks for an Amazon/marketplace link, or if the guide format requires a marketplace buy link. Use: https://www.amazon.com/dp/B07KBB1WJS?th=1&psc=1
+4. **Course link:** https://all7s.co/courses — include when relevant.
 
 **"Where can I buy it?"** → all7s.co (it IS a store, they can buy there)
 **Reporter says "Amazon link only"** → provide Amazon link

@@ -1,0 +1,243 @@
+[
+  {
+    "cluster": [
+      "FB025",
+      "FB042"
+    ],
+    "type": "DUPLICATE",
+    "recommendation": "KEEP FB025, REMOVE FB042",
+    "keep": "FB025",
+    "remove": [
+      "FB042"
+    ],
+    "members": [
+      {
+        "id": "FB025",
+        "question": "Aces were closed by team A early in the game. Later, team A picked the pack and there were 3 Aces in it. Before the player had the chance to get rid of one Ace, team B went out. Does team A incur a 1500 point penalty for having 3 Aces if Aces canasta was already closed?",
+        "answer": "Yes, there is still a 1,500 point penalty for holding 3+ aces in hand when the round ends, EVEN IF you already closed a pure ace canasta. Having closed the canasta doesn't exempt you from the ace penalty. The penalty is for holding aces in hand, regardless of what's on the table.",
+        "answer_len": 280
+      },
+      {
+        "id": "FB042",
+        "question": "Aces were closed by team A early in the game. Later, team A picked the pack and there were 3 Aces in it. Before the player had the chance to get rid of one Ace, team B went out. Does team A incur a 1500 point penalty for having 3 Aces if Aces canasta was already closed?",
+        "answer": "Yes, there is still a 1,500 point penalty for holding 3+ aces in hand when the round ends, EVEN IF you already closed a pure ace canasta. Having closed the canasta doesn't exempt you from the ace penalty. The penalty is for holding aces in hand, regardless of what's on the table.",
+        "answer_len": 280
+      }
+    ]
+  },
+  {
+    "cluster": [
+      "CL005",
+      "CL008"
+    ],
+    "type": "DUPLICATE",
+    "recommendation": "KEEP CL008, REMOVE CL005",
+    "keep": "CL008",
+    "remove": [
+      "CL005"
+    ],
+    "members": [
+      {
+        "id": "CL005",
+        "question": "I called a special hand. I started laying out my cards when I realized my partner and I had more points already on the table than my special hand was worth. I did not lay down all my cards. Could I have picked my cards up and not call the special hand?",
+        "answer": "Once you begin laying down cards for a special hand, you are committed. You cannot pick them back up. The lesson: evaluate your position BEFORE starting to lay down a special hand - compare the special hand value against your current table points plus going-out bonus.",
+        "answer_len": 268
+      },
+      {
+        "id": "CL008",
+        "question": "I called a special hand. I started laying out my cards when I realized my partner and I had more points already on the table than my special hand was worth. I did not lay down all my cards. Could I have picked my cards up and not call the special hand?",
+        "answer": "No. Once you begin laying down cards, you cannot pick them back up. 'Down is down' / 'Laid is played' is a fundamental rule. Additionally, evaluate whether a special hand makes strategic sense BEFORE committing - compare the special hand value against your current table points plus going-out bonus.",
+        "answer_len": 299
+      }
+    ]
+  },
+  {
+    "cluster": [
+      "CL002",
+      "CL006"
+    ],
+    "type": "DUPLICATE",
+    "recommendation": "KEEP CL006, REMOVE CL002",
+    "keep": "CL006",
+    "remove": [
+      "CL002"
+    ],
+    "members": [
+      {
+        "id": "CL002",
+        "question": "Can you go down with 5 of a kind and 2 wilds as an initial meld? It is a Canasta worth 300 points.",
+        "answer": "No. You cannot open with ONLY a mixed canasta (5 of a kind + 2 wilds). Your opening meld MUST include at least one clean triple (3 natural cards of the same rank). The 'Rule of 5' applies: you need 5 natural cards before adding wilds to a meld.",
+        "answer_len": 244
+      },
+      {
+        "id": "CL006",
+        "question": "Can you go down with 5 of a kind and 2 wilds as an initial meld? It is a Canasta worth 300 points.",
+        "answer": "No, you cannot open with just a mixed canasta (5+2 wilds). Your opening meld MUST include a clean triple (3 natural cards of the same rank with no wilds). Exceptions: a Splash (7 natural cards = 500+ points) or a wild canasta (7 wilds = 2500 points) do not require a clean triple because they exceed the meld requirements on their own.",
+        "answer_len": 335
+      }
+    ]
+  },
+  {
+    "cluster": [
+      "CL001",
+      "CL003",
+      "CL007"
+    ],
+    "type": "DUPLICATE",
+    "recommendation": "KEEP CL001, REMOVE CL003, CL007",
+    "keep": "CL001",
+    "remove": [
+      "CL003",
+      "CL007"
+    ],
+    "members": [
+      {
+        "id": "CL001",
+        "question": "When playing canasta for 2: 1) do you play the Rule of 5? 2) when you meld, do you take the extra cards? 3) do you get an additional card when you lay down a 3? 4) when you get to the talon, do you still pick 2 cards?",
+        "answer": "2-player canasta has variant rules: Deal 15 cards (not 11), draw 2 cards per turn, must have 2 canastas to go out. Rule of 5 typically still applies. When you reach the talon, you may draw only 1 card if only 1 remains.",
+        "answer_len": 219
+      },
+      {
+        "id": "CL003",
+        "question": "When playing canasta for 2: 1) do you play the Rule of 5? 2) when you meld, do you take the extra cards? 3) do you get an additional card when you lay down a 3? 4) when you get to the talon, do you still pick 2 cards?",
+        "answer": "2-player Canasta rules: Deal 15 cards (not 11). Draw 2 cards per turn. Must complete 2 canastas to go out. Use 2 decks. Continue drawing 2 cards even when reaching the talon.",
+        "answer_len": 174
+      },
+      {
+        "id": "CL007",
+        "question": "When playing canasta for 2: 1) do you play the Rule of 5? 2) when you meld, do you take the extra cards? 3) do you get an additional card when you lay down a 3? 4) when you get to the talon, do you still pick 2 cards?",
+        "answer": "For 2-player Modern American Canasta: Deal 15 cards per player. Draw 2 cards each turn. Must have 2 canastas to go out. Use two decks. Follow standard MAC rules otherwise.",
+        "answer_len": 171
+      }
+    ]
+  },
+  {
+    "cluster": [
+      "FB031",
+      "FB043"
+    ],
+    "type": "DUPLICATE",
+    "recommendation": "KEEP FB043, REMOVE FB031",
+    "keep": "FB043",
+    "remove": [
+      "FB031"
+    ],
+    "members": [
+      {
+        "id": "FB031",
+        "question": "My team needed 180 to go down. All my cards added to 180, so I didn't have any left in my hand if I went down, but I would have been able to pick the talon. Could I have gone down?",
+        "answer": "No. You cannot open by melding ALL your cards unless you're going out. When opening, you need at least one card remaining in hand to make your discard at the end of your turn. Getting the talon comes AFTER discarding, so you need a card to discard BEFORE receiving the talon.",
+        "answer_len": 275
+      },
+      {
+        "id": "FB043",
+        "question": "My team needed 180 to go down. All my cards added to 180, so I didn't have any left in my hand if I went down, but I would have been able to pick the talon. Could I have gone down?",
+        "answer": "No. You MUST have at least one card remaining to discard after your opening meld. If using all cards for the 180 point requirement leaves you with nothing to discard, you cannot open that turn. The talon comes AFTER the discard, so it doesn't help. You must wait until you can open while still having a discard available.",
+        "answer_len": 321
+      }
+    ]
+  },
+  {
+    "cluster": [
+      "FB032",
+      "FB040"
+    ],
+    "type": "DUPLICATE",
+    "recommendation": "KEEP FB040, REMOVE FB032",
+    "keep": "FB040",
+    "remove": [
+      "FB032"
+    ],
+    "members": [
+      {
+        "id": "FB032",
+        "question": "I want to open with 5 wild cards. Do I still need a triple?",
+        "answer": "no. 5 wilds, in any combination of 2s or Jokers count as a clean meld as long as the meld meets the point requirements needed to go out. ",
+        "answer_len": 137
+      },
+      {
+        "id": "FB040",
+        "question": "I want to open with 5 wild cards. Do I still need a triple?",
+        "answer": "You do NOT need a natural triple to open with wild cards. A wild card meld counts as a clean meld. As long as the total point value of your wilds meets the opening requirement, you can meld them without any naturals. Key: 4 jokers and 1 Two = 220 pts (meets any requirement). 5 twos = only 100 pts (not enough for 125). Mix of jokers and twos may be needed to hit the point threshold.",
+        "answer_len": 384
+      }
+    ]
+  },
+  {
+    "cluster": [
+      "FB016",
+      "FB018",
+      "FB020"
+    ],
+    "type": "SAME_ANSWER_DIFFERENT_QUESTION",
+    "recommendation": "KEEP ALL - different questions, same answer is fine",
+    "members": [
+      {
+        "id": "FB016",
+        "question": "While playing real canasta on line I had a lot of 3's and already made 2 canastas.. my opponent went out afterwards with a Special hand- So my canastas and 3's are counted but what ever was left in my and my partners rack is subtracted for points?",
+        "answer": "Yes",
+        "answer_len": 3
+      },
+      {
+        "id": "FB018",
+        "question": "Hi, Questions always come up when we are playing and one was: With a meld of 7s there is a penalty of 2,500 points, but can the team still add the 5 points worth of each of those 7s to the overall count for that hand?",
+        "answer": "Yes",
+        "answer_len": 3
+      },
+      {
+        "id": "FB020",
+        "question": "If you have a mixed wild card canasta for 2500 point, are the wild cards counted again in total card points?",
+        "answer": "Yes",
+        "answer_len": 3
+      }
+    ]
+  },
+  {
+    "cluster": [
+      "CL009",
+      "FB001"
+    ],
+    "type": "DUPLICATE",
+    "recommendation": "KEEP CL009, REMOVE FB001",
+    "keep": "CL009",
+    "remove": [
+      "FB001"
+    ],
+    "members": [
+      {
+        "id": "CL009",
+        "question": "It's early in the game and match. Would you meld 4 wild cards that meet the point requirement (I.e. 125 points)? After melding, I would get 4 cards from the pack. My partner may have wild cards. The other team hasn't melded yet. Almost all the cards are still in the deck. Very few have been discarded. Chances of closing the wild card canasta are high because there are 8 wild cards remaining.",
+        "answer": "Opening with 4 wilds is a calculated risk. The community is split: some recommend waiting for 5 wilds for safety, while others say 4 is acceptable early in the game when most cards remain in the deck. Key factors: (1) opponents haven't melded yet, (2) most cards still in deck, (3) partner may contribute wilds. If you're a risk-taker and conditions are favorable, 4 wilds can work; if you prefer safety, wait for 5.",
+        "answer_len": 416
+      },
+      {
+        "id": "FB001",
+        "question": "It's early in the game and match. Would you meld 4 wild cards that meet the point requirement (I.e. 125 points)? I would get 4 cards from the pack and my partner may have a wild card(s). Almost half of the cards are still in the deck. The other team hasn't melded yet.",
+        "answer": "Strategic choice, not a rules question. Generally: Don't open with 4 wilds early - you lose flexibility and give opponents information. Keep wilds for picking piles and completing canastas.",
+        "answer_len": 189
+      }
+    ]
+  },
+  {
+    "cluster": [
+      "CL017",
+      "FB053"
+    ],
+    "type": "SAME_ANSWER_DIFFERENT_QUESTION",
+    "recommendation": "KEEP ALL - different questions, same answer is fine",
+    "members": [
+      {
+        "id": "CL017",
+        "question": "If you're playing the 5 card rule, when you're going out only, isn't it allowed to put down 2 cards and a joker?",
+        "answer": "when going out you can put down 2 cards and a joker. Once your team has gone out, you can only put a wild after you have 5 natural cards. ",
+        "answer_len": 138
+      },
+      {
+        "id": "FB053",
+        "question": "Playing the 5-card rule: when going out, is it allowed to go out with 2 cards and a joker (less than 5 natural cards)?",
+        "answer": "You can definitely go out with less than 5 natural cards, but only when going out. Once you or your partner goes out, the rule of 5 natural cards applies moving forward.",
+        "answer_len": 169
+      }
+    ]
+  }
+]

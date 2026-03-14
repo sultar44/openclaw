@@ -50,23 +50,32 @@ export async function updateEntry(
 ): Promise<void> {
   const entries = await loadEntries();
 
+  // Find the target entry — prefer pending entries when multiple share the same id/entry_id
+  // (e.g. old approved entry with id:"FB035" vs new pending entry with entry_id:"FB035")
+  let target: StrategyEntry | undefined;
   for (const e of entries) {
-    // Match on id or entry_id (FB scrape entries use entry_id)
     const eid = e.id ?? (e as Record<string, unknown>).entry_id;
     if (eid !== entryId) continue;
-    e.status = newStatus;
-    e.reviewed_at = new Date().toISOString();
+    if (e.status === "pending") {
+      target = e;
+      break; // pending match is always preferred
+    }
+    if (!target) target = e; // fallback to first match if no pending found
+  }
+
+  if (target) {
+    target.status = newStatus;
+    target.reviewed_at = new Date().toISOString();
 
     if (question !== undefined) {
-      if ("question" in e) e.question = question;
-      else e.title = question;
+      if ("question" in target) target.question = question;
+      else target.title = question;
     }
 
     if (answer !== undefined) {
-      e.recommendation = answer;
-      e.strategy = answer;
+      target.recommendation = answer;
+      target.strategy = answer;
     }
-    break;
   }
 
   await backupAndSave(entries);

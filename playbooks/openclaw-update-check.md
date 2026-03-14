@@ -1,59 +1,48 @@
 # OpenClaw Update Check Playbook
 
-**Trigger:** Daily cron at 2:28 PM EST
-**Channel:** #chloebot (C0AD9AZ7R6F)
-**Rule:** Only alert if there IS an update. Silent (NO_REPLY) if already on latest.
+**Trigger:** Daily cron at 2:28 PM EST  
+**Delivery:** `announce` to #chloebot (C0AD9AZ7R6F)  
+**Rule:** Always report — either "update available" or "no update today"
 
 ## Steps
 
-### 1. Check for updates
+### 1. Check versions
 ```bash
-# Get installed version
 INSTALLED=$(openclaw --version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
-
-# Get latest published version
 LATEST=$(npm view openclaw version 2>/dev/null)
-
 echo "Installed: $INSTALLED"
 echo "Latest: $LATEST"
 ```
 
-If `INSTALLED == LATEST` → no update available → send "No Openclaw Updates" to #chloebot (C0AD9AZ7R6F) using the message tool, then log to ClickUp as success. Done.
+### 2a. No update available
+If `INSTALLED == LATEST`:
+- Reply: `✅ No new OpenClaw update today (v{INSTALLED} is latest)`
+- Log to ClickUp as success
 
-If `INSTALLED != LATEST` → proceed.
-
-### 2. Check cron job status
-Before alerting, check if any cron is currently running or starting within 5 minutes:
-
-```bash
-openclaw cron list --json
-```
-
-- Look for any job with `runningAtMs` set (currently executing)
-- Look for any job whose next run is within 5 minutes of now
-- Report these in the alert so Ramon can decide timing
-
-### 3. Send alert to #chloebot
-Format:
+### 2b. Update available
+If `INSTALLED != LATEST`:
+- Get changelog: `npm view openclaw --json` and extract recent changes if available
+- Check cron status: `openclaw cron list --json` — note any jobs with `runningAtMs` set
+- Reply:
 ```
 🔄 OpenClaw update available: v{INSTALLED} → v{LATEST}
 
-{cron status: running jobs or upcoming in <5 min, or "No cron jobs running or starting soon"}
+Changelog:
+{changelog summary or "Check npm for details"}
+
+{cron status}
 
 Reply "update" to install now, or I'll check again tomorrow.
 ```
+- Log to ClickUp as success
 
-### 4. Wait for command
-If Ramon replies "update" (or similar affirmative):
+### 3. If Ramon says "update"
 ```bash
 npm update -g openclaw
 openclaw gateway restart
 ```
-
-Then confirm the new version in chat.
-
-If Ramon says no/skip/later → acknowledge and move on.
+Confirm new version in chat.
 
 ## Notes
-- Never auto-install. Always wait for explicit command.
-- The update command is `npm update -g openclaw` followed by `openclaw gateway restart`
+- Never auto-install. Always wait for explicit "update" command.
+- This job uses `delivery.mode: announce` — just reply normally, no need to call the message tool.

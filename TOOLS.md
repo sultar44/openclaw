@@ -144,6 +144,15 @@ If a cron job is **recreated** (new ID), update the sheet row + clickup_config.j
 - Persistent instructions saved at: `/Users/ramongonzalez/.openclaw/workspace/playbooks/product-review-writing.md`
 - Use this playbook whenever Ramon asks for Amazon product review writing.
 
+## Email Template Rule (Ramon mandate, Mar 13 2026)
+
+- **If it CAN be hardcoded via .py, hardcode it.** No exceptions.
+- All emails use templates in `templates/` rendered by `templates/render_email.py`
+- Hardcoded: Klaviyo personalization tags, greetings, sign-offs, coupon codes, URLs, P.S. rotation
+- LLM only supplies the dynamic content (body text, titles, challenges)
+- **Any new email type** must get a template file + renderer function before the first send
+- This applies to everything, not just emails. Anything repeatable that has fixed parts should be templated.
+
 ## Email Post-Processing Rule (Ramon preference)
 
 - **After processing any forwarded email** (SOS, HARO, BCC learning loop, sold/ship-now, or any other), **archive it** in Gmail

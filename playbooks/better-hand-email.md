@@ -5,8 +5,18 @@ Weekly Friday email for All7s Games subscribers. Strategy tip + soft coupon + ro
 
 ## Schedule
 - **Drafted:** Wednesday evening (cron job)
-- **Sent:** Friday morning via Klaviyo campaign blast
+- **Sent:** Thursday 9 AM in recipient's local timezone via Klaviyo campaign
 - **Drafted to:** Slack #chloebot for Ramon's approval
+
+### Klaviyo Campaign Setup (automated, scheduling is manual)
+When creating the campaign via API, set:
+- `send_strategy.method`: `"static"`
+- `send_strategy.options.is_local`: `true` (recipient's local timezone)
+- `send_strategy.options.send_past_recipients_immediately`: `true`
+- `send_strategy.datetime`: next upcoming Thursday at `09:00:00` (format: `YYYY-MM-DDTHH:MM:SS`)
+- Assign template via **POST `/api/campaign-message-assign-template`**
+
+**DO NOT auto-schedule.** Do not call `POST /api/campaign-send-jobs`. Ramon reviews and schedules himself. Time is pre-set.
 
 ## Email Structure
 
@@ -33,30 +43,31 @@ One punchy line that creates curiosity. Never generic.
 - Write like a real person talking to a friend. Not like AI.
 - Vary sentence length. Some short. Some a bit longer to keep rhythm natural.
 
-### Body (~150 words, scannable in 60 seconds)
+### Body — USE TEMPLATE (hardcoded via render_email.py)
 
-1. **Greeting:** "Hey friend," (warm, consistent)
-2. **Intro:** "Here's this week's Better Hand. One tip to sharpen your game before the weekend."
-3. **The Tip:** 
-   - Bold question or scenario as header
-   - 2-3 short paragraphs explaining the strategy
-   - Written conversationally, not textbook-y
-   - Pull from `canasta-rules/strategy.jsonl` (approved entries only)
-4. **"Try this weekend" challenge:** One actionable sentence to test the tip
-5. **Coupon:** Soft, natural. Use hyperlinked text, NOT bare URLs.
-   - **Format:** `Weekend game night? 10% off with code CANASTA10 at checkout: <a href="https://www.amazon.com/stores/page/EA384EB6-4C8B-4632-96EC-6E899F61B850?maas=maas_adg_E0710C1268F76A7D58406646A7111714_afap_abs&ref_=aa_maas&tag=maas">Shop All7s</a>`
-   - **Coupon code:** CANASTA10 (not FRIDAY10, Amazon won't allow FRIDAY10)
-   - **Store URL (permanent):** `https://www.amazon.com/stores/page/EA384EB6-4C8B-4632-96EC-6E899F61B850?maas=maas_adg_E0710C1268F76A7D58406646A7111714_afap_abs&ref_=aa_maas&tag=maas`
-   - Always include "at checkout" after the code
-   - Always hyperlink as "Shop All7s" (never show raw URL to readers)
-6. **Sign-off:** "Warmly, Ramon"
-7. **P.S.:** Rotating (see below)
+**DO NOT manually write the greeting, intro, coupon, sign-off, or P.S.**
+All of those are hardcoded in `templates/better-hand.txt` and rendered by `templates/render_email.py`.
 
-### P.S. Rotation (3-week cycle, ALL reply-only, no links)
-Better Hand emails use their 1 allowed link for the Amazon store CTA. No room for course or social links.
-1. **Story:** "P.S. Got a Canasta story that still makes you laugh? Reply and tell us. We collect the best ones."
-2. **Strategy:** "P.S. What's your go-to opening strategy? Hit reply and tell us. We read every one."
-3. **Feedback:** "P.S. Did last week's tip change anything at your table? Reply and tell us. We love hearing what works."
+**You only supply 3 things:**
+1. **title** — Bold question or scenario as header for the strategy tip
+2. **body** — 2-3 short paragraphs explaining the strategy (conversational, not textbook-y). Pull from `canasta-rules/strategy.jsonl` (approved entries only)
+3. **challenge** — One actionable "try this weekend" sentence
+
+**Rendering:**
+```bash
+python3 templates/render_email.py better-hand \
+  --title "Your Title Here" \
+  --body "Your body paragraphs here" \
+  --challenge "Your challenge sentence here" \
+  --ps-index N  # 0=story, 1=strategy, 2=feedback (rotate weekly)
+```
+
+The template handles: Klaviyo personalization tag, intro line, coupon code + Amazon URL, sign-off, and P.S. rotation. These are locked. Do not regenerate them.
+
+### P.S. Rotation (hardcoded in render_email.py, 3-week cycle)
+- 0: Story prompt (reply-only)
+- 1: Strategy prompt (reply-only)
+- 2: Feedback prompt (reply-only)
 
 ### What to Skip
 - Product images

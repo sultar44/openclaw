@@ -60,9 +60,37 @@ export async function loadLog(): Promise<RitualLogEntry[]> {
 
 export async function selectTopic(topicName: string): Promise<TopicEntry | null> {
   const topics = await loadTopics();
+
+  // Clear any existing selected/drafted topics first (reset them to pending)
+  for (const t of topics) {
+    if (t.status === "selected" || t.status === "drafted") {
+      t.status = "pending";
+      // Clear draft fields
+      t.email_subject = undefined;
+      t.email_preview = undefined;
+      t.email_body = undefined;
+    }
+  }
+
   const topic = topics.find((t) => t.topic === topicName && t.status === "pending");
   if (!topic) return null;
   topic.status = "selected";
   await saveTopics(topics);
   return topic;
+}
+
+export async function dismissActive(): Promise<boolean> {
+  const topics = await loadTopics();
+  let dismissed = false;
+  for (const t of topics) {
+    if (t.status === "selected" || t.status === "drafted") {
+      t.status = "pending";
+      t.email_subject = undefined;
+      t.email_preview = undefined;
+      t.email_body = undefined;
+      dismissed = true;
+    }
+  }
+  if (dismissed) await saveTopics(topics);
+  return dismissed;
 }

@@ -69,15 +69,27 @@
 - Two pillars: Famous women (15 figures) + Ritual themes (15 topics)
 - **No selling** — this is the community email
 - Plain text HTML only (Georgia 20px, 1.5 line height, no images/logos)
-- PS rotation: 3/5 reply prompts, 2/5 with one link (builds Gmail reputation)
+- PS rotation: ALL reply-engagement questions, no links (socials are dormant, links hurt Primary inbox placement)
 - Sender: "Ramon from All7s" <hello@all7s.co>
 - Multi-phase workflow: Thu draft → Ramon review → revisions → publish blog + Klaviyo
 - Evergreen flow (not campaigns) — each subscriber gets #1 first, then weekly
-- **Sent so far:** #1 Julia Child (Mar 2), #2 Eva Gabor (Mar 8)
+- **Sent so far:** #1 Julia Child (Mar 2), #2 Eva Gabor (Mar 8), #3 Betty White (Mar 16), #4 Lucille Ball (Mar 23)
+- **Publisher script:** `~/amazon-data/collectors/sunday_ritual_publisher.py` (handles Shopify + Klaviyo + logging, no LLM needed)
+- **Auto-trigger:** Signal watcher cron checks every 2 min for dashboard selection, runs full pipeline
+- **No approval gate for content.** Ramon selects topic from dashboard, blog publishes + Klaviyo campaign created automatically.
+- **Ramon schedules manually.** Campaign is ready with send time pre-set, but not scheduled. Ramon reviews and clicks Schedule.
+- **Dashboard auto-trigger:** Selecting a topic posts a message to #chloebot which triggers the full pipeline (no polling cron).
 - **Famous women policy:** Only 5 per month. Must have natural connection to ritual/togetherness. No forced tie-ins.
 
 ### Course Link (Updated Mar 7, 2026)
 - **Use all7s.co/courses** (NOT canastacourse.com) for all blog CTAs and links going forward
+
+### Template System (Hardcoded, Mar 13 2026)
+- **Ramon mandate: if it CAN be hardcoded via .py, hardcode it.**
+- All emails rendered via `templates/render_email.py` with fixed template files
+- Templates lock in: Klaviyo tags (`{{ person.first_name|default:'friend' }}`), greetings, sign-offs, coupon codes, URLs, P.S. rotation
+- LLM only supplies dynamic body content. No more regenerating structural elements.
+- Applies to everything going forward, not just emails.
 
 ### Deliverability Rules (all relationship emails)
 - **Plain text only. No HTML at all.** (Updated March 4, 2026)
@@ -90,7 +102,8 @@
 ## Klaviyo API Notes
 - Can't create flows via API (UI-only)
 - Can't PATCH campaign-owned templates (create standalone + assign)
-- Can't schedule campaigns via API (UI-only)
+- **CAN schedule campaigns via API** but Ramon prefers to schedule manually. Set up everything (send time, template) but do NOT call `/api/campaign-send-jobs`. Ramon clicks Schedule in Klaviyo after review.
+- **Campaign name vs subject:** Campaign name includes `#N` (internal tracking). Email subject does NOT (customer-facing). Example: campaign "The Sunday Ritual #5: ..." → subject "The Sunday Ritual: ..."
 
 ### Klaviyo Deliverability (Mar 7, 2026)
 - All emails landing in Gmail Promotions tab (both HTML and plain text)
@@ -234,6 +247,7 @@
 - ALL PR emails sent from ramon@all7s.co (brand recognition)
 - Never from ramon@goven.com (editors don't know Goven)
 - Learn from Ramon's rejections (Closed without sending)
+- **Opportunity Selection Feedback (Mar 13, 2026):** Avoid "Thought Leadership" or "Product Placement" opportunities that are too far removed from the core product (games) or brand mission (social connection), even if the target audience matches. Skip niche interior design details (Regency-core kitchens, furniture materials, rug layering) or unrelated lifestyle roundups (skin care). Stick to opportunities where the board game or ritual tie-in is central and natural.
 
 ## Centralized Logging (Built Mar 3, 2026)
 - `~/amazon-data/collectors/event_logger.py` - central JSONL logger
@@ -283,6 +297,11 @@
 - YouTube: Manual (Ramon replies)
 - ManyChat has separate Klaviyo API keys (don't share Chloe's keys)
 - Will transition to "SUNDAY" keyword for B2+
+
+### Product Assets (Correct Links)
+- **Canasta Cards Deluxe Game Set ($26):** https://www.all7s.co/products/canasta-cards-deluxe-game-set
+- **Main Website:** https://all7s.co
+- **Canasta Course:** https://all7s.co/courses
 
 ## Product Compliance
 - **Intertek CPC recertification** — Scavenger Hunt product failed (missing CPSIA Section 103 tracking labels per ASTM F963)

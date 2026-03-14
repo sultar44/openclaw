@@ -1,0 +1,119 @@
+[
+  {
+    "id1": "FB025",
+    "id2": "FB042",
+    "q1": "Aces were closed by team A early in the game. Later, team A picked the pack and there were 3 Aces in it. Before the play",
+    "q2": "Aces were closed by team A early in the game. Later, team A picked the pack and there were 3 Aces in it. Before the play",
+    "q_sim": 1.0,
+    "a_sim": 1.0,
+    "combined": 1.0
+  },
+  {
+    "id1": "CL005",
+    "id2": "CL008",
+    "q1": "I called a special hand. I started laying out my cards when I realized my partner and I had more points already on the t",
+    "q2": "I called a special hand. I started laying out my cards when I realized my partner and I had more points already on the t",
+    "q_sim": 1.0,
+    "a_sim": 0.56,
+    "combined": 0.82
+  },
+  {
+    "id1": "CL002",
+    "id2": "CL006",
+    "q1": "Can you go down with 5 of a kind and 2 wilds as an initial meld? It is a Canasta worth 300 points.",
+    "q2": "Can you go down with 5 of a kind and 2 wilds as an initial meld? It is a Canasta worth 300 points.",
+    "q_sim": 1.0,
+    "a_sim": 0.47,
+    "combined": 0.79
+  },
+  {
+    "id1": "CL003",
+    "id2": "CL007",
+    "q1": "When playing canasta for 2: 1) do you play the Rule of 5? 2) when you meld, do you take the extra cards? 3) do you get a",
+    "q2": "When playing canasta for 2: 1) do you play the Rule of 5? 2) when you meld, do you take the extra cards? 3) do you get a",
+    "q_sim": 1.0,
+    "a_sim": 0.48,
+    "combined": 0.79
+  },
+  {
+    "id1": "CL001",
+    "id2": "CL003",
+    "q1": "When playing canasta for 2: 1) do you play the Rule of 5? 2) when you meld, do you take the extra cards? 3) do you get a",
+    "q2": "When playing canasta for 2: 1) do you play the Rule of 5? 2) when you meld, do you take the extra cards? 3) do you get a",
+    "q_sim": 1.0,
+    "a_sim": 0.42,
+    "combined": 0.77
+  },
+  {
+    "id1": "CL001",
+    "id2": "CL007",
+    "q1": "When playing canasta for 2: 1) do you play the Rule of 5? 2) when you meld, do you take the extra cards? 3) do you get a",
+    "q2": "When playing canasta for 2: 1) do you play the Rule of 5? 2) when you meld, do you take the extra cards? 3) do you get a",
+    "q_sim": 1.0,
+    "a_sim": 0.36,
+    "combined": 0.74
+  },
+  {
+    "id1": "FB031",
+    "id2": "FB043",
+    "q1": "My team needed 180 to go down. All my cards added to 180, so I didn't have any left in my hand if I went down, but I wou",
+    "q2": "My team needed 180 to go down. All my cards added to 180, so I didn't have any left in my hand if I went down, but I wou",
+    "q_sim": 1.0,
+    "a_sim": 0.33,
+    "combined": 0.73
+  },
+  {
+    "id1": "FB032",
+    "id2": "FB040",
+    "q1": "I want to open with 5 wild cards. Do I still need a triple?",
+    "q2": "I want to open with 5 wild cards. Do I still need a triple?",
+    "q_sim": 1.0,
+    "a_sim": 0.24,
+    "combined": 0.7
+  },
+  {
+    "id1": "FB016",
+    "id2": "FB020",
+    "q1": "While playing real canasta on line I had a lot of 3's and already made 2 canastas.. my opponent went out afterwards with",
+    "q2": "If you have a mixed wild card canasta for 2500 point, are the wild cards counted again in total card points?",
+    "q_sim": 0.11,
+    "a_sim": 1.0,
+    "combined": 0.47
+  },
+  {
+    "id1": "FB001",
+    "id2": "CL009",
+    "q1": "It's early in the game and match. Would you meld 4 wild cards that meet the point requirement (I.e. 125 points)? I would",
+    "q2": "It's early in the game and match. Would you meld 4 wild cards that meet the point requirement (I.e. 125 points)? After m",
+    "q_sim": 0.72,
+    "a_sim": 0.06,
+    "combined": 0.46
+  },
+  {
+    "id1": "FB016",
+    "id2": "FB018",
+    "q1": "While playing real canasta on line I had a lot of 3's and already made 2 canastas.. my opponent went out afterwards with",
+    "q2": "Hi, Questions always come up when we are playing and one was: With a meld of 7s there is a penalty of 2,500 points, but ",
+    "q_sim": 0.09,
+    "a_sim": 1.0,
+    "combined": 0.45
+  },
+  {
+    "id1": "FB018",
+    "id2": "FB020",
+    "q1": "Hi, Questions always come up when we are playing and one was: With a meld of 7s there is a penalty of 2,500 points, but ",
+    "q2": "If you have a mixed wild card canasta for 2500 point, are the wild cards counted again in total card points?",
+    "q_sim": 0.04,
+    "a_sim": 1.0,
+    "combined": 0.42
+  },
+  {
+    "id1": "CL017",
+    "id2": "FB053",
+    "q1": "If you're playing the 5 card rule, when you're going out only, isn't it allowed to put down 2 cards and a joker?",
+    "q2": "Playing the 5-card rule: when going out, is it allowed to go out with 2 cards and a joker (less than 5 natural cards)?",
+    "q_sim": 0.58,
+    "a_sim": 0.18,
+    "combined": 0.42
+  }
+]

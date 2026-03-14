@@ -54,7 +54,7 @@ export default function SundayRitualPage() {
       }
 
       alert(
-        `"${topicName}" selected! Tell Chloe in Slack to start Phase 2 (draft the email).`
+        `"${topicName}" selected! Chloe will automatically draft, publish, and schedule everything. Check #chloebot for the thread.`
       );
       await load();
     } finally {
@@ -84,8 +84,19 @@ export default function SundayRitualPage() {
 
       {activeItem && (
         <div className="panel" style={{ marginBottom: 24 }}>
-          <div className="meta">
-            Status: <strong>{activeItem.status}</strong>
+          <div className="meta" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <span>Status: <strong>{activeItem.status}</strong></span>
+            <button
+              className="reject"
+              style={{ padding: "4px 12px", fontSize: 13 }}
+              onClick={async () => {
+                if (!window.confirm("Dismiss this selection and return it to the queue?")) return;
+                await fetch("/api/sunday-ritual/dismiss", { method: "POST" });
+                await load();
+              }}
+            >
+              Dismiss
+            </button>
           </div>
           <h3 style={{ margin: "8px 0 4px" }}>{activeItem.topic}</h3>
           <p style={{ margin: 0, color: "#aaa" }}>{activeItem.brief}</p>
@@ -106,8 +117,8 @@ export default function SundayRitualPage() {
           )}
           <div className="meta" style={{ marginTop: 8, fontStyle: "italic" }}>
             {activeItem.status === "selected"
-              ? "Waiting for Chloe to draft the email. Tell her in Slack!"
-              : "Email drafted — review in Slack to approve."}
+              ? "Chloe is automatically drafting, publishing, and scheduling. Check #chloebot for the summary."
+              : "Published and scheduled. Check #chloebot for details."}
           </div>
         </div>
       )}

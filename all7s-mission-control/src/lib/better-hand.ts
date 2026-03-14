@@ -123,7 +123,79 @@ export async function advancePSRotation(): Promise<void> {
   fsSync.writeFileSync(PS_STATE_FILE, JSON.stringify(state, null, 2), "utf-8");
 }
 
-export async function createKlaviyoCampaign(subject: string, emailSubject?: string, previewText?: string): Promise<string | null> {
+async function createKlaviyoTemplate(name: string, bodyText: string, apiKey: string): Promise<string> {
+  // Wrap plain text body in minimal HTML for email clients
+  // Georgia 20px, 1.5 line height per deliverability rules
+  const htmlBody = `<!DOCTYPE html>
+<html><head><meta charset="utf-8"></head>
+<body style="font-family: Georgia, serif; font-size: 20px; line-height: 1.5; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+${bodyText.split("\n").map((line) => {
+    if (!line.trim()) return "<br>";
+    return `<p style="margin: 0 0 16px 0;">${line}</p>`;
+  }).join("\n")}
+</body></html>`;
+
+  const payload = {
+    data: {
+      type: "template",
+      attributes: {
+        name,
+        editor_type: "CODE",
+        html: htmlBody,
+        text: bodyText,
+      },
+    },
+  };
+
+  const res = await fetch("https://a.klaviyo.com/api/templates/", {
+    method: "POST",
+    headers: {
+      Authorization: `Klaviyo-API-Key ${apiKey}`,
+      revision: "2025-01-15",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Klaviyo template creation failed ${res.status}: ${text}`);
+  }
+
+  const data = await res.json();
+  return data?.data?.id;
+}
+
+async function assignTemplateToMessage(messageId: string, templateId: string, apiKey: string): Promise<void> {
+  const payload = {
+    data: {
+      type: "campaign-message",
+      id: messageId,
+      relationships: {
+        template: {
+          data: { type: "template", id: templateId },
+        },
+      },
+    },
+  };
+
+  const res = await fetch("https://a.klaviyo.com/api/campaign-message-assign-template/", {
+    method: "POST",
+    headers: {
+      Authorization: `Klaviyo-API-Key ${apiKey}`,
+      revision: "2025-01-15",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Klaviyo template assignment failed ${res.status}: ${text}`);
+  }
+}
+
+export async function createKlaviyoCampaign(subject: string, emailSubject?: string, previewText?: string, bodyText?: string): Promise<string | null> {
   const apiKey = loadEnvVar("KLAVIYO_API_KEY");
   if (!apiKey) throw new Error("KLAVIYO_API_KEY not found in .env");
 
@@ -133,14 +205,27 @@ export async function createKlaviyoCampaign(subject: string, emailSubject?: stri
   const approved = await loadApprovedHistory();
   const campaignNumber = approved.length + 1;
 
-  // Schedule for next day at 10 AM EST (15:00 UTC)
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  const sendDate = `${tomorrow.getFullYear()}-${String(tomorrow.getMonth() + 1).padStart(2, "0")}-${String(tomorrow.getDate()).padStart(2, "0")}T15:00:00+00:00`;
+  // Schedule for next Friday at 10 AM EST (15:00 UTC)
+  const now = new Date();
+  const daysUntilFriday = (5 - now.getUTCDay() + 7) % 7 || 7; // next Friday
+  const friday = new Date(now);
+  friday.setDate(friday.getDate() + daysUntilFriday);
+  const sendDate = `${friday.getFullYear()}-${String(friday.getMonth() + 1).padStart(2, "0")}-${String(friday.getDate()).padStart(2, "0")}T15:00:00+00:00`;
 
   // Extract topic from subject (strip "The Better Hand: " prefix if present)
   const topic = subject.replace(/^The Better Hand:\s*/i, "").replace(/\s*🃏\s*$/, "");
 
+  // Step 1: Create template with email body (if body provided)
+  let templateId: string | undefined;
+  if (bodyText) {
+    templateId = await createKlaviyoTemplate(
+      `Better Hand #${campaignNumber}: ${topic}`,
+      bodyText,
+      apiKey,
+    );
+  }
+
+  // Step 2: Create campaign
   const payload = {
     data: {
       type: "campaign",
@@ -191,5 +276,34 @@ export async function createKlaviyoCampaign(subject: string, emailSubject?: stri
   }
 
   const data = await res.json();
-  return data?.data?.id ?? null;
+  const campaignId = data?.data?.id;
+
+  // Step 3: Assign template to campaign message (if we created one)
+  if (templateId && campaignId) {
+    // Get the message ID from the campaign response
+    const messages = data?.data?.attributes?.["campaign-messages"]?.data
+      ?? data?.data?.relationships?.["campaign-messages"]?.data;
+    const messageId = messages?.[0]?.id;
+
+    if (messageId) {
+      await assignTemplateToMessage(messageId, templateId, apiKey);
+    } else {
+      // Fallback: fetch the campaign's messages
+      const msgRes = await fetch(`https://a.klaviyo.com/api/campaigns/${campaignId}/campaign-messages/`, {
+        headers: {
+          Authorization: `Klaviyo-API-Key ${apiKey}`,
+          revision: "2025-01-15",
+        },
+      });
+      if (msgRes.ok) {
+        const msgData = await msgRes.json();
+        const fallbackMsgId = msgData?.data?.[0]?.id;
+        if (fallbackMsgId) {
+          await assignTemplateToMessage(fallbackMsgId, templateId, apiKey);
+        }
+      }
+    }
+  }
+
+  return campaignId ?? null;
 }
