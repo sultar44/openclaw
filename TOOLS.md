@@ -17,7 +17,9 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 
 - **OpenClaw browser profile:** `openclaw` (Chrome, full control)
 - **User data:** `/Users/ramongonzalez/.openclaw/browser/openclaw/user-data`
-- **Logged into:** Gmail (chloemercer32@gmail.com), Facebook (Chloe Mercer)
+- **Logged into:** Gmail (chloemercer32@gmail.com), Facebook (Chloe Mercer), Amazon Ads (yamaris@goven.com)
+- **Passkey popup disabled:** Chrome Preferences modified to suppress WebAuthn conditional UI
+- **Amazon Ads reauth:** See `playbooks/amazon-ads-reauth.md` — use stored credentials, don't ask for master password for operational tasks
 
 ---
 

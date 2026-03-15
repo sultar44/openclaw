@@ -9,10 +9,10 @@
       "source_prefix": "FB",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-12",
+      "last_post_date": "2026-03-14",
       "oldest_scraped_date": "2026-01-22",
-      "posts_scraped": 82,
-      "notes": "Scraped Mar 12 10:30 PM - 2 new entries. FB071 (Susie Linder Rozanczyk, melding dirty/clean aces after partner's mismeld - clean aces unanimous NO due to knowledge contamination, dirty aces split with penalty, extends to wilds/7s, 6 comments). FB072 (Shoshana Fluss Pilevsky, wilds in zip code special hand - overwhelmingly a TABLE RULE, default allows matching wilds, some groups ban to increase difficulty, 20 comments strong majority). Skipped: Sue Tucker (LFG Bucks County), Lynda Greenberg (LFG Delray)."
+      "posts_scraped": 83,
+      "notes": "Scraped Mar 14 10:30 PM - 1 new entry. FB073 (Gloryann Torres, special hand 3-3-3-3-2 pair must be wilds - split with MAC rules saying yes wilds required, table rules say any pair, 44 comments). Skipped: Bonnie Ashley (STRAIGHT hand photo, social/congrats), Modern American Canasta admin (face-down discard YouTube video, covered by FB069), Alan Bakst (CanastaMatch promo)."
     },
     {
       "id": "ccg",
@@ -23,9 +23,9 @@
       "source_prefix": "CCG",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-02-12",
-      "posts_scraped": 1,
-      "notes": "Checked Mar 10 - no new rules/strategy content. Wade Holden scoring app promo, Alan Bakst beta test promo, LFG posts only. Next check Mar 14."
+      "last_post_date": "2026-03-14",
+      "posts_scraped": 2,
+      "notes": "Checked Mar 14 - 1 new entry! CCG002 (Ronald Feingold, wild cards on other melds after starting wild canasta - split between MAC 'wilds locked' and classic 'wilds flexible', 23 comments). Also: Wade Holden (Canasta Scores Pro app promo), Alan Bakst (CanastaMatch beta test), Steve Lang (Queens/pile pickup question from Jun 2025, already old). Next check Mar 18."
     },
     {
       "id": "cl",
@@ -36,10 +36,10 @@
       "source_prefix": "CL",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-12",
+      "last_post_date": "2026-03-14",
       "oldest_scraped_date": "2026-01-10",
-      "posts_scraped": 23,
-      "notes": "Scraped Mar 12 10:30 PM - 0 new entries. No new rules/strategy content since Mar 9. Feed dominated by event promos (Shuffle Sisters, MAC Con, Miraval), product promos (napkin holders, scorekeeper bling, card spinners), LFG posts (Delray, Spring Hill), welcome/social posts, tournament promos, Canasta scoring app recommendations. The Rumasta variant mention (Jasmin Hicks) was social/casual, not a rules debate. Next scrape Mar 14."
+      "posts_scraped": 24,
+      "notes": "Scraped Mar 14 10:30 PM - 1 new entry! CL024 (Kathy Jokl, going out final discard vs empty tray requirements - near-unanimous 'any card face down', relates to FB069, 28 comments). Skipped: Bruce Miller-Joloff (Learn to Teach promo), Dara Collins (MAC Zoom celebration Mar 25), Diane Cossin Bergner (Samba supplies), Mindy Morris Stein (product display photo), Lauri Schwartz (lessons ad)."
     },
     {
       "id": "cpg",
@@ -57,14 +57,14 @@
       "id": "nymc",
       "name": "Not Your Mother's Canasta",
       "url": "https://www.facebook.com/groups/431212641731699",
-      "members": 3700,
+      "members": 3800,
       "status": "low_content",
       "source_prefix": "NYMC",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-02-12",
+      "last_post_date": "2026-03-14",
       "posts_scraped": 0,
-      "notes": "Checked Mar 10 - no new rules/strategy content. David Grant (LFG Boca), Bonnie Bergman Keiles (welcome post), Andrew Freedman (Real Canasta app feedback), south FL game cancellations. Next check Mar 14."
+      "notes": "Checked Mar 14 - no rules/strategy content. Lauri Schwartz (lessons ad Palm Beach), game partner LFG (Sarasota), Samba Supplies promo, Caroline Redo (samba social), Alan Bakst (CanastaMatch). Next check Mar 18."
     }
   ],
   "schedule": {
@@ -73,6 +73,6 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-03-12T22:30:00-05:00",
-  "last_primary_result": "MAC: 2 new entries (FB071 mismeld aces/knowledge contamination, FB072 wilds in zip code table rule). CL: 0 new entries (no rules content since Mar 9, heavy promo/social). CCG: next check Mar 14. NYMC: next check Mar 14. CPG: awaiting approval."
+  "last_primary_run": "2026-03-14T22:30:00-05:00",
+  "last_primary_result": "MAC: 1 new entry (FB073 special hand pair wilds). CCG: 1 new entry (CCG002 wild cards locked to wild canasta). CL: 1 new entry (CL024 going out discard vs empty tray). NYMC: 0 (no rules content). CPG: awaiting approval."
 }

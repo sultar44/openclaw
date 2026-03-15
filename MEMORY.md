@@ -134,6 +134,14 @@
 - **Future Airbyte sources:** QBO (priority), Klaviyo, Shopify (after DTC volume), Google Ads/Facebook Ads
 - Account under Ramon's company domain. Chloe (chloemercer32) has admin access.
 
+### GA4 Access (Added Mar 14, 2026)
+- Service account granted Viewer access to GA4 property `properties/521314991` (all7s.co)
+- Account: 381679081
+- Libraries: `google-analytics-data`, `google-analytics-admin` installed
+- Working: can pull activeUsers, pageViews, sessionDuration, traffic sources, etc.
+- **Integrate into:** Monthly SEO Strategy Review cron (runs 3rd of each month, 10 AM EST, job `467a1910`)
+- Also useful for: GSC Weekly Report enrichment, content performance tracking
+
 ### Google Drive Sync
 - Skills + scripts synced nightly to Drive for Ramon's review
 - Internal files are source of truth; Drive stays current
@@ -334,6 +342,14 @@
 - **Postiz self-hosting:** Revisit June 5 for batch video scheduling automation (replace manual posting flow)
 - **Airbyte SP connection:** Check Wed Mar 11 for sync stabilization (<2h target)
 - **Credential files in Downloads:** Delete `bigquery_service_account_key.json` and `airbyte-seller-central-creds.rtf`
+
+## Engineering Philosophy (Mar 13, 2026)
+- **"If it CAN be hardcoded, it should. If it can't, then LLMs it is."** — Ramon's directive
+- Avoid hallucinations and inconsistencies above all
+- LLM tokens are acceptable cost, but deterministic code is always preferred
+- 20 cron jobs converted from LLM-heavy → thin wrapper (cron_runner.sh)
+- Gmail inbox processing: Python router handles deterministic routes, LLM only for HARO/SOS + BCC learning
+- `vine_order_processor.py` replaced the LLM playbook that was corrupting sheet data
 
 ## Working With Ramon
 
