@@ -9,10 +9,10 @@
       "source_prefix": "FB",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-14",
+      "last_post_date": "2026-03-15",
       "oldest_scraped_date": "2026-01-22",
-      "posts_scraped": 83,
-      "notes": "Scraped Mar 14 10:30 PM - 1 new entry. FB073 (Gloryann Torres, special hand 3-3-3-3-2 pair must be wilds - split with MAC rules saying yes wilds required, table rules say any pair, 44 comments). Skipped: Bonnie Ashley (STRAIGHT hand photo, social/congrats), Modern American Canasta admin (face-down discard YouTube video, covered by FB069), Alan Bakst (CanastaMatch promo)."
+      "posts_scraped": 84,
+      "notes": "Scraped Mar 15 10:30 PM - 1 new entry. FB074 (Millie Arana, strategy: watching partner discards + when to start wild canasta vs build existing melds, 6 comments). Skipped: MAC admin Learn to Teach promo, MAC admin Learn to Play promo, MAC admin YouTube face-down discard video (covered by FB069), Patricia Title Doniger x2 LFG Rye NY, David Grant LFG Boca, Barbara Magliozzi last card ace discard can pick pack (related to FB059 but same rule), Alan Bakst CanastaMatch promo."
     },
     {
       "id": "ccg",
@@ -36,10 +36,10 @@
       "source_prefix": "CL",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-14",
+      "last_post_date": "2026-03-15",
       "oldest_scraped_date": "2026-01-10",
-      "posts_scraped": 24,
-      "notes": "Scraped Mar 14 10:30 PM - 1 new entry! CL024 (Kathy Jokl, going out final discard vs empty tray requirements - near-unanimous 'any card face down', relates to FB069, 28 comments). Skipped: Bruce Miller-Joloff (Learn to Teach promo), Dara Collins (MAC Zoom celebration Mar 25), Diane Cossin Bergner (Samba supplies), Mindy Morris Stein (product display photo), Lauri Schwartz (lessons ad)."
+      "posts_scraped": 27,
+      "notes": "Scraped Mar 15 10:30 PM - 3 new entries! CL025 (Lori Mowery Weakland, dead cards after canasta closed - can't add to own meld, 44 comments). CL026 (Sandy Wachs Friedman, wild card canasta as initial meld at 180 - yes allowed, book citation p32, 103 comments!). CL027 (Roy Anderson, frozen discard pile rules - MAC says outdated, 41 comments). Skipped: Patricia Title Doniger LFG, David Grant LFG, Dennis Mormile intro photo."
     },
     {
       "id": "cpg",
@@ -73,6 +73,6 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-03-14T22:30:00-05:00",
-  "last_primary_result": "MAC: 1 new entry (FB073 special hand pair wilds). CCG: 1 new entry (CCG002 wild cards locked to wild canasta). CL: 1 new entry (CL024 going out discard vs empty tray). NYMC: 0 (no rules content). CPG: awaiting approval."
+  "last_primary_run": "2026-03-15T22:30:00-05:00",
+  "last_primary_result": "MAC: 1 new entry (FB074 partner discards strategy + wilds). CL: 3 new entries (CL025 dead cards after canasta closed, CL026 wild canasta as initial meld at 180, CL027 frozen pile rules outdated). CCG: next check Mar 18. NYMC: next check Mar 18. CPG: awaiting approval."
 }

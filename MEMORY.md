@@ -114,24 +114,24 @@
 
 ### ClickUp
 - **Task ID auto-recognition:** Any string matching `86ewr*` or `86ewt*` = ClickUp task ID → look up in `clickup_config.json` → `task_to_cron` to resolve cron job name + UUID. No prefix needed from Ramon.
-- All 25+ cron jobs tracked as tasks in ClickUp (list 901816342276)
+- All 40+ cron jobs tracked as tasks in ClickUp (list 901816342276)
 - Integration script auto-posts comments and marks complete
 - ClickUp is Ramon's source of truth for cron job status
+- **Cron Registry Self-Healing:** Daily sync auto-re-enables disabled jobs (unless marked Retired/Intentionally Disabled), detects ClickUp overdue tasks (2+ days). `openclaw cron list` only shows enabled jobs — disabled ones still exist in `jobs.json`.
 
-### Airbyte Cloud + BigQuery (Deployed Mar 6-8, 2026)
-- **Major migration:** Amazon data collection moved from custom SP-API/Ads API scripts → Airbyte Cloud (~$10/month) → BigQuery
-- **BigQuery dataset:** `amazon_raw` in project `lustrous-bounty-460801-b9` (39 tables)
-- **Airbyte connections:** Amazon Ads (15 streams) + Amazon Seller Partner (13 streams, incl. Sales & Traffic report)
-- **Phase 1 + 1.5 complete (Mar 8):** All dual-writes active. Historical SQLite data migrated (159,423 rows across 5 tables). forecast_restock.py reads from BQ.
-- **Key gap FIXED:** `sales_daily` (Business Reports) has no Airbyte equivalent. `daily_sales.py` now dual-writes to BQ (cron 93e6e259, daily 7:15 AM).
-- **Custom scripts that must keep running (Airbyte gaps):** daily_sales.py, daily_ppc.py, weekly_sqp.py, daily_ranks.py, gsc_report.py — all dual-writing to SQLite + BQ.
+### BigQuery Data Infrastructure (Deployed Mar 6-15, 2026)
+- **BigQuery dataset:** `amazon_raw` in project `lustrous-bounty-460801-b9` (39+ tables)
+- **Historical SQLite data migrated** (159,423 rows across 5 tables). BQ is sole data store.
+- **SQLite fully retired (Mar 15):** amazon.db is a frozen archive. No active script reads or writes. 8 scripts migrated from dual-write/SQLite reads to BQ-only.
+- **Airbyte: DECOMMISSIONED (Mar 15).** All connections, sources, and BQ destination deleted. ~$10/mo saved.
+- **Replacement architecture (built Mar 11-15):**
+  - **Tier 1: Amazon Ads email reports** — 5 daily reports (Campaign, Placement, Targeting, Advertised Product, Search Term) delivered to Gmail → `ads_report_processor.py` → BQ. Wired into `gmail_inbox_router.py` (Mar 14). BQ tables: `ads_console_campaigns`, `ads_console_search_terms`, `ads_console_targets`, `ads_console_placements`, `ads_console_products`
+  - **Tier 2: SP-API scheduled reports** — 14 schedules (8 types × 2 marketplaces), hourly polling via `scheduled_report_poller.py`. Settlement reports auto-detected.
+  - **Tier 3: On-demand reports** — 3/day staggered (7AM Inventory Planning, 8AM Merchant Listings, 9AM Sales & Traffic). Gentle approach: 1/hour, never parallel.
+  - **Tier 4: Financial Events API** — daily 5:30 AM, 30-day lookback. QBO prep.
+- **SP-API rate limit strategy:** 2-hour gaps between all calls. Bursts cause Amazon to flake.
 - **Settlement Report:** API access confirmed. 90-day retention. Build when QBO comes (~Q2). ClickUp: 86ewvn06j
 - **Attribution API:** Access confirmed. Advertiser: Smart Buyers United (580509897613930109). Build when off-Amazon campaigns launch. ClickUp: 86ewvn0mt
-- **Airbyte PPC lookback:** 3-day window configured, handles Amazon's attribution lag correctly.
-- **Phase 2 (next, ~Mar 14):** Disable SQLite-only crons after dual-write validation. Check SP connection stability Wed Mar 11 (if still 10+ hours, split into 2 connections). Keep sales_daily cron running.
-- **Phase 3:** Flip to BQ-only, retire SQLite
-- **Crons to disable:** 86ewr926h (Daily Amazon Data), 86ewr926q (Daily PPC) — once Airbyte confirmed stable
-- **Future Airbyte sources:** QBO (priority), Klaviyo, Shopify (after DTC volume), Google Ads/Facebook Ads
 - Account under Ramon's company domain. Chloe (chloemercer32) has admin access.
 
 ### GA4 Access (Added Mar 14, 2026)
@@ -164,6 +164,10 @@
 - Model lineup: Claude Opus 4.6 (main), OpenAI Codex 5.2 (fallback), Gemini Flash (heartbeat)
 - Slack `textChunkLimit` set to 800 chars (auto-chunks messages)
 - `blockStreaming: true` enabled (prevents message overwrites)
+- **Gateway self-restart is broken.** Auto-update cron killed the gateway twice (Mar 9-10). Replaced with external LaunchAgent `ai.openclaw.auto-update` (3:15 AM) + `ai.openclaw.gateway-watchdog` (every 5 min). Never let gateway restart itself.
+- **`openclaw cron run` (manual trigger) does NOT work.** Only schedule-based auto-fire works. For manual reruns, run underlying scripts directly. Gateway restart auto-fires missed jobs (schedule-based catchup).
+- **Dual-process port conflict:** If `openclaw gateway install` runs while foreground gateway is active, creates port 18789 conflict. Always stop existing process first.
+- **OpenClaw Update Check** (`851a2dd4`): Daily 2:28 PM, alerts #chloebot only when update exists. Waits for Ramon's explicit approval. ClickUp: `86ewwejxm`.
 
 ### Mac Mini Notes
 - SSH (Remote Login) is NOT enabled — enable for future remote troubleshooting
@@ -188,6 +192,8 @@
 - Default `wakeMode: "now"` for scheduled jobs
 - Retry wrapper (`retry_wrapper.sh`) for Amazon API jobs
 - Empty Gmail webhook notifications: fixed (gmail-security.js returns null for blank emails)
+- **`--no-deliver` flag** for jobs that handle their own ClickUp logging (prevents phantom "Message failed" errors from OpenClaw's announce layer)
+- **Facebook scraper dud rate:** ~1-in-15 runs produce no data (LLM fluke). Ramon says investigate only on back-to-back duds.
 
 ## PR Opportunity Workflow (HARO/SOS) — Built Mar 2, 2026
 ### Domain Quality Gate (Added Mar 3, 2026)
@@ -306,10 +312,23 @@
 - ManyChat has separate Klaviyo API keys (don't share Chloe's keys)
 - Will transition to "SUNDAY" keyword for B2+
 
+### Social Media Best Practices (Mar 14)
+- **Pinned comments:** Use for conversation starters, NOT CTA. Keep CTA in description only.
+- **Thumbnails (B2+):** Agency to include 1-second title card frame at video start for cover selection.
+- **Hashtags:** 3-5 specific. Avoid generic (#love, #inspo). Include 1 branded (#all7sgames).
+- **First engagement happened** (Mar 9): "START" comment on TikTok + FB engagement on Batch 1 content.
+
 ### Product Assets (Correct Links)
 - **Canasta Cards Deluxe Game Set ($26):** https://www.all7s.co/products/canasta-cards-deluxe-game-set
 - **Main Website:** https://all7s.co
 - **Canasta Course:** https://all7s.co/courses
+
+## Amazon Pricing Strategy (STP/PED) — Mar 10
+- **Strikethrough Pricing (STP)** driven by Amazon's median price over rolling window
+- **CAN2P problem:** Liquidation sales ($8.99-$9.99) from Dec-Jan polluted the median. Hold $12.99, check mid-April.
+- **CANSET works perfectly:** Clean price history at $26.99, spike works instantly.
+- **Coupon trick:** Coupon-clipped sales register at LIST price for STP calculations. Good for seeding high data points.
+- **90-day STP refresh cycle:** Every 90 days per SKU, spike price 25-35% above everyday for a few sales, drop back.
 
 ## Product Compliance
 - **Intertek CPC recertification** — Scavenger Hunt product failed (missing CPSIA Section 103 tracking labels per ASTM F963)
@@ -323,6 +342,15 @@
 - Migration target: Tevello (Shopify app) → all7s.co/courses (subfolder, full SEO benefit)
 - Don't migrate until December. Redirect active: all7s.co/courses → canastacourse.com
 - All new links use all7s.co/courses (not canastacourse.com)
+
+## Amazon Seller Central Access (Updated Mar 15)
+- Account: yamaris@goven.com (NOT chloemercer32)
+- TOTP secret stored in `~/amazon-data/.env` as `AMAZON_TOTP_SECRET` (the LFR7... Amazon-generated one)
+- **Full autonomous login capability confirmed:** email → password → TOTP
+- Ramon logged in manually to get past 2SV enrollment loop; browser now authenticated
+- Auto-forward rule being set up: yamaris@goven.com → chloemercer32@gmail.com
+- **IDR portal** (Inventory Defect & Reimbursement) replaces manual auditing for warehouse damage/lost claims
+- Browser 2FA needed for IDR portal access — pending Ramon's help
 
 ## Slack Bot Capabilities
 - `files:read` + `files:write` scopes added (Mar 6, 2026) — Chloe can now see images shared in Slack
@@ -339,17 +367,84 @@
 
 ## Pending Items
 - **all7s.com domain acquisition:** Reached out to owner (disbanded CA heavy metal band) via Facebook as Chloe. Message viewed, awaiting response. Budget: under $1,000. Use Escrow.com if they respond.
-- **Postiz self-hosting:** Revisit June 5 for batch video scheduling automation (replace manual posting flow)
-- **Airbyte SP connection:** Check Wed Mar 11 for sync stabilization (<2h target)
+- **Postiz self-hosting:** Deployed on Mac mini (Docker, `http://localhost:4007` / `https://192.168.68.200:4008`). Login: `ramon@goven.com` / `PostizAll7s!`. Self-signed cert (10yr) for HTTPS. Next: Ramon connecting social accounts, then needs Meta app + Google OAuth + TikTok dev app. TikTok needs HTTPS/public domain (Tailscale funnel). Revisit for batch video scheduling automation.
 - **Credential files in Downloads:** Delete `bigquery_service_account_key.json` and `airbyte-seller-central-creds.rtf`
+- **Browser 2FA for IDR portal:** Needed for FBA reimbursement IDR scraping (Part 1). Ramon will help soon.
 
 ## Engineering Philosophy (Mar 13, 2026)
 - **"If it CAN be hardcoded, it should. If it can't, then LLMs it is."** — Ramon's directive
 - Avoid hallucinations and inconsistencies above all
 - LLM tokens are acceptable cost, but deterministic code is always preferred
-- 20 cron jobs converted from LLM-heavy → thin wrapper (cron_runner.sh)
-- Gmail inbox processing: Python router handles deterministic routes, LLM only for HARO/SOS + BCC learning
+- 20+ cron jobs converted from LLM-heavy → thin wrapper (cron_runner.sh)
+- Gmail inbox processing: Python router (`gmail_inbox_router.py`) handles deterministic routes, LLM only for HARO/SOS + BCC learning
 - `vine_order_processor.py` replaced the LLM playbook that was corrupting sheet data
+- Reimbursement audit: fully hardcoded Python, LLM only for IDR browser scrape
+- **Cron timeout lesson:** When converting crons, always match outer `timeoutSeconds` to script's actual runtime + 60s buffer
+
+### Augusta Rule Write-Up (Monthly)
+- Cron: `f285d81f` — 1st of every month at 10 AM EST
+- ClickUp: `86ewwg5wj`
+- Reads all memory files from previous month, compiles narrative meeting notes, emails to ramon@goven.com
+
+## FBA Reimbursement System (Built Mar 14-15, 2026)
+
+### Architecture (Redesigned Mar 15 — fully hardcoded)
+**Old approach (Mar 14):** Inventory Ledger analysis → generate case text → file manually. Found 2 major bugs:
+1. Not netting found/recovered entries against damage/lost entries (false positives)
+2. Counting disposition transfers as "lost" (CPC compliance removals appeared as losses)
+- Impact: 16 cases ($1,058) → 5 real cases ($42.90) after bug fixes
+
+**New approach (Mar 15):** Three-part Monday audit (Python, no LLM):
+1. **Shipment discrepancies** — SP-API Inbound Shipments, wait for CLOSED, verify via browser
+2. **Sizing/fee changes** — weekly baseline comparison (56 ASINs in Sizing_Baseline tab)
+3. **Fee tier checks** — compare Amazon's measured dimensions vs known specs
+- Plus: **IDR Portal scrape** — separate small LLM cron (9:15 AM) for browser-only check
+- Script: `monday_reimbursement_audit.py` (self-contained: checks + Slack alerts + ClickUp logging)
+
+### IDR Portal Key Discovery
+- Amazon's IDR portal now auto-detects eligible claims. Ledger-based audits generate false positives Amazon already resolved.
+- US (90 days): 316 defect units, **0 eligible**, 279 resolved ($262.77 reimbursed)
+- CA (90 days): 31 defect units, **0 eligible**, 28 resolved (CA$8.16 reimbursed)
+- `GET_FBA_FULFILLMENT_INVENTORY_ADJUSTMENTS_DATA` report type is DEPRECATED (blocked by Amazon)
+- SP-API `QuantityReceived` lags behind Amazon's actual reconciliation — browser is source of truth
+
+### Key Rules
+- Amazon reason codes: Q = transferred to defective, M = misplaced, P = transfer to defective disposition, F = found
+- Policy: reimbursements for inventory lost BEFORE customer order = manufacturing cost, not sales price
+- Claim windows: Lost/damaged warehouse 60d, Customer returns 60-120d, Inbound 9mo, Fee overcharges 90d
+- Broken 6-pack theory: CAN6P breaking → individual CAN2P scans. Check offsetting +/- across related SKUs.
+
+### Crons
+- `794f8248` — Weekly Reimbursement Reports (Sun 11PM) — ClickUp `86ewy25ca` (BQ data refresh)
+- `23c02425` — Monday Reimbursement Audit (Mon 9AM) — ClickUp `86ewy6f50` (hardcoded Python)
+- `21f0dca5` — IDR Browser Check (Mon 9:15AM) — small LLM job
+- `7a36e0cd` — Weekly Reimbursement Monitor — **DISABLED** (superseded by Monday audit)
+
+## Rolling Jokers CPC Compliance (Mar 12)
+- Glass marbles failed lead content test (components 19, 21, 22, 24)
+- Two fixes needed: (1) compliant marbles (acrylic recommended), (2) proper tracking labels
+- 1,500 units in stock, selling ~18/month ($40 price, down from $75)
+- Chinese copycats destroyed pricing power. Plan: recoup via trickle sales + DTC upsell through Canasta list.
+- Age rating 8+ was a mistake (triggers CPC). Audience is adults.
+- Marble sourcing in progress. Tip: ask suppliers for existing CPSIA/EN-71 reports before samples.
+
+## B2B Wholesale Strategy (Mar 12)
+- **Faire is primary B2B channel** (net 60, free returns, discovery)
+- **Blocked until:** New PO with smaller carton sizes (6 or 12-unit, ETA May-June 2026)
+- **Key targets:** Barnes & Noble (distributor says "ideal"), Books-A-Million, indie retailers (Playmobil CC list)
+- **Walmart.com:** Has account, full API available. Relaunch with PPC.
+- **Needs before execution:** B2B landing pages, sell sheet PDF, Faire API key, Walmart API credentials
+- Playbook: `playbooks/b2b-wholesale-strategy.md`
+
+## eBay Sync (Mar 14)
+- ASIN-based dedup to prevent duplicate listings
+- **Ramon's pricing rules:** All clothing $16.99, shoes $29.99. Manual override via sheet column E.
+- Skip no-op API calls (compare before calling)
+
+## PR Sheet Off-by-One Bug (CRITICAL — Mar 12)
+- **ALWAYS read back target row content BEFORE writing to verify it's the right opportunity**
+- Formula: data_index 0 = sheet row 2. data_index N = sheet row N+2.
+- Bug hit twice: wrote to wrong row both times.
 
 ## Working With Ramon
 

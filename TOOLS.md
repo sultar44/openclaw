@@ -20,6 +20,13 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 - **Logged into:** Gmail (chloemercer32@gmail.com), Facebook (Chloe Mercer), Amazon Ads (yamaris@goven.com)
 - **Passkey popup disabled:** Chrome Preferences modified to suppress WebAuthn conditional UI
 - **Amazon Ads reauth:** See `playbooks/amazon-ads-reauth.md` — use stored credentials, don't ask for master password for operational tasks
+- **Amazon Seller Central:** Full autonomous login capability (email + password + TOTP)
+  - Account: yamaris@goven.com (NOT chloemercer32 — that account is unused)
+  - Password: `AMAZON_SC_PASSWORD` in `~/amazon-data/.env`
+  - TOTP secret: `AMAZON_TOTP_SECRET` in `~/amazon-data/.env`
+  - Login flow: email → password → (possible email verification code from yamaris@goven.com, forwarded to chloemercer32) → TOTP
+  - Sessions last ~1-2 weeks before re-auth needed
+  - Auto-forward rule being set up: yamaris@goven.com → chloemercer32@gmail.com for Amazon verification emails
 
 ---
 
