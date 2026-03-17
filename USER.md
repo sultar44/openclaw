@@ -49,7 +49,7 @@ Ramon is a business owner selling board games on Amazon and other channels.
 - **Target audience:** Women 50+, often married/partnered, empty nesters or close to it
 - **Core problem addressed:** Loss of social connection and community after children leave home
 - **Message:** Friendship requires effort. Gathering creates meaning. Rituals create belonging.
-- **Flagship product:** Canasta Deluxe Game Set ($26 on Amazon)
+- **Flagship product:** Canasta Deluxe Game Set ($27 on Amazon)
 - **Website:** all7s.co (Shopify)
 
 ### Current Initiatives

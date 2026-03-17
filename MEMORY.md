@@ -186,6 +186,7 @@
 ### SQP Data Collection
 - SQP reports can get stuck IN_QUEUE at Amazon for days (happened week of Feb 22-28)
 - Added 2 AM run to schedule, bumped max_wait to 30 min — eventually resolved after retries
+- **SQP ClickUp rule (Ramon, Mar 16 2026):** ALL SQP cron runs (main + retries) MUST comment/complete task `86ewr9282` only. Never log to `86ewub625` or any other task. This is hardcoded in `clickup_config.json`.
 
 ### Cron Job Rules
 - Runaway/duplicate/wasteful crons: act immediately (disable), report after
@@ -216,6 +217,7 @@
 - Gmail webhook intercepts HARO/SOS emails via `gmail-security.js` transform
 - Senders: `haro@helpareporter.com`, `peter@shankman.com`, `peter@sourceofsources.com`
 - Two lanes: Product Placement + Thought Leadership
+- **Gift Bag Policy (Mar 16, 2026):** Disregard all gift bag / bulk giveaway opportunities. Only pursue placements requiring 1 free set max.
 - Scoring threshold: >= 70 out of 100
 - Draft packages emailed to `ramon@goven.com` (never contact reporters directly)
 - Notifications in `#mar_marketing` (C9T8MAM71)
@@ -319,7 +321,7 @@
 - **First engagement happened** (Mar 9): "START" comment on TikTok + FB engagement on Batch 1 content.
 
 ### Product Assets (Correct Links)
-- **Canasta Cards Deluxe Game Set ($26):** https://www.all7s.co/products/canasta-cards-deluxe-game-set
+- **Canasta Cards Deluxe Game Set ($27):** https://www.all7s.co/products/canasta-cards-deluxe-game-set
 - **Main Website:** https://all7s.co
 - **Canasta Course:** https://all7s.co/courses
 

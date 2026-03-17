@@ -51,7 +51,9 @@ Classify by sender/subject, then follow the appropriate route:
 
 **Action:**
 - **If forwarded Amazon order** (from thehouse@goven.com, subject has "Ordered:"): Follow `playbooks/vine-order-email.md`, add to Vine Google Sheet, confirm in #chloelogs (C0AELHCGW4F)
-- **If BCC learning loop** (from ramon@goven.com or ramon@all7s.co, appears to be a PR pitch reply): Follow the BCC learning loop in `playbooks/pr-opportunity-workflow.md` — study Ramon's edits, update pitch database, advance row status. **Alert #chloelogs:** "📨 BCC learning loop: pitch to {reporter/outlet} studied"
+- **If BCC learning loop** (from ramon@goven.com or ramon@all7s.co, appears to be a PR pitch reply): Follow the BCC learning loop in `playbooks/pr-opportunity-workflow.md` — study Ramon's edits, update pitch database, advance row status via `pr_bcc_processor.py --action advance`. **Alert #chloelogs:** "📨 BCC learning loop: pitch to {reporter/outlet} studied"
+- **If Ramon CC'd/forwarded a PR decline or "not interested" reply**: Close the row via `pr_bcc_processor.py --action close --reporter-email "..." --tab opportunities`. **Alert #chloelogs:** "📨 PR row closed: {outlet} — Ramon declined"
+- **If Ramon CC'd/forwarded a sent pitch** (not BCC'd): Advance the row via `pr_bcc_processor.py --action advance --reporter-email "..." --tab opportunities`. If the status needs to jump (e.g. Draft 3 Ready → Sent 3), use `--action set-status --status "Sent 3"`. **Alert #chloelogs:** "📨 PR row advanced: {outlet} — marked Sent {N}"
 - **If actionable/important**: Summarize and post to #chloelogs (C0AELHCGW4F)
 - **If just a notification/digest**: Archive silently. **Alert #chloelogs:** "📨 Trusted sender email archived: {from} — {subject snippet}"
 - Always archive after processing: `gog gmail modify <id> --remove-labels INBOX --account chloemercer32@gmail.com`

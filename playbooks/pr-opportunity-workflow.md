@@ -22,9 +22,9 @@ Each HARO/SOS email contains multiple query blocks. Parse each one individually:
 
 ## Blacklist Filters (from Sheet → Blacklist tab)
 Skip queries matching:
-- **Keywords:** crypto, blockchain, sexually, cbd
+- **Keywords:** crypto, blockchain, sexually, cbd, gift bag, giftbag, goodie bag, attendee gift, conference bag
 - **Outlets:** Famadillo
-- **Categories:** Biotech and Healthcare, Business and Finance, Technology, Beauty and Wellness, Health and Pharma
+- **Categories:** Biotech and Healthcare, Business and Finance, Technology, Beauty and Wellness, Health and Pharma, Gift Bags
 
 ## Classification Lanes
 Each parsed query is classified into one of three lanes:
@@ -43,6 +43,12 @@ Each parsed query is classified into one of three lanes:
 - Actionability (clear ask + deadline + contact): 0-20
 
 Threshold: **>= 70 → proceed to domain quality check.** Below 70 → ignore.
+
+### Gift Bag Policy (MANDATORY - Updated Mar 16, 2026)
+Ramon's rule: **Disregard ALL gift bag / giftbag / event swag opportunities.**
+- We do NOT provide bulk sets (e.g., 50 sets for an event).
+- We are only looking for placements where we provide **1 free set** for review or giveaway.
+- If a query asks for multiple units, attendee gifts, or "contributions for gift bags", skip it silently even if the audience fit is high.
 
 ## Domain Quality Gate (ETV Check)
 
@@ -85,7 +91,36 @@ After ETV passes, check the Placements tab for cooldown conflicts BEFORE draftin
 
 Script: `~/amazon-data/collectors/pr_placement_checker.py`
 
-## Email Drafting Rules
+## Email Drafting
+
+**ALL PR emails MUST be assembled via `pr_email_drafter.py`.**
+
+The LLM generates ONLY three things:
+1. `--personalized-opening` (1-2 sentences specific to this outlet/query)
+2. `--why-it-fits` (paragraph on why our product fits their readers, Email 1 only)
+3. `--subject-line`
+
+Everything else (product facts, links, image URL, sign-off, wrapper) is hardcoded in the script.
+
+```bash
+cd ~/amazon-data && source .venv/bin/activate
+# Email 1 (--send sends directly to ramon@goven.com with perfect formatting):
+python3 collectors/pr_email_drafter.py --type opportunity --email-num 1 \
+    --lane "Product Placement" --outlet "Outlet" --reporter-name "Name" \
+    --reporter-email "email" --summary "query summary" \
+    --personalized-opening "..." --why-it-fits "..." --subject-line "..." \
+    --original-request "full query text" --send
+# Follow-ups:
+python3 collectors/pr_email_drafter.py --type opportunity --email-num 2 \
+    --outlet "Outlet" --reporter-name "Name" --reporter-email "email" \
+    --personalized-opening "..." --new-angle "..." --subject-line "..." --send
+```
+
+**ALWAYS use `--send` flag.** This sends the email directly from the script, preserving all line breaks and formatting. Do NOT capture stdout and pass it to email_util separately — that mangles newlines.
+
+The script auto-validates for em dashes and runs the humanizer. Use `--skip-humanizer` for testing only.
+
+**DO NOT compose PR emails in free-form LLM text. Always use pr_email_drafter.py.**
 
 ### Link Strategy (IMPORTANT - backlink priority)
 The #1 goal of every PR email is to earn backlinks to **all7s.co**, not Amazon.
@@ -120,7 +155,7 @@ The #1 goal of every PR email is to earn backlinks to **all7s.co**, not Amazon.
 - This saves Ramon from searching for the image every time
 
 ### Product Placement Lane
-- Lead with the Canasta Deluxe Set ($26 at all7s.co)
+- Lead with the Canasta Deluxe Set ($27 at all7s.co)
 - Mention: women 50+ audience, brain health + social connection angle
 - Link to all7s.co product page, NOT Amazon
 - Offer to send a complimentary set for review
@@ -177,9 +212,25 @@ Sheet ID: `1ekrQwL_OHI784GFm-E8KSPynNP4w4MyDYWKh3jELokc`
 Tab: `Opportunities`
 Service account: `openclaw-sheets@lustrous-bounty-460801-b9.iam.gserviceaccount.com`
 
-**Row insertion order: APPEND (bottom).** Always append new rows to the bottom of the sheet. This is a single atomic operation and avoids the insert+write two-step failure mode. Ramon can sort by Date descending in the sheet to see newest leads first.
+**Row insertion: Use `pr_row_writer.py` (deterministic, no LLM sheet writes).**
+```bash
+cd ~/amazon-data && source .venv/bin/activate
+python3 collectors/pr_row_writer.py \
+    --source HARO \
+    --outlet "ConsumerQueen" \
+    --summary "Gift guide for seniors" \
+    --reporter-name "Jane Doe" \
+    --reporter-email "jane@consumerqueen.com" \
+    --ai-score 85 \
+    --ai-reasoning "Perfect audience fit" \
+    --lane "Product Placement" \
+    --etv 15000
+```
+**DO NOT append rows with ad-hoc sheet API calls. Always use pr_row_writer.py.**
 
 Columns: Date, Source, Outlet, Summary, Reporter Name, Reporter Email, AI Score, AI Reasoning, Status, Last Action Date, Lane, Follow-up Due, ETV
+
+**Date format: M/D/YYYY** (e.g. 3/16/2026) — enforced by all scripts. Do not use ISO format (YYYY-MM-DD) in sheet writes.
 
 ### Status Values
 - `Draft 1 Ready` — Chloe drafted Email 1, sent package to Ramon
@@ -221,12 +272,23 @@ Ramon will BCC chloemercer32@gmail.com when he sends a pitch to a reporter. When
    python3 collectors/pr_bcc_processor.py --outlet "Publication" --tab outreach --action advance
    # To close a row:
    python3 collectors/pr_bcc_processor.py --outlet "Outlet" --tab opportunities --action close
+   # To set any arbitrary status (e.g. when Ramon sends without us drafting, or declines):
+   python3 collectors/pr_bcc_processor.py --outlet "Outlet" --tab opportunities --action set-status --status "Sent 3"
+   python3 collectors/pr_bcc_processor.py --outlet "Outlet" --tab opportunities --action set-status --status "Closed"
    # Dry run (preview without writing):
    python3 collectors/pr_bcc_processor.py --outlet "Outlet" --tab opportunities --action advance --dry-run
    ```
    The script handles all row math internally, verifies the target row before writing, and outputs JSON with the result.
    
-   **DO NOT update rows ad-hoc with manual sheet API calls. Always use pr_bcc_processor.py.**
+   **DO NOT update rows ad-hoc with manual sheet API calls. Always use pr_bcc_processor.py or pr_row_writer.py.**
+
+## Handling Ramon's Email Responses (CC'd or forwarded)
+When Ramon replies to a PR-related email (declining, sending directly, etc.) and CCs or forwards to Chloe:
+1. **Declining/Not interested** → use `pr_bcc_processor.py --action close` (finds the right row, marks Closed)
+2. **Sent a follow-up himself** → use `pr_bcc_processor.py --action set-status --status "Sent X"` (sets exact status)
+3. **Any status update** → use `pr_bcc_processor.py --action set-status --status "<value>"` (handles edge cases)
+
+**NEVER create new rows, insert rows, or write to the sheet with ad-hoc API calls when updating existing rows.**
 
 ## Learning from Rejections
 When Ramon marks a row `Closed` without ever sending, I should note the pattern in memory. Over time this refines scoring accuracy.

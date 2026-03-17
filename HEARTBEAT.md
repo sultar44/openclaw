@@ -6,6 +6,15 @@ Quick check: run `openclaw cron list --json` (ONE call) and scan for:
 - `lastStatus: "error"` on jobs that ran in the last 2 hours → note but don't alert (single errors are normal)
 - Any job with `runningAtMs` that's been running > 2x its normal duration → alert #chloebot
 
+**MISSING CRON DETECTION (EVERY heartbeat):**
+After the health check above, run this script (ONE call):
+```bash
+cd ~/amazon-data && source .venv/bin/activate && python3 collectors/cron_missing_checker.py
+```
+- If output is empty → all good, move on silently
+- If output contains alerts → post them to #chloebot immediately
+- This compares Cron Registry sheet (Active jobs) against `openclaw cron list` (live jobs)
+
 **DO NOT** run the full `cron_watchdog.py` script. That's been retired.
 **DO NOT** call `openclaw cron runs` for individual jobs. One `list` call is enough.
 

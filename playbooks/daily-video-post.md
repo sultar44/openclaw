@@ -5,6 +5,18 @@ Every day at 10 AM EST, deliver today's video posting package to #chloebot so Ra
 
 ## Steps
 
+### Step 0: Move Yesterday's Video to "Posted"
+Before anything else, move yesterday's video file from "To Post" → "Posted" in Drive:
+1. Calculate yesterday's date (EST)
+2. List files in "To Post" folder (`1ogCw4xV7u_PDlT2C9NxZL6xsrYXBaLbf`)
+3. Find the file starting with yesterday's date (YYYYMMDD)
+4. If found, move it to "Posted" folder (`16X4cz-UYwEKg4uB_pcE26ZUVgpu3_tva`) using Drive API
+5. Also mark yesterday's 4 rows in the Content Tracker as "posted" in column J (if not already marked)
+6. If yesterday's file is not found in "To Post" (already moved or missing), skip silently
+
+This ensures every posted video gets moved automatically without waiting for manual confirmation.
+
+### Step 1: Deliver Today's Package
 1. **Read the tracking sheet** (`1l9VL3DCkz3MNe2kAGy6obqmEulvffmX1UdIGgVIx_YU`, tab "Content Tracker")
 2. **Find today's rows** by matching the Date column (A) to today's date (YYYY-MM-DD, EST)
    - Each video has 4 rows (tiktok, IG reels, yt shorts, fb reels). The first row of each group has all the video info.
@@ -50,6 +62,13 @@ Just the raw pinned comment text. Nothing else. No label, no emoji prefix.
 3. When Ramon shares specific post URLs, update the matching platform row
 
 ## Rules
+- **After sending Messages 1-3 via the message tool, your final agent response must be the CTA text below** (OpenClaw delivers it to #chloebot as the job's "announce" message — this is how the job confirms success):
+
+```
+Want to join our weekly letter about friendship and gathering? Comment START and I'll send you the link :love_letter:
+```
+
+- **Do NOT send the CTA via the message tool** — it must be your final text response so OpenClaw delivers it
 - **Max 5 hashtags** per description (never more)
 - **Single pinned comment** for ALL platforms: "Comment START" version (no more "DM me START" variant)
 - **Description CTA:** Include "comment START for..." line in all descriptions (no "follow @playall7s")

@@ -48,40 +48,38 @@ The weekly outreach cron handles DISCOVERY ONLY:
 
 **Follow-ups (Email 1/2/3 drafting) are handled by the daily `pr-followup-check` cron**, which checks both Opportunities AND Outreach tabs Mon-Fri at 10 AM.
 
-## Email Drafting Rules
+## Email Drafting
 
-### Email 1 (Initial Cold Pitch)
-Keep SHORT (150 words max). Structure:
-- Brief compliment about their guide (specific, not generic)
-- One sentence about what All7s Canasta Deluxe Set is
-- Why it fits their readers (match to their audience)
-- Offer to send a free set for review
-- Direct product page link: https://www.all7s.co/products/canasta-cards-deluxe-game-set
-- Attach product image to the draft email (download from: https://www.all7s.co/cdn/shop/files/CANSET_1280x.png)
-- Mention "(Product photo attached.)" in the email body
-- Sender: ramon@all7s.co (NOT ramon@goven.com)
-- Sign-off: "Warmly, Ramon / Founder, All7s Games / all7s.co"
+**ALL PR emails MUST be assembled via `pr_email_drafter.py`.** Same script used for HARO/SOS opportunities.
 
-### Email 2 (Follow-up, +2 weeks)
-Even shorter. Structure:
-- Quick reference to Email 1
-- One new angle or piece of value (e.g., customer testimonial, award, sales milestone)
-- Reiterate offer to send a set
-- all7s.co link
+```bash
+cd ~/amazon-data && source .venv/bin/activate
+# Email 1 (cold pitch):
+python3 collectors/pr_email_drafter.py --type outreach --email-num 1 \
+    --outlet "The Strategist (NYMag)" --reporter-name "Arielle" \
+    --reporter-email "arielle.avila@nymag.com" \
+    --article-title "Best Gifts for Grandmothers" \
+    --article-url "https://nymag.com/..." \
+    --personalized-opening "..." --why-it-fits "..." --subject-line "..." --send
+# Follow-ups:
+python3 collectors/pr_email_drafter.py --type outreach --email-num 2 \
+    --outlet "..." --reporter-name "..." --reporter-email "..." \
+    --personalized-opening "..." --new-angle "..." --subject-line "..." --send
+```
 
-### Email 3 (Final Follow-up, +2 weeks)
-Last touch. Structure:
-- Acknowledge they're busy
-- One compelling data point or social proof
-- "Happy to send a set anytime if you'd like to check it out"
-- No pressure, leave the door open
+**ALWAYS use `--send` flag** to send email directly from the script with perfect formatting.
 
-### All Emails
-- Run through humanizer before sending to Ramon
-- Zero em dashes
-- Primary link: all7s.co (NEVER default to Amazon)
-- Send draft to ramon@goven.com with same format as HARO/SOS drafts
-- Include PR spreadsheet link at bottom
+The LLM generates ONLY: `--personalized-opening`, `--why-it-fits` (Email 1), `--new-angle` (Email 2/3), `--subject-line`.
+Everything else (product facts, links, image, sign-off, wrapper) is hardcoded.
+
+**DO NOT compose PR emails in free-form LLM text. Always use pr_email_drafter.py.**
+
+### Email Guidelines (for LLM-generated parts only)
+- **Email 1:** Brief compliment about their guide + why our product fits their readers. Keep the personalized parts SHORT.
+- **Email 2:** Quick reference to Email 1 + one new angle (testimonial, milestone, data point).
+- **Email 3:** Acknowledge they're busy + one compelling social proof. No pressure.
+- **Zero em dashes** (the script auto-validates and fixes)
+- **Humanizer runs automatically** (the script calls it)
 
 ## Pre-Pitch Checks (before drafting any email)
 1. Verify the guide URL is still live (quick HEAD request)
