@@ -4,15 +4,15 @@
       "id": "mac",
       "name": "Modern American Canasta",
       "url": "https://www.facebook.com/groups/modernamericancanasta",
-      "members": 6100,
+      "members": 6200,
       "status": "active",
       "source_prefix": "FB",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-15",
+      "last_post_date": "2026-03-17",
       "oldest_scraped_date": "2026-01-22",
-      "posts_scraped": 84,
-      "notes": "Scraped Mar 15 10:30 PM - 1 new entry. FB074 (Millie Arana, strategy: watching partner discards + when to start wild canasta vs build existing melds, 6 comments). Skipped: MAC admin Learn to Teach promo, MAC admin Learn to Play promo, MAC admin YouTube face-down discard video (covered by FB069), Patricia Title Doniger x2 LFG Rye NY, David Grant LFG Boca, Barbara Magliozzi last card ace discard can pick pack (related to FB059 but same rule), Alan Bakst CanastaMatch promo."
+      "posts_scraped": 89,
+      "notes": "Scraped Mar 17 10:30 PM - 5 new entries! FB075 (Amy Beer Brown, courtesy rule: special hand after partner opens - yes on next turn only, 14 comments). FB076 (Amy Beer Brown, can't close 7 canasta when only wilds left - must discard 7, 14 comments unanimous). FB077 (David Grant, strategy: dump 7s and go out to trap opponents with 3s, 11 comments unanimous). FB078 (Mary Fiore Top contributor, can't pick tray for splash/special hand - admin definitive answer with definitions, 19 comments). FB079 (Jean Ann, second team gets 3-card talon not 4, 6 comments unanimous). Skipped: Fran Sher (printable special hands resource request), Alan Bakst (CanastaMatch lessons promo), MAC admin (Learn to Teach promo), Patricia Title Doniger x2 (LFG Rye NY)."
     },
     {
       "id": "ccg",
@@ -73,6 +73,6 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-03-16T22:30:00-05:00",
-  "last_primary_result": "CL: 2 new entries (CL028 picking pack without opening - must meld first, CL029 incomplete aces scoring - face value + penalty). Skipped LFG posts. MAC: not checked tonight. CCG: next check Mar 18. NYMC: next check Mar 18. CPG: awaiting approval."
+  "last_primary_run": "2026-03-17T22:30:00-05:00",
+  "last_primary_result": "MAC: 5 new entries (FB075-FB079: courtesy rule for special hands, wild card discard with 7s, 7s dump strategy, splash vs special hand definitions, talon size). Skipped promos and LFG posts. CCG: next check Mar 18. CL: next check Mar 18. NYMC: next check Mar 18. CPG: awaiting approval."
 }

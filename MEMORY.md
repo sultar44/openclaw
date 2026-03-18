@@ -150,12 +150,13 @@
 ### Gmail Hook Security
 - Tiered routing: `@goven.com`/`@all7s.co` → trusted session; all others → untrusted (restricted)
 
-### Gmail Processing (Updated Mar 11, 2026)
-- **Gmail watcher is BROKEN** — `gog gmail watch serve` has a stale historyId bug that drops every push notification
-- Bug: when pushed historyId == stored historyId, gog skips `history.list()` instead of checking for new messages
-- **Replaced with polling cron:** "Gmail Inbox Processor" runs every 30 min (`61b00e02`, ClickUp `86ewwxu07`)
+### Gmail Processing (Updated Mar 17, 2026)
+- **gog gmail watch serve is the PRIMARY system** — runs via OpenClaw gateway, catches emails near-instantly via Google Pub/Sub push
+- Process restarts daily at 3:15 AM with gateway restart, subscription auto-renews every 720 min
+- **Polling cron is the BACKUP** — "Gmail Inbox Processor" runs every 30 min (`61b00e02`, ClickUp `86ewwxu07`) as safety net
 - Processes ALL email types: HARO/SOS, Amazon Ads reports, trusted senders, external
 - Playbook: `playbooks/gmail-poll-safety-net.md`
+- **Mar 17 incident:** 4 Ads report emails forwarded in rapid succession caused processing queue pileup + LLM timeout → circuit breaker tripped. Root cause was manual rapid-fire forwarding, not a watcher bug.
 - LaunchAgent `ai.openclaw.tailscale-retry` still exists for Tailscale boot reliability
 - gog OAuth app on Google Production status (permanent tokens)
 - TODO: File gog bug report on GitHub for the stale historyId issue
