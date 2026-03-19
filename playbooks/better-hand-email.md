@@ -69,6 +69,10 @@ The template handles: Klaviyo personalization tag, intro line, coupon code + Ama
 - 1: Strategy prompt (reply-only)
 - 2: Feedback prompt (reply-only)
 
+### Unsubscribe Tag (MANDATORY — added Mar 18, 2026)
+Every email MUST end with `{% unsubscribe %}` as the last line after the P.S.
+This is Klaviyo's built-in unsubscribe tag. Do NOT rely on Klaviyo to auto-add it (they add it in HTML format which doesn't match our plain text style).
+
 ### What to Skip
 - Product images
 - Multiple CTAs

@@ -2,3 +2,4 @@
 {"id": "BH-001", "weekLabel": "BH Week 2", "subject": "The Better Hand #2: Check for a Special Hand Before You Do Anything 🃏", "campaignNumber": 2, "approvedAt": "2026-03-04T18:36:00.000Z", "approvedBy": "Ramon"}
 {"id": "BH-002", "weekLabel": "BH Week 3", "subject": "The Better Hand #3: Stop Emptying Your Hand So Fast 🃏", "campaignNumber": 3, "klaviyoCampaignId": "01KKHH6YSN3W2Y4X22VV8KNEFV", "approvedAt": "2026-03-12T17:23:50.000Z", "approvedBy": "Ramon"}
 {"id":"BH-003","subject":"The Better Hand: Are You Tracking Aces and Sevens? 🃏","approvedAt":"2026-03-13T13:28:59.102Z","klaviyoCampaignId":"01KKKP5M1SDF8PABQZPQ9QT1YC"}
+{"id":"BH-004-revised","subject":"The Better Hand: What to Throw Away First 🃏","approvedAt":"2026-03-18T19:45:00.000Z","klaviyoCampaignId":"01KM1NMW4FYP9287ANBBJD1CWC","note":"Ramon rewrote strategy: drop low cards first (not high singles). Added unsubscribe tag."}

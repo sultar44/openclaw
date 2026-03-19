@@ -102,8 +102,10 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 - **Chloe's account:** chloemercer32@gmail.com (user ID: 107688256)
 - **API Key:** In `~/amazon-data/.env` as `CLICKUP_API_KEY`
 - **Task List:** "Chloe Automated Tasks" in BIZ: Corporate (list ID: 901816342276)
+- **Ramon's personal list:** 25307274 ("Ramon's Tasks")
 - **Config:** `~/amazon-data/collectors/clickup_config.json` (cron→task mapping)
 - **Integration script:** `~/amazon-data/collectors/clickup_integration.py`
+- **⚠️ Due Date Automation:** Ramon has a ClickUp automation that resets the due date on new tasks. When creating tasks: (1) create the task, (2) wait a moment for the automation to fire, (3) THEN update with the correct due date.
 
 ### Execution Logging Protocol
 - **All executions:** Post comment on ClickUp task with status + summary
@@ -131,6 +133,16 @@ If a cron job is **recreated** (new ID), update the sheet row + clickup_config.j
 
 - `"now"` = triggers immediately at scheduled time ✅
 - `"next-heartbeat"` = waits for heartbeat, unreliable for timed jobs ❌
+
+### 🚨 Cron LLM Policy (Ramon mandate, Mar 18 2026)
+**No LLM for simple script execution.** If a cron job just runs a Python script:
+1. Script MUST handle its own ClickUp logging + Slack alerts (via `slack_notify.py` or `cron_runner.sh`)
+2. Cron model MUST be `gemini-flash` (not Opus/default)
+3. Use `--no-deliver` flag
+4. LLM's only job: "run this command, report exit code"
+5. Only use Opus/Sonnet for jobs that genuinely need reasoning (content writing, analysis, research)
+- **Slack direct posting:** `slack_notify.py` (uses OpenClaw bot token, zero LLM tokens)
+- **Migration playbook:** `playbooks/cron-llm-migration.md`
 
 **Cron Registry Sheet:** `1aPek6nXAht0BYkO5fR-ildJ4u7gnOFSsXMyqjDXMPDQ` (tab: Cron Registry)
 - Source of truth for all cron jobs, ClickUp mappings, objectives, outcomes

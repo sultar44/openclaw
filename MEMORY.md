@@ -97,6 +97,7 @@
 - No Klaviyo templates, no images/logos/social icons
 - No bold, no anchor-text links. Bare URLs only.
 - Minimize links (1 content link + unsubscribe)
+- **Unsubscribe tag:** Every email MUST include `{% unsubscribe %}` as the last line (after P.S.). Don't rely on Klaviyo's auto-add (renders in HTML format, breaks plain text style).
 - Klaviyo personalization: `{{ person.first_name|default:'friend' }}`
 
 ## Klaviyo API Notes
@@ -452,6 +453,7 @@
 ## Working With Ramon
 
 - Filter all advice through: "Does this help All7s, Canasta, community, or email growth?"
+- **PR Opportunities:** Disregard topics with high degree of separation from All7s (e.g. generic travel gear/water bottles) even for "Thought Leadership". Focus on social connection, rituals, games, or brand growth.
 - No multi-brand distractions
 - No launch-more-products-for-growth mentality
 - Structured plans > chaotic tactics

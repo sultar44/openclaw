@@ -95,9 +95,9 @@ Script: `~/amazon-data/collectors/pr_placement_checker.py`
 
 **ALL PR emails MUST be assembled via `pr_email_drafter.py`.**
 
-The LLM generates ONLY three things:
-1. `--personalized-opening` (1-2 sentences specific to this outlet/query)
-2. `--why-it-fits` (paragraph on why our product fits their readers, Email 1 only)
+The LLM generates ONLY three things (ALL must be first-person, written AS Ramon, ready to paste):
+1. `--personalized-opening` (1-2 sentences specific to this outlet/query — "I saw your query...", never "Ramon can...")
+2. `--why-it-fits` (2-3 insight paragraphs with actual quotable content, not advice on what to say — Email 1 only)
 3. `--subject-line`
 
 Everything else (product facts, links, image URL, sign-off, wrapper) is hardcoded in the script.
@@ -163,12 +163,15 @@ The #1 goal of every PR email is to earn backlinks to **all7s.co**, not Amazon.
 - Keep concise, professional, warm
 
 ### Thought Leadership Lane
-- Lead with Ramon's expertise: founder of All7s Games, focused on social connection for women 50+.
+
+**CRITICAL: All LLM-generated fields (`--personalized-opening`, `--why-it-fits`) must be written AS Ramon, in first person, ready to copy-paste into an email. Never write about Ramon in third person ("Ramon can speak to..."). Write AS him ("What I see in our community is...", "I hear this constantly from...").**
+
+- Write as the founder of All7s Games, focused on social connection for women 50+.
 - **Core Narrative**: Friendship requires effort, and gathering creates meaning. The physical product is a "gateway" to a shared ritual.
 - **Key Insight**: Canasta is a strict 4-player game. Once a "table tribe" forms and sets a weekly date, not showing up isn't an option because the group can't play without you. This creates forced consistency and deep friendship.
-- Mention the "Before and After" stories of customers finding community.
-- Mention the free Canasta course (canastacourse.com) as the tool that removes the "objection to sitting down" (the learning curve).
-- Position Ramon as a source/expert, NOT as a product pitch.
+- Share the "Before and After" stories of customers finding community — as firsthand observations ("I hear from women who...", "One of our customers told me...").
+- Mention the free Canasta course (all7s.co/courses) as the tool that removes the learning curve objection.
+- The `--why-it-fits` field should contain 2-3 actual quotable insights, not a description of what Ramon COULD say. Write the insights themselves.
 - Offer availability for interview/quotes.
 
 ### Follow-up Emails (all lanes)
