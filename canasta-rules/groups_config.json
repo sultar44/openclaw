@@ -9,10 +9,10 @@
       "source_prefix": "FB",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-18",
+      "last_post_date": "2026-03-19",
       "oldest_scraped_date": "2026-01-22",
-      "posts_scraped": 91,
-      "notes": "Scraped Mar 18 10:30 PM - 2 new entries! FB080 (Terri Golden Top contributor, last card is a 3 with wild card in hand - can you go out? Split opinion: majority say play stops, 15 comments). FB081 (Lisa Adams Fireman Top contributor, dead cards melded after opponent closed canasta - too late to call back after turns pass, unanimous 6 comments). Skipped: MAC admin Learn to Teach promo, MAC admin Online Learn to Play promo."
+      "posts_scraped": 96,
+      "notes": "Scraped Mar 19 10:30 PM - 5 new entries! FB082 (Laurie Kanner Howard, strategy: wilds showing unmelded - pick pack or draw? situational, 3 comments). FB083 (Ralph Benfatto, opening with dirty canasta needs clean triple, admin definitive, 6 comments). FB084 (Vicki Carpel-Miller, wild card canasta scoring + concealed term from mahjong, 8 comments). FB085 (Carol Stone Elover, incorrect special hand penalty + partner restrictions, admin definitive, 5 comments). FB086 (Alan Bakst Top contributor, dead wild cards after canasta closed - dead for standalone only, admin definitive, 8 comments). Skipped: Lynda Greenberg (LFG Delray), Lynda Aboody Mangels (asking for scoring list), Fran Sher (asking for printable hands), Alan Bakst teaching ad, David Grant strategy (already deeper than 24h)."
     },
     {
       "id": "ccg",
@@ -36,10 +36,10 @@
       "source_prefix": "CL",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-18",
+      "last_post_date": "2026-03-19",
       "oldest_scraped_date": "2026-01-10",
-      "posts_scraped": 30,
-      "notes": "Scraped Mar 18 10:30 PM - 1 new entry! CL030 (Jo-Ann Taylor Top contributor, picking pack to open + laying 7 canasta simultaneously - yes allowed, 23 comments strong majority). Skipped: Dennis Mormile (intro/photo), Judi Friedberg (George Carlin video share), Roy Anderson frozen pile (already CL027), Lori Mowery Weakland dead cards (already scraped), Sandy Wachs Friedman wild canasta (already scraped)."
+      "posts_scraped": 31,
+      "notes": "Scraped Mar 19 10:30 PM - 1 new entry! CL031 (Lori Mowery Weakland Top contributor, asking to go out - can partner ask if first partner failed? Split community, CLA says once per round per team, 10 comments). Skipped: Jo-Ann Taylor 7s canasta (already CL030), Jamie Bellin Marx (LFG samba), Jane Veksler pick pack without opening (already scraped), Sharon Smj open aces penalty (already scraped)."
     },
     {
       "id": "cpg",
@@ -64,7 +64,7 @@
       "lookback_complete": true,
       "last_post_date": "2026-03-18",
       "posts_scraped": 0,
-      "notes": "Checked Mar 18 - no rules/strategy content. Amy Beer Brown (LFG beginner West Delray), Jamie Bellin Marx (LFG samba Delray/Boynton/Boca), Bonnie Bergman Keiles admin (welcome new members), Adrienne Kaye (LFG samba East Delray event), Wendy Werner Roos (special hands coasters promo Etsy). Next check Mar 21."
+      "notes": "Checked Mar 18 - no rules/strategy content. Next check Mar 21."
     }
   ],
   "schedule": {
@@ -73,6 +73,6 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-03-18T22:30:00-05:00",
-  "last_primary_result": "MAC: 2 new entries (FB080: last card 3 with wild card, split; FB081: dead cards melded too late to call back, unanimous). CL: 1 new entry (CL030: picking pack + 7 canasta simultaneously, strong majority). CCG: no new content. NYMC: no rules/strategy content. CPG: awaiting approval. Total: 3 new entries tonight."
+  "last_primary_run": "2026-03-19T22:30:00-05:00",
+  "last_primary_result": "MAC: 5 new entries (FB082: wilds strategy, FB083: dirty canasta opening, FB084: wild canasta scoring, FB085: incorrect special hand penalty, FB086: dead wilds after canasta). CL: 1 new entry (CL031: asking to go out - partner ask after first failed, split). CCG: next check Mar 21. NYMC: next check Mar 21. CPG: awaiting approval. Total: 6 new entries tonight."
 }

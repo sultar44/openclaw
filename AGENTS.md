@@ -172,6 +172,13 @@ Skills provide your tools. When you need one, check its `SKILL.md`. Keep local n
 - Keep each chunk under 800 characters and in logical order.
 - Apply this by default in chat responses.
 
+**🧵 Thread Discipline (Ramon preference, Mar 19 2026):**
+- **New tasks/alerts/updates** → post as a new top-level message in the channel
+- **Responding to Ramon or continuing a conversation** → reply within the existing thread
+- Ramon pins ongoing projects in #chloebot for easy access
+- Thread context persists across days — always pick up where the thread left off
+- Use `[[reply_to_current]]` for direct replies; follow into specific threads when Ramon posts there
+
 **📝 Platform Formatting:**
 
 - **Discord/WhatsApp:** No markdown tables! Use bullet lists instead

@@ -23,6 +23,9 @@
 
 **Critical:** Julian (son) is allergic to eggs, milk, and nuts.
 
+## Business Terminology
+- **TACOS (Total ACOS):** Total PPC Spend ÷ Total Revenue (all sales, organic + PPC). Target: ~10%. Measures advertising efficiency across entire product revenue, not just ad-attributed sales.
+
 ## All7s Games — Strategic Focus
 
 - **Only brand being actively grown** — all others are restock-only
@@ -35,6 +38,21 @@
 2. Build consistent social presence
 3. Launch $60 premium Canasta set (Q4)
 4. Start building player community
+
+### Current Product Performance (Mar 2026, 30-day)
+- CANSET: $16K revenue, 592 units, TACOS 7.8%
+- CAN2P: $6.2K revenue, 393 units, TACOS 5.4%
+- SH2: $925 revenue, 59 units, TACOS 8.1% (restock-only)
+- Both Canasta products ~92% organic sales
+
+### Incoming Products (Ordered Mar 2026, ~$37K PO)
+- **CAN2PPLS** — Plastic Canasta 2-Pack, $19.99, standalone listing, 500 units. COGS $3.71, profit ~$5.75/unit. Undercutting Copaq ($21.99).
+- **CAN6PPLS** — Plastic Canasta 6-Pack, 200 units
+- **Scrapped:** CAN2P250 (250th anniversary redesign) — thin margins ($3.33/unit), time-limited, $1K design cost ate 25-30% of total profit
+
+### Upcoming: Cashflow Modeling
+- Ramon wants help with cashflow projections, reorder timing, cash conversion
+- Data available: BQ orders, fees, PPC, settlements
 
 ### Future Product Ideas (not yet built)
 - AI scoring app (photo → score)
@@ -172,6 +190,7 @@
 - **OpenClaw Update Check** (`851a2dd4`): Daily 2:28 PM, alerts #chloebot only when update exists. Waits for Ramon's explicit approval. ClickUp: `86ewwejxm`.
 
 ### Mac Mini Notes
+- **UPS installed** (Mar 19, 2026) — protected against power hiccups
 - SSH (Remote Login) is NOT enabled — enable for future remote troubleshooting
 - NoMachine is the current remote access method
 - Local IP: `192.168.68.200`
@@ -417,6 +436,11 @@
 - Policy: reimbursements for inventory lost BEFORE customer order = manufacturing cost, not sales price
 - Claim windows: Lost/damaged warehouse 60d, Customer returns 60-120d, Inbound 9mo, Fee overcharges 90d
 - Broken 6-pack theory: CAN6P breaking → individual CAN2P scans. Check offsetting +/- across related SKUs.
+
+### Daily Video Post — Context Rule (Mar 19, 2026)
+- The cron's final announce message is the CTA: "Want to join our weekly letter about friendship and gathering? Comment START..."
+- When Ramon replies "posted" or "done" in that thread → run post-posting steps (mark sheet rows, move file to Posted folder)
+- Hiccup: I initially treated "posted" as casual chatter because I didn't recognize the CTA thread as a video post thread. Fixed in playbook.
 
 ### Crons
 - `794f8248` — Weekly Reimbursement Reports (Sun 11PM) — ClickUp `86ewy25ca` (BQ data refresh)

@@ -57,6 +57,9 @@ Just the raw pinned comment text. Nothing else. No label, no emoji prefix.
 **Why separate messages:** Ramon copies each block directly to the platform. Each message should contain ONLY the text to paste — no headers, labels, or formatting around it.
 
 ## After Ramon Says "Done" / "Posted"
+
+**TRIGGER RULE:** When Ramon replies "posted", "done", or similar confirmation in ANY thread whose parent message contains the CTA text ("Want to join our weekly letter about friendship and gathering?"), treat it as confirmation that today's video has been posted. This applies even outside the cron job session — the main session must recognize this trigger too.
+
 1. Mark all 4 platform rows for today's video as "posted" in the Post URL column (J)
 2. **Move the video file** from "To Post" folder (`1ogCw4xV7u_PDlT2C9NxZL6xsrYXBaLbf`) to "Posted" folder (`16X4cz-UYwEKg4uB_pcE26ZUVgpu3_tva`) in Google Drive
 3. When Ramon shares specific post URLs, update the matching platform row
