@@ -9,10 +9,10 @@
       "source_prefix": "FB",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-19",
+      "last_post_date": "2026-03-20",
       "oldest_scraped_date": "2026-01-22",
-      "posts_scraped": 96,
-      "notes": "Scraped Mar 19 10:30 PM - 5 new entries! FB082 (Laurie Kanner Howard, strategy: wilds showing unmelded - pick pack or draw? situational, 3 comments). FB083 (Ralph Benfatto, opening with dirty canasta needs clean triple, admin definitive, 6 comments). FB084 (Vicki Carpel-Miller, wild card canasta scoring + concealed term from mahjong, 8 comments). FB085 (Carol Stone Elover, incorrect special hand penalty + partner restrictions, admin definitive, 5 comments). FB086 (Alan Bakst Top contributor, dead wild cards after canasta closed - dead for standalone only, admin definitive, 8 comments). Skipped: Lynda Greenberg (LFG Delray), Lynda Aboody Mangels (asking for scoring list), Fran Sher (asking for printable hands), Alan Bakst teaching ad, David Grant strategy (already deeper than 24h)."
+      "posts_scraped": 98,
+      "notes": "Scraped Mar 20 10:30 PM - 2 new entries! FB087 (Joanne Blau Bellet, 3-player canasta rules - comprehensive 10-rule no-partners variant from Dana Ross, 6 comments, near unanimous). FB088 (Terri Adams, 3s replacement after turn card - CLA says yes continue replacing, 15 comments, split but majority yes, also talon terminology correction and last-card-3 penalty discussion). Skipped: Joanne Blau Bellet duplicate post 1906088450276812 (same content, fewer replies)."
     },
     {
       "id": "ccg",
@@ -36,10 +36,10 @@
       "source_prefix": "CL",
       "lookback_target": "2026-01-10",
       "lookback_complete": true,
-      "last_post_date": "2026-03-19",
+      "last_post_date": "2026-03-20",
       "oldest_scraped_date": "2026-01-10",
       "posts_scraped": 31,
-      "notes": "Scraped Mar 19 10:30 PM - 1 new entry! CL031 (Lori Mowery Weakland Top contributor, asking to go out - can partner ask if first partner failed? Split community, CLA says once per round per team, 10 comments). Skipped: Jo-Ann Taylor 7s canasta (already CL030), Jamie Bellin Marx (LFG samba), Jane Veksler pick pack without opening (already scraped), Sharon Smj open aces penalty (already scraped)."
+      "notes": "Checked Mar 20 10:30 PM - no new rules/strategy posts. Top posts: Dara Collins Learn to Play promo (8 min ago), Robin Krant selling Mah Jongg mats, Kathy Jokl final discard (already CL-scraped as 26104520839157728), Jo-Ann Taylor 7s canasta (already CL030/26146690614940750)."
     },
     {
       "id": "cpg",
@@ -73,6 +73,6 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-03-19T22:30:00-05:00",
-  "last_primary_result": "MAC: 5 new entries (FB082: wilds strategy, FB083: dirty canasta opening, FB084: wild canasta scoring, FB085: incorrect special hand penalty, FB086: dead wilds after canasta). CL: 1 new entry (CL031: asking to go out - partner ask after first failed, split). CCG: next check Mar 21. NYMC: next check Mar 21. CPG: awaiting approval. Total: 6 new entries tonight."
+  "last_primary_run": "2026-03-20T22:30:00-05:00",
+  "last_primary_result": "MAC: 2 new entries (FB087: 3-player canasta rules - comprehensive no-partners variant, FB088: 3s replacement after turn card - CLA yes, split community). CL: 0 new entries (checked, no new strategy posts). CCG: next check Mar 21. NYMC: next check Mar 21. CPG: awaiting approval. Total: 2 new entries tonight."
 }

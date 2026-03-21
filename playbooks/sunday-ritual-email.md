@@ -10,6 +10,7 @@ Weekly Sunday email + blog post for All7s Games. Stories about famous people and
 - **Notification:** Summary posted to #chloebot with blog URL and campaign details
 - **No approval needed.** Ramon fixes after the fact if something is off.
 - **Email sent:** Sunday 10 AM in recipient's local timezone via Klaviyo campaign
+- **Date logic:** Publisher auto-picks the Sunday AFTER the last logged campaign date (never overlaps existing campaigns)
 
 ### Klaviyo Campaign Setup (automated, scheduling is manual)
 When creating the campaign via API, set:
@@ -49,6 +50,7 @@ Previously sent:
 - #2: Eva Gabor (Mar 8)
 - #3: Betty White (Mar 16)
 - #4: Lucille Ball (Mar 23)
+- #5: Dolly Parton (Mar 22)
 
 ### Preview Text
 One curiosity-driven line. Make them want to open it.

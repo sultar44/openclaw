@@ -25,6 +25,9 @@ You are running as a cron job (Mon-Fri) to check for PR follow-ups across BOTH t
 3. For each follow-up needed:
    a. Read the original row (Outlet, Summary, Reporter Name, Reporter Email, AI Reasoning, Lane)
    b. Draft a follow-up email aligned to the original lane.
+      - **Link strategy by email number:**
+        - Email 1: all7s.co ONLY (SEO backlink is the primary PR benefit)
+        - Email 2+: Introduce Amazon link + social proof (1,600+ reviews, 4.7 stars). The drafter handles this automatically.
    c. **Humanize (MANDATORY)**: Save the draft to a temp file and run through the `humanizer-pro` skill:
       - `node ~/.openclaw/workspace/skills/operator-humanizer/scripts/humanize.js analyze -f /tmp/pr-draft.txt`
       - Fix ALL flagged issues (em dashes, AI vocabulary, patterns)
@@ -56,7 +59,7 @@ You are running as a cron job (Mon-Fri) to check for PR follow-ups across BOTH t
 7. For each Outreach follow-up needed:
    a. Read the row: Publication, Article Title, Guide URL, Author/Editor, Email, Guide Type, Notes
    b. Draft a follow-up email per the outreach playbook rules:
-      - **Email 2:** Short. Reference Email 1. One new angle or value-add (customer testimonial, sales milestone, social proof). Reiterate offer to send a set. Link to all7s.co product page.
+      - **Email 2:** Short. Reference Email 1. One new angle or value-add (customer testimonial, sales milestone, social proof). Reiterate offer to send a set. Amazon link + social proof (1,600+ reviews, 4.7 stars) is included automatically by the drafter.
       - **Email 3:** Final touch. Acknowledge they're busy. One compelling data point. Leave the door open. No pressure.
    c. **Humanize (MANDATORY)**: Same process as Opportunities — run through humanizer, fix ALL issues, zero em dashes.
    d. Email `ramon@goven.com` with the follow-up package:

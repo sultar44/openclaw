@@ -169,12 +169,13 @@
 ### Gmail Hook Security
 - Tiered routing: `@goven.com`/`@all7s.co` → trusted session; all others → untrusted (restricted)
 
-### Gmail Processing (Updated Mar 17, 2026)
+### Gmail Processing (Updated Mar 20, 2026)
 - **gog gmail watch serve is the PRIMARY system** — runs via OpenClaw gateway, catches emails near-instantly via Google Pub/Sub push
 - Process restarts daily at 3:15 AM with gateway restart, subscription auto-renews every 720 min
 - **Polling cron is the BACKUP** — "Gmail Inbox Processor" runs every 30 min (`61b00e02`, ClickUp `86ewwxu07`) as safety net
 - Processes ALL email types: HARO/SOS, Amazon Ads reports, trusted senders, external
 - Playbook: `playbooks/gmail-poll-safety-net.md`
+- **Mar 20 fix: HARO silent processing.** Watcher WAS processing HARO/SOS emails correctly, but the hook instruction said "if zero qualifying: do nothing, no alerts." Emails were processed and archived silently with no proof of life. Fixed: HARO hook now always posts to #chloelogs (both qualifying hits AND "no relevant opportunities" with timestamp). Also updated polling cron to use `is:unread` instead of `in:inbox` for broader coverage, and fixed archive commands to use `gog gmail mark-read` + `gog gmail archive`.
 - **Mar 17 incident:** 4 Ads report emails forwarded in rapid succession caused processing queue pileup + LLM timeout → circuit breaker tripped. Root cause was manual rapid-fire forwarding, not a watcher bug.
 - LaunchAgent `ai.openclaw.tailscale-retry` still exists for Tailscale boot reliability
 - gog OAuth app on Google Production status (permanent tokens)
@@ -243,8 +244,11 @@
 - Draft packages emailed to `ramon@goven.com` (never contact reporters directly)
 - Notifications in `#mar_marketing` (C9T8MAM71)
 - Silent when no qualifying hits
-- **Backlink priority:** all7s.co ALWAYS primary link, Amazon only when reporter explicitly asks
-- Rationale: all7s.co has zero DA, every editorial backlink builds foundation for organic traffic. Amazon doesn't need our backlinks.
+- **Link strategy by email number (updated Mar 20, 2026):**
+  - Email 1: all7s.co ONLY (SEO backlink is the #1 PR benefit, all7s.co has zero DA, every editorial backlink builds foundation)
+  - Email 2+: Introduce Amazon link with social proof (1,600+ reviews, 4.7 stars). Amazon ASIN: B07KBB1WJS
+  - Rationale: PR rarely drives visible sales spikes. The real value is the backlink. Amazon social proof comes in as a credibility nudge on follow-ups.
+  - `pr_email_drafter.py` handles this automatically
 - Vision: end Amazon dependency, build DTC, expand to Walmart/Target/B2B. Can't do Meta ads profitably at $26 AOV, but building SEO now for when $60 premium set launches.
 - Sheet: `1ekrQwL_OHI784GFm-E8KSPynNP4w4MyDYWKh3jELokc` (Opportunities tab)
 - Columns: Date, Source, Outlet, Summary, Reporter Name, Reporter Email, AI Score, AI Reasoning, Status, Last Action Date, Lane, Follow-up Due, ETV

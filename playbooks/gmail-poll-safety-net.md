@@ -6,10 +6,13 @@ Replaces the broken gmail watcher (stale historyId bug in gog).
 
 ## Process
 
-### Step 1: List all inbox emails
+### Step 1: List all unread emails (inbox + categories)
 ```
-gog gmail list "in:inbox" --account chloemercer32@gmail.com --json
+gog gmail list "is:unread" --account chloemercer32@gmail.com --json
 ```
+**NOTE:** Some emails (especially HARO/SOS) arrive with CATEGORY_PERSONAL but NO INBOX label.
+Using `is:unread` instead of `in:inbox` catches all of them.
+
 If no results → exit silently (NO_REPLY). Do not log, do not alert.
 
 ### Step 2: For each email, classify and process
@@ -56,7 +59,7 @@ Classify by sender/subject, then follow the appropriate route:
 - **If Ramon CC'd/forwarded a sent pitch** (not BCC'd): Advance the row via `pr_bcc_processor.py --action advance --reporter-email "..." --tab opportunities`. If the status needs to jump (e.g. Draft 3 Ready → Sent 3), use `--action set-status --status "Sent 3"`. **Alert #chloelogs:** "📨 PR row advanced: {outlet} — marked Sent {N}"
 - **If actionable/important**: Summarize and post to #chloelogs (C0AELHCGW4F)
 - **If just a notification/digest**: Archive silently. **Alert #chloelogs:** "📨 Trusted sender email archived: {from} — {subject snippet}"
-- Always archive after processing: `gog gmail modify <id> --remove-labels INBOX --account chloemercer32@gmail.com`
+- Always archive after processing: `gog gmail mark-read <id> --account chloemercer32@gmail.com && gog gmail archive <id> --account chloemercer32@gmail.com`
 
 ---
 
@@ -78,7 +81,7 @@ Classify by sender/subject, then follow the appropriate route:
 - Evaluate: is this actionable or important for Ramon?
   - **Yes** → Summarize in 2-3 sentences, post to #chloelogs (C0AELHCGW4F)
   - **No** (notification, digest, social, spam) → Archive silently. **Alert #chloelogs:** "📨 External email archived: {from} — {subject snippet}"
-- Always archive: `gog gmail modify <id> --remove-labels INBOX --account chloemercer32@gmail.com`
+- Always archive: `gog gmail mark-read <id> --account chloemercer32@gmail.com && gog gmail archive <id> --account chloemercer32@gmail.com`
 
 ---
 

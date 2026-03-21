@@ -19,7 +19,7 @@ Columns: Publication, Article Title, Guide URL, Guide Type, Author/Editor, Email
 - **Placements tab** — check before pitching (cooldown: same outlet + same seasonal group within 12 months)
 - **Blacklist tab** — skip blocked outlets/keywords
 - **ETV threshold** — >= 1,000 to qualify (already filtered during migration)
-- **Link strategy** — all7s.co is ALWAYS the primary link. Amazon only when explicitly requested.
+- **Link strategy** — Email 1: all7s.co ONLY (SEO backlink is the #1 PR benefit). Email 2+: Introduce Amazon link with social proof (1,600+ reviews, 4.7 stars). The `pr_email_drafter.py` script handles this automatically.
 
 ## Guide Types
 - **seasonal** (spring/summer/fall/holiday) — pages refresh at predictable times each year
