@@ -1,7 +1,28 @@
-# Daily Video Post Package — 10 AM EST
+# Daily Video Post — 10 AM EST
 
 ## Purpose
-Every day at 10 AM EST, deliver today's video posting package to #chloebot so Ramon can post it.
+Every day at 10 AM EST, automatically post today's video to FB Reels + IG Reels, then alert Ramon in #chloebot with links and the pinned comment to paste.
+
+## Automation (Primary)
+The cron job runs `~/amazon-data/collectors/daily_social_poster.py` which:
+1. Moves yesterday's video from "To Post" → "Posted" in Drive
+2. Reads Content Tracker sheet for today's video
+3. Downloads video from Drive
+4. Posts to FB Reels (Ramon Gonzalez page, with @All7s collaborator tag)
+5. Posts to IG Reels (@ramon.gonzalez44, with @playall7s collaborator invite)
+6. Marks sheet rows with post URLs
+7. Alerts #chloebot with links + pinned comment text for Ramon to paste
+
+### What Ramon still does manually:
+- **Pin** the first comment on FB + IG (Meta API can post comments but cannot pin them)
+- Accept collaborator invite on All7s if it doesn't auto-accept
+- Post to TikTok (until TikTok app is approved)
+
+### Future platforms (not yet automated):
+- TikTok — needs developer app + OAuth
+- YouTube — needs YouTube Data API OAuth
+
+## Fallback (Manual Package)
 
 ## Steps
 

@@ -186,6 +186,13 @@ If a cron job is **recreated** (new ID), update the sheet row + clickup_config.j
 - No silent archiving — Ramon needs proof of life that emails are being processed
 - One-line alert with emoji prefix: 📬 HARO/SOS, 📊 Ads reports, 📦 Vine/FBM, 📨 other
 - Format: `{emoji} {type}: {from or subject} — {outcome}`
+- **Ads reports MUST include detail** (Ramon mandate, Mar 21 2026):
+  - Report type (e.g. search_terms, campaigns, placements)
+  - Row count
+  - Date range
+  - BQ table name
+  - Example: ✅ Amazon Ads Report Processed • Type: search_terms • Rows: 620 | Date range: 2026-03-11 to 2026-03-17 • BQ table: ads_console_search_terms
+- General rule: every processing alert needs proof of work, not just "done" or "archived"
 - See `playbooks/gmail-poll-safety-net.md` for full routing details
 
 ## Email Trigger Policy (Updated Mar 11, 2026)

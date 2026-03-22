@@ -40,7 +40,7 @@ Classify by sender/subject, then follow the appropriate route:
 ---
 
 #### Route 2: Amazon Ads Reports
-**Match:** From `@amazon.com` AND subject contains "report is ready"
+**Match:** From `@amazon.com` OR `@ads.amazon.com` (or any `@*.amazon.com` subdomain) AND subject contains "report"
 
 **Action:** Follow `/Users/ramongonzalez/.openclaw/workspace/playbooks/amazon-ads-report.md`
 - Run the processor script with the message ID

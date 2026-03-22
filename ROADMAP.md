@@ -1,133 +1,139 @@
-# ROADMAP.md — Chloe + Ramon 12-Month Plan
+# ROADMAP.md — Chloe + Ramon Plan
 
-*Last updated: 2026-03-03*
+*Last updated: 2026-03-21*
 
 ---
 
 ## ✅ COMPLETED
 
 ### Research & Data
-- [x] **Facebook demographic scraping** — Canasta group research running nightly (10:30 PM)
-- [x] **Canasta strategy database** — 90 entries, deduplicated, ready for chatbot
+- [x] Facebook demographic scraping — Canasta group research
+- [x] Canasta strategy database — 90 entries, deduplicated
+- [x] Deep product research — Review scraping (weekly), bad review alerts
+- [x] Competitor monitoring — Weekly price tracking via Keepa, >15% drop alerts
+- [x] GSC integration — Weekly reports, historical data in BQ
+- [x] GA4 integration — Service account connected, pageViews/traffic/sessions available
 
-### Automation
-- [x] **Wholesale repricing system** — Auto-reads Column M, submits to Amazon Listings API
-- [x] **FBM inventory adjustments** — Column N triggers quantity updates
-- [x] **Daily PPC collection** — 6:30 AM EST, stores in `ppc_campaigns/keywords/search_terms`
-- [x] **Daily rank tracking** — 7:00 AM EST via DataDive Rank Radar API
+### Automation & Infrastructure
+- [x] Wholesale repricing system — Auto-reads Column M, submits to Amazon Listings API
+- [x] Wholesale BSR tracking — Keepa BSR for FBA shipping decisions
+- [x] FBM inventory adjustments — Column N triggers quantity updates
+- [x] Daily PPC collection — 6:30 AM EST
+- [x] Daily rank tracking — 7:00 AM EST via DataDive Rank Radar
+- [x] Cron reliability — launchd watchdog, gateway restart system, cron registry self-healing
+- [x] eBay sync — Inventory/pricing sync between Amazon FBM and eBay
+- [x] Listing Monitor — BSR, strikethrough, coupon tracking (Mon-Fri)
+- [x] Warehouse SKU alerts — Column H "needs SKU" alerts
+- [x] FBA Reimbursement system — Monday audit + IDR portal checks
+- [x] BigQuery migration — 39+ tables, SQLite retired, Airbyte decommissioned
+- [x] SP-API scheduled reports — 14 schedules, hourly polling
+- [x] On-demand reports — Inventory Planning, Merchant Listings, Sales & Traffic
+- [x] Financial Events API — Daily 5:30 AM, 30-day lookback
 
----
+### Supply Chain
+- [x] AWD integration — Monitoring + replenishment recommendations
+- [x] FBA restock alerts — Velocity-based "ship X units" recommendations
+- [x] PO projection model — Demand forecasting for China PO quantities + timing
 
-## 🔧 IN PROGRESS / BLOCKED
-
-### Cron Reliability
-- [ ] **OpenClaw cron investigation** — Jobs not triggering reliably
-- [ ] **launchd fallback** — Backup system cron created, monitoring
+### Marketing & Content
+- [x] Klaviyo integration — API connected, flows built, campaigns automated
+- [x] Sunday Ritual content engine — Full pipeline (draft → blog → Klaviyo), dashboard auto-trigger
+- [x] Email template system — Hardcoded templates, LLM only for dynamic content
+- [x] PR outreach system — Reactive (HARO/SOS) + Proactive + Monthly discovery
+- [x] Blog writing system — SEO research, content pipeline, Shopify publishing
+- [x] Short-form video scripts — Batch 1 complete, posted
 
 ### Integrations
-- [ ] **eBay connection** — Waiting for dev account approval (~1 day)
-  - Sync inventory between Amazon FBM and eBay
-  - Auto-adjust eBay quantities when wholesale sells
+- [x] ClickUp integration — 40+ cron jobs tracked, auto-comments, auto-complete
+- [x] Gmail processing — Pub/Sub watcher + polling backup, full email routing
+- [x] Google Sheets service account — Automated reads/writes
+- [x] Google Drive sync — Skills + scripts synced nightly
 
 ---
 
-## 📋 TO DO — By Priority
+## 📋 PRIORITY ORDER — What's Next
 
-### Phase 1: Quick Wins (Next 2-4 weeks)
-
-| Task | Description | Effort |
+### 1. 🎯 PPC Optimization (NEXT)
+| Task | Description | Status |
 |------|-------------|--------|
-| ~~eBay inventory sync~~ | ✅ Done — eBay API connected, syncs with wholesale runs | Done |
-| ~~Listing Monitor~~ | ✅ Done — BSR, strikethrough, coupon tracking via Keepa | Done |
-| ~~GSC integration~~ | ✅ Done — Weekly reports, historical data in SQLite | Done |
-| ~~Wholesale BSR tracking~~ | ✅ Done — Keepa BSR for FBA shipping decisions | Done |
-| Competitor monitoring | Track prices, reviews, new products on competing ASINs | 2-3 days |
-| FBA Reimbursement Generator | Scan shipments → identify reimbursable cases → draft claims | 2-3 days |
-| Deep Product Research | Reviews + Reddit scraping for Canasta insights, feature gaps | 3-5 days |
-| Warehouse SKU alerts | ✅ Done — Column H "needs SKU" alerts to #chloebot | Done |
+| PPC spend analysis | Identify waste, optimization opportunities | Not started |
+| PPC reporting dashboard | Weekly/monthly summaries, trend analysis, actionable flags | Not started |
+| Listing optimization audit | Analyze titles, bullets, images, A+ content | Not started |
+| Keyword gap analysis | Find missing keywords vs competitors | Not started |
 
-### Phase 2: Supply Chain (1-2 months)
+*Ball is in Ramon's court to kick this off.*
 
-| Task | Description | Effort |
+### 2. 💰 Financial Reporting / QBO
+| Task | Description | Status |
 |------|-------------|--------|
-| ~~AWD integration~~ | ✅ Done — AWD monitoring + replenishment recommendations | Done |
-| FBA restock alerts | 🔧 In progress — "Ship XXX units to US/CA" based on velocity + lead time | 3-5 days |
-| PO projection model | 🔧 In progress — Forecast demand → recommend China PO quantities + timing | 1 week |
-| Canada manual process docs | Document current CA workflow, identify automation points | 1 day |
+| QBO API integration | Connect QuickBooks Online, pull financial data | Not started |
+| A2X replacement | Map settlement reports → QBO journal entries | Not started |
+| Cashflow modeling | Projections, reorder timing, cash conversion | Not started |
 
-### Phase 3: Marketing & Content (2-4 months)
+*Financial Events API already collecting daily. Settlement report API access confirmed.*
 
-| Task | Description | Effort |
+### 3. 📱 All7s Social
+| Task | Description | Status |
 |------|-------------|--------|
-| ~~Klaviyo integration~~ | ✅ Done — API connected, flows built | Done |
-| Sunday Ritual content engine | 🔧 In progress — Tracker for article ideas, drafts, publish dates, performance metrics | 1-2 days |
-| Short-form video analytics | Track views, engagement, comments across platforms; identify what works | 2-3 days |
-| Short-form video ideas | Research trends, generate ideas for approval | Ongoing |
-| Video scripts | Write scripts based on approved ideas | Ongoing |
-| Newsletter topics | 🔧 In progress — Research + propose weekly/biweekly topics | Ongoing |
-| Newsletter drafts | Write full drafts for approval | Ongoing |
-| Blog research | 🔧 In progress — SEO keyword research, competitor content gaps | 2-3 days |
-| Blog writing | Draft posts for approval | Ongoing |
-| PR outreach system | ✅ Done — Reactive (HARO/SOS) + Proactive (cold pitches) + Monthly discovery | Done |
+| Video analytics | Track views, engagement, identify what works | APIs connected, discuss Mon 3/24 |
+| Batch 2 content | Next round of video scripts + posting | After Batch 1 analysis |
+| Social strategy refinement | What's working, what to double down on | Ongoing |
 
-### Phase 4: PPC & Listings (2-4 months)
-
-| Task | Description | Effort |
+### 4. 🤝 Influencer Management
+| Task | Description | Status |
 |------|-------------|--------|
-| PPC spend analysis | Identify waste, optimization opportunities | 1-2 days |
-| PPC reporting dashboard | Weekly/monthly summaries, trend analysis | 2-3 days |
-| Listing optimization audit | Analyze titles, bullets, images, A+ content | 2 days |
-| Keyword gap analysis | Find missing keywords vs competitors | 1-2 days |
+| Outreach system | Identify, contact, manage influencer relationships | Not started |
+| Tracking/reporting | ROI measurement on influencer partnerships | Not started |
 
-### Phase 5: Customer Tools (4-8 months)
-
-| Task | Description | Effort |
+### 5. 🏪 B2B / Wholesale
+| Task | Description | Status |
 |------|-------------|--------|
-| Canasta Q&A chatbot | Use strategy database for customer-facing answers | 1-2 weeks |
-| Local game table finder (MVP) | Web form → searchable directory of players/tables | 1-2 weeks |
-| Course engagement tracking | Kajabi analytics → identify drop-off, hot leads | 3-5 days |
+| Faire launch | Primary B2B channel | Blocked until smaller cartons (May-June) |
+| Walmart.com relaunch | Account exists, has API | Needs PPC plan |
+| B2B collateral | Sell sheets, landing pages | Not started |
+| Barnes & Noble / Books-A-Million | Distributor says "ideal" | After Faire proves concept |
 
-### Phase 6: Finance & Accounting (4-8 months)
+*Ramon has ideas — schedule B2B vision discussion.*
 
-| Task | Description | Effort |
+### 6. 🎬 AI Video Creation
+| Task | Description | Status |
 |------|-------------|--------|
-| QBO API integration | Connect QuickBooks Online API, pull financial data/reports | 1 week |
-| A2X replacement | Map Amazon settlement reports → QBO journal entries, replace A2X | 2-3 weeks |
+| Tool evaluation | Test AI video generation tools, assess quality | Not started |
+| Pipeline | Topic research → script → AI-generated videos | Not started |
 
-### Phase 7: Apps & Advanced (6-12 months)
-
-| Task | Description | Effort |
+### 7. 🔮 Future / Apps
+| Task | Description | Status |
 |------|-------------|--------|
-| Canasta scoring app (iOS/Android) | Photo → AI score extraction, ~$3/month subscription | 2-3 months |
-| AI video creation | Topic research → script → AI-generated videos | Ongoing |
-| Demand forecasting model | ML-based prediction using historical data | 2-3 weeks |
+| Canasta scoring app | Photo → AI score, ~$3/mo subscription | Not started |
+| Local game table finder | Searchable player/table directory | Not started |
+| Paid advanced Canasta course | Kajabi | Not started |
+| Premium $60 Canasta set | Q4 2026 target | Sourcing not started |
+| Mexican Train Dominoes | Strongest next product candidate | Research only |
 
 ---
 
-## ❓ UNKNOWNS / DECISIONS NEEDED
-
-- **Multiple agents?** — Currently single agent. Revisit when workflows get complex.
-- **Cron reliability** — Root cause TBD. launchd backup in place.
-- **PPC strategy** — Need to understand current approach before recommending changes.
+## 🟡 OPEN MINOR ITEMS
+- [ ] Canada manual process docs — Document CA workflow, identify automation points
+- [ ] Short-form video analytics — APIs connected, discussion Monday 3/24
+- [ ] CAN2PPLS + CAN6PPLS launch prep — Product arriving, needs listing + PPC plan
+- [ ] Rolling Jokers CPC compliance — Need compliant marbles + tracking labels
+- [ ] Attribution API build — Access confirmed, build when off-Amazon campaigns launch
 
 ---
 
 ## 📝 Notes
 
-### Effort Estimates
-- "Days" = focused work sessions, not calendar days
-- Ongoing = recurring task, not one-time
-
 ### Priority Principles
-1. Revenue-protecting automation first (inventory, supply chain)
-2. Revenue-generating content second (marketing, ads)
-3. New revenue streams third (apps, chatbot)
+1. Revenue-protecting automation first (inventory, supply chain) ✅ DONE
+2. Revenue-optimizing (PPC, financial visibility) ← **WE ARE HERE**
+3. Revenue-generating content (marketing, social, influencers)
+4. New revenue streams (B2B, apps, new products)
 
 ### Not Doing
-- Profitability dashboard (Sellerboard handles this well)
-- Profit OS daily digest (Sellerboard covers it)
 - Multiple brand expansion (All7s focus only)
+- Profitability dashboard (Sellerboard handles this)
+- Demand forecasting ML model (PO projection covers needs)
 
 ---
 
-*This is a living document. Update as priorities shift.*
+*Living document. Updated as priorities shift.*

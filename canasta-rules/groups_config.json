@@ -73,6 +73,6 @@
     "timezone": "America/New_York"
   },
   "notes": "Once a group completes lookback, it switches to daily mode (scrape last 24h only)",
-  "last_primary_run": "2026-03-20T22:30:00-05:00",
-  "last_primary_result": "MAC: 2 new entries (FB087: 3-player canasta rules - comprehensive no-partners variant, FB088: 3s replacement after turn card - CLA yes, split community). CL: 0 new entries (checked, no new strategy posts). CCG: next check Mar 21. NYMC: next check Mar 21. CPG: awaiting approval. Total: 2 new entries tonight."
+  "last_primary_run": "2026-03-21T22:30:00-05:00",
+  "last_primary_result": "ABORTED — Facebook session expired in OpenClaw browser. No credentials stored in .env to re-authenticate. All groups skipped. Need manual Facebook login to resume scraping."
 }

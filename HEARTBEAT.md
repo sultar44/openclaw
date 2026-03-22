@@ -47,5 +47,14 @@ If it's Monday and you haven't checked today:
 
 **Note:** gog OAuth moved to Google Production status (permanent tokens, no 7-day expiry). This check is now a safety net, not a weekly expectation.
 
+## Comment Auto-Responder (EVERY heartbeat)
+Run the comment auto-responder (no LLM needed, just executes the script):
+```bash
+cd ~/amazon-data && source .venv/bin/activate && python3 collectors/comment_responder.py
+```
+- If exit code 0 with no output about replies → move on silently
+- If it reports replies sent → post summary to #chloelogs
+- If it errors → alert #chloebot
+
 ## Other periodic checks (rotate through these)
 - Nothing else scheduled yet
